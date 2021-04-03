@@ -1,0 +1,1009 @@
+<html><head><link type='text/css' href='style.css' rel='stylesheet'></head><body class='pgBgnd'>
+<h3 align='center'>Equations</h3>
+<table width='90%' align='center' border='1' cellpadding='0' cellspacing='0'>
+<tr><td>
+</td></tr><tr><td>
+********** Mapped Logic **********
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$BIN_STEP$493 <= ((to_bbc_rD1 AND NOT WP_6 AND $OpTx$FX_SC$38 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	$OpTx$FX_SC$59)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND $OpTx$FX_DC$13 AND $OpTx$FX_SC$38 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$FX_DC$91)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT to_bbc_rD1 AND NOT WP_4 AND $OpTx$FX_SC$38 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	$OpTx$FX_SC$59)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT to_bbc_rD1 AND $OpTx$FX_DC$13 AND $OpTx$FX_SC$40 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$FX_DC$81)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT IntegraRomSel(11) AND NOT WP_11 AND $OpTx$FX_DC$11 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	$OpTx$FX_SC$40)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT IntegraRomSel(12) AND NOT WP_12 AND $OpTx$FX_SC$75 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	$OpTx$FX_SC$38)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT IntegraRomSel(14) AND NOT WP_14 AND $OpTx$FX_SC$69 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	$OpTx$FX_SC$38)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT IntegraRomSel(10) AND NOT WP_10 AND $OpTx$FX_DC$11 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	$OpTx$FX_SC$38)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT IntegraRomSel(13) AND NOT WP_13 AND $OpTx$FX_SC$75 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	$OpTx$FX_SC$40)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT IntegraRomSel(15) AND NOT WP_15 AND $OpTx$FX_SC$69 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	$OpTx$FX_SC$40)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT IntegraRomSel(9) AND NOT WP_9 AND $OpTx$FX_SC$79 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	$OpTx$FX_SC$40)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT WP_8 AND NOT IntegraRomSel(8) AND $OpTx$FX_SC$79 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	$OpTx$FX_SC$38));
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$DEC_Ram_ADDRESS_16_OBUF$0 <= ((EXP13_.EXP)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (rD2 AND NOT rD3 AND NOT RecMode AND ROMDec AND NOT $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND rD2 AND rD3 AND ROMDec AND NOT $OpTx$INV$5 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT N0$BUF1/N0$BUF1_TRST AND NOT N0$BUF2/N0$BUF2_TRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND to_bbc_rD0 AND rD2 AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND cc8Bank_7 AND NOT $OpTx$INV$5 AND NOT N0$BUF1/N0$BUF1_TRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND rD2 AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND cc4Bank_1 AND NOT $OpTx$INV$5 AND NOT N0$BUF2/N0$BUF2_TRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND rD2 AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND cc4Bank_2 AND NOT $OpTx$INV$5 AND NOT N0$BUF2/N0$BUF2_TRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND rD2 AND NOT rD3 AND EF_1 AND ROMDec AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (rD2 AND NOT EF_1 AND NOT EF_0 AND RecMode AND ROMDec AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD0 AND rD2 AND rD3 AND NOT IntegraRomSel(13) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND NOT $OpTx$INV$5 AND NOT N0$BUF1/N0$BUF1_TRST AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT N0$BUF2/N0$BUF2_TRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT to_bbc_rD0 AND rD2 AND rD3 AND NOT IntegraRomSel(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND NOT $OpTx$INV$5 AND NOT N0$BUF1/N0$BUF1_TRST AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT N0$BUF2/N0$BUF2_TRST));
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$DEC_nWDS_OBUF$1 <= ((NOT from_CPU_Phi1 AND NOT to_bbc_rD0 AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND WP_0 AND NOT BeebRomSel(0) AND $OpTx$FX_DC$13 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$BIN_STEP$493)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT from_CPU_Phi1 AND to_bbc_rD1 AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	WP_7 AND NOT $OpTx$FX_DC$73 AND NOT $OpTx$FX_DC$13 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$BIN_STEP$493)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT from_CPU_Phi1 AND NOT to_bbc_rD1 AND to_bbc_rD0 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT from_CPU_RnW AND NOT $OpTx$FX_DC$73 AND NOT $OpTx$BIN_STEP$493 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$FX_SC$59)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT from_CPU_Phi1 AND NOT from_CPU_RnW AND $OpTx$INV$5 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$BIN_STEP$493)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT from_CPU_Phi1 AND NOT to_bbc_rD0 AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$FX_DC$73 AND NOT $OpTx$FX_DC$13 AND NOT $OpTx$BIN_STEP$493)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT from_CPU_Phi1 AND NOT from_CPU_RnW AND NOT $OpTx$FX_DC$73 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$FX_DC$13 AND NOT $OpTx$BIN_STEP$493 AND NOT $OpTx$FX_SC$59)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT from_CPU_Phi1 AND to_bbc_rD1 AND NOT to_bbc_rD0 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT from_CPU_RnW AND ROMDec AND $OpTx$FX_DC$13 AND NOT $OpTx$BIN_STEP$493)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT from_CPU_Phi1 AND NOT to_bbc_rD1 AND to_bbc_rD0 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT from_CPU_RnW AND WP_5 AND NOT $OpTx$FX_DC$73 AND NOT $OpTx$BIN_STEP$493));
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$DEC_nWDS_OBUF$2 <= (($OpTx$DEC_nWDS_OBUF$1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT from_CPU_Phi1 AND to_bbc_rD1 AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND WP_3 AND WP_7 AND NOT BeebRomSel(3) AND $OpTx$FX_DC$13 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$BIN_STEP$493));
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$FX_DC$105 <= (NOT bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15));
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$FX_DC$11 <= (to_bbc_rD1 AND NOT rD2 AND rD3);
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$FX_DC$13 <= (NOT rD2 AND NOT rD3);
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$FX_DC$25 <= ((NOT bbc_nRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(14) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND bbc_ADDRESS(11) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND bbc_ADDRESS(15) AND cc8Bank_0)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$FX_DC$36 <= ((bbc_ADDRESS(14))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_ADDRESS(15))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(13) AND NOT bbc_ADDRESS(12) AND PrvS8 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	PrvEn)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_ADDRESS(13) AND NOT bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND PrvEn AND PrvS1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND PrvS8 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	PrvEn)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_ADDRESS(13) AND NOT bbc_ADDRESS(12) AND PrvEn AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	PrvS4));
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$FX_DC$56 <= ((NOT bbc_nRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND NOT bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$FX_DC$67 <= (NOT cc8Bank_0 AND NOT cc8Bank_6 AND NOT cc8Bank_2 AND NOT cc8Bank_3);
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$FX_DC$73 <= ((bbc_ADDRESS(14))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_ADDRESS(15))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_ADDRESS(13) AND NOT bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND PrvEn AND PrvS1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(13) AND NOT bbc_ADDRESS(12) AND PrvS8 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	PrvEn)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND PrvS8 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	PrvEn)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_ADDRESS(13) AND NOT bbc_ADDRESS(12) AND PrvEn AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	PrvS4));
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$FX_DC$81 <= (WP_1 AND NOT BeebRomSel(1));
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$FX_DC$91 <= (WP_2 AND NOT BeebRomSel(2));
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$FX_SC$38 <= (NOT to_bbc_rD0 AND NOT $OpTx$INV$5);
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$FX_SC$40 <= (to_bbc_rD0 AND NOT $OpTx$INV$5);
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$FX_SC$59 <= (rD2 AND NOT rD3);
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$FX_SC$69 <= (to_bbc_rD1 AND rD2 AND rD3);
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$FX_SC$75 <= (NOT to_bbc_rD1 AND rD2 AND rD3);
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$FX_SC$79 <= (NOT to_bbc_rD1 AND NOT rD2 AND rD3);
+</td></tr><tr><td>
+</td></tr><tr><td>
+$OpTx$INV$5 <= ((NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(12) AND NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(15) AND PrvEn AND PrvS1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(14) AND NOT bbc_ADDRESS(15) AND NOT MemSel AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ShEn)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(15) AND NOT MemSel AND ShEn)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(12) AND bbc_ADDRESS(15) AND PrvS8 AND PrvEn)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(12) AND bbc_ADDRESS(15) AND PrvS8 AND PrvEn)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(12) AND bbc_ADDRESS(15) AND PrvEn AND PrvS4));
+</td></tr><tr><td>
+FDCPE_EF_0: FDCPE port map (EF_0,bbc_DATA(0),from_CPU_Phi1,NOT bbc_nRST,'0',EF_0_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EF_0_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND NOT bbc_ADDRESS(1) AND bbc_ADDRESS(0));
+</td></tr><tr><td>
+FDCPE_EF_1: FDCPE port map (EF_1,bbc_DATA(1),from_CPU_Phi1,NOT bbc_nRST,'0',EF_1_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EF_1_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND NOT bbc_ADDRESS(1) AND bbc_ADDRESS(0));
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+FDCPE_MemSel: FDCPE port map (MemSel,bbc_DATA(7),from_CPU_Phi1,NOT bbc_nRST,'0',MemSel_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MemSel_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2));
+</td></tr><tr><td>
+</td></tr><tr><td>
+N0$BUF1/N0$BUF1_TRST <= (to_bbc_rD0 AND IntegraRomSel(15) AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND $OpTx$FX_SC$69);
+</td></tr><tr><td>
+</td></tr><tr><td>
+N0$BUF2/N0$BUF2_TRST <= (NOT to_bbc_rD0 AND IntegraRomSel(14) AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND $OpTx$FX_SC$69);
+</td></tr><tr><td>
+FDCPE_PrvEn: FDCPE port map (PrvEn,bbc_DATA(6),from_CPU_Phi1,NOT bbc_nRST,'0',PrvEn_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PrvEn_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2));
+</td></tr><tr><td>
+FDCPE_PrvS1: FDCPE port map (PrvS1,bbc_DATA(6),from_CPU_Phi1,NOT bbc_nRST,'0',PrvS1_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PrvS1_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(3) AND bbc_ADDRESS(2));
+</td></tr><tr><td>
+FDCPE_PrvS4: FDCPE port map (PrvS4,bbc_DATA(5),from_CPU_Phi1,NOT bbc_nRST,'0',PrvS4_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PrvS4_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(3) AND bbc_ADDRESS(2));
+</td></tr><tr><td>
+FDCPE_PrvS8: FDCPE port map (PrvS8,bbc_DATA(4),from_CPU_Phi1,NOT bbc_nRST,'0',PrvS8_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PrvS8_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(3) AND bbc_ADDRESS(2));
+</td></tr><tr><td>
+</td></tr><tr><td>
+ROMDec <= ((NOT from_CPU_Phi1 AND NOT $OpTx$FX_DC$73)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT nRomBankSel0_3 AND NOT $OpTx$FX_DC$73));
+</td></tr><tr><td>
+</td></tr><tr><td>
+RTC_AS <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_Phi1 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT from_CPU_RnW AND bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND NOT bbc_ADDRESS(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(0));
+</td></tr><tr><td>
+</td></tr><tr><td>
+RTC_DS <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_Phi1 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(3) AND bbc_ADDRESS(2));
+</td></tr><tr><td>
+</td></tr><tr><td>
+Ram_ADDRESS(14) <= ((EXP10_.EXP)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD0 AND rD2 AND NOT rD3 AND NOT EF_1 AND ROMDec AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD0 AND rD2 AND NOT rD3 AND EF_0 AND ROMDec AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND to_bbc_rD0 AND rD2 AND EF_1 AND RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND NOT $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND to_bbc_rD0 AND NOT rD3 AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND NOT BeebRomSel(3) AND NOT $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT to_bbc_rD1 AND to_bbc_rD0 AND NOT rD3 AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND NOT BeebRomSel(1) AND NOT $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(14) AND $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND to_bbc_rD0 AND rD2 AND ROMDec AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$INV$5 AND NOT N0$BUF1/N0$BUF1_TRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT to_bbc_rD1 AND to_bbc_rD0 AND rD3 AND RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND NOT $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD0 AND rD2 AND NOT rD3 AND NOT RecMode AND ROMDec AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD0 AND NOT rD2 AND rD3 AND RecMode AND ROMDec AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$INV$5));
+</td></tr><tr><td>
+</td></tr><tr><td>
+Ram_ADDRESS(15) <= ((Ram_ADDRESS_18_OBUF.EXP)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND to_bbc_rD0 AND rD2 AND rD3 AND ROMDec AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	cc8Bank_7 AND NOT $OpTx$INV$5 AND NOT N0$BUF1/N0$BUF1_TRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND to_bbc_rD0 AND rD3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT IntegraRomSel(11) AND ROMDec AND cc8Bank_7 AND NOT $OpTx$INV$5 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT N0$BUF1/N0$BUF1_TRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND to_bbc_rD0 AND rD3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT IntegraRomSel(11) AND ROMDec AND NOT $OpTx$INV$5 AND NOT N0$BUF1/N0$BUF1_TRST AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$FX_DC$67)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND rD2 AND rD3 AND ROMDec AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	cc4Bank_1 AND NOT $OpTx$INV$5 AND NOT N0$BUF2/N0$BUF2_TRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND rD2 AND rD3 AND ROMDec AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	cc4Bank_0 AND NOT $OpTx$INV$5 AND NOT N0$BUF2/N0$BUF2_TRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND rD2 AND rD3 AND ROMDec AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	cc4Bank_2 AND NOT $OpTx$INV$5 AND NOT N0$BUF2/N0$BUF2_TRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND rD3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT IntegraRomSel(10) AND ROMDec AND cc4Bank_1 AND NOT $OpTx$INV$5 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT N0$BUF2/N0$BUF2_TRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND rD3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT IntegraRomSel(10) AND ROMDec AND cc4Bank_0 AND NOT $OpTx$INV$5 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT N0$BUF2/N0$BUF2_TRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND rD3 AND RecMode AND ROMDec AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND rD2 AND ROMDec AND NOT $OpTx$INV$5 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT N0$BUF1/N0$BUF1_TRST AND NOT N0$BUF2/N0$BUF2_TRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND to_bbc_rD0 AND NOT rD3 AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND NOT BeebRomSel(3) AND NOT $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND NOT rD3 AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND NOT BeebRomSel(2) AND NOT $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND to_bbc_rD0 AND rD2 AND rD3 AND ROMDec AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$INV$5 AND NOT N0$BUF1/N0$BUF1_TRST AND NOT $OpTx$FX_DC$67));
+</td></tr><tr><td>
+</td></tr><tr><td>
+Ram_ADDRESS(16) <= (($OpTx$DEC_Ram_ADDRESS_16_OBUF$0)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND to_bbc_rD0 AND NOT rD2 AND rD3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT IntegraRomSel(11) AND NOT RecMode AND ROMDec AND cc8Bank_6 AND NOT $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND to_bbc_rD0 AND NOT rD2 AND rD3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT IntegraRomSel(11) AND NOT RecMode AND ROMDec AND cc8Bank_5 AND NOT $OpTx$INV$5));
+</td></tr><tr><td>
+</td></tr><tr><td>
+Ram_ADDRESS(17) <= NOT (((NOT rD3)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT ROMDec)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR ($OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND to_bbc_rD0 AND rD2 AND NOT EF_1 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N0$BUF1/N0$BUF1_TRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND to_bbc_rD0 AND rD2 AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N0$BUF1/N0$BUF1_TRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND to_bbc_rD0 AND NOT rD2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	IntegraRomSel(11) AND NOT RecMode)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND rD2 AND NOT EF_1 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N0$BUF2/N0$BUF2_TRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND NOT rD2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	IntegraRomSel(10) AND NOT RecMode)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND rD2 AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N0$BUF2/N0$BUF2_TRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT to_bbc_rD1 AND NOT to_bbc_rD0 AND rD2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	IntegraRomSel(12) AND NOT RecMode)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT to_bbc_rD1 AND NOT to_bbc_rD0 AND NOT rD2 AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	IntegraRomSel(8))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND NOT rD2 AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT cc4Bank_0 AND NOT cc4Bank_3)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND to_bbc_rD0 AND NOT rD2 AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT cc8Bank_7 AND NOT cc8Bank_4 AND NOT cc8Bank_5 AND NOT cc8Bank_1 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	$OpTx$FX_DC$67)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT to_bbc_rD1 AND to_bbc_rD0 AND rD2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	IntegraRomSel(13) AND NOT RecMode)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT to_bbc_rD1 AND to_bbc_rD0 AND NOT rD2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	IntegraRomSel(9) AND NOT RecMode)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+Ram_ADDRESS(18) <= NOT (((NOT to_bbc_rD1 AND NOT rD3 AND NOT $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT EF_1 AND RecMode AND NOT $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD0 AND IntegraRomSel(11) AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT to_bbc_rD0 AND NOT RecMode AND NOT cc4Bank_1 AND NOT cc4Bank_2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT cc4Bank_3 AND NOT $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD0 AND NOT RecMode AND NOT cc8Bank_6 AND NOT cc8Bank_7 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT cc8Bank_2 AND NOT cc8Bank_3 AND NOT cc8Bank_4 AND NOT cc8Bank_5 AND NOT cc8Bank_1 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT ROMDec AND NOT $OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT $OpTx$INV$5 AND $OpTx$FX_DC$13)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT RecMode AND NOT $OpTx$INV$5 AND NOT $OpTx$FX_DC$11)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT to_bbc_rD0 AND IntegraRomSel(10) AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$INV$5)));
+</td></tr><tr><td>
+FDCPE_RecMode: FDCPE port map (RecMode,RecMode_D,from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RecMode_D <= ((long_CLR)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_nRST AND RecMode));
+</td></tr><tr><td>
+FDCPE_ShEn: FDCPE port map (ShEn,bbc_DATA(7),from_CPU_Phi1,NOT bbc_nRST,'0',ShEn_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ShEn_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(3) AND bbc_ADDRESS(2));
+</td></tr><tr><td>
+FDCPE_WP_0: FDCPE port map (WP_0,bbc_DATA(0),from_CPU_Phi1,'0','0',WP_0_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WP_0_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND NOT bbc_ADDRESS(0));
+</td></tr><tr><td>
+FDCPE_WP_1: FDCPE port map (WP_1,bbc_DATA(1),from_CPU_Phi1,'0','0',WP_1_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WP_1_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND NOT bbc_ADDRESS(0));
+</td></tr><tr><td>
+FDCPE_WP_10: FDCPE port map (WP_10,bbc_DATA(2),from_CPU_Phi1,'0','0',WP_10_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WP_10_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND bbc_ADDRESS(0));
+</td></tr><tr><td>
+FDCPE_WP_11: FDCPE port map (WP_11,bbc_DATA(3),from_CPU_Phi1,'0','0',WP_11_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WP_11_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND bbc_ADDRESS(0));
+</td></tr><tr><td>
+FDCPE_WP_12: FDCPE port map (WP_12,bbc_DATA(4),from_CPU_Phi1,'0','0',WP_12_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WP_12_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND bbc_ADDRESS(0));
+</td></tr><tr><td>
+FDCPE_WP_13: FDCPE port map (WP_13,bbc_DATA(5),from_CPU_Phi1,'0','0',WP_13_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WP_13_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND bbc_ADDRESS(0));
+</td></tr><tr><td>
+FDCPE_WP_14: FDCPE port map (WP_14,bbc_DATA(6),from_CPU_Phi1,'0','0',WP_14_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WP_14_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND bbc_ADDRESS(0));
+</td></tr><tr><td>
+FDCPE_WP_15: FDCPE port map (WP_15,bbc_DATA(7),from_CPU_Phi1,'0','0',WP_15_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WP_15_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND bbc_ADDRESS(0));
+</td></tr><tr><td>
+FDCPE_WP_2: FDCPE port map (WP_2,bbc_DATA(2),from_CPU_Phi1,'0','0',WP_2_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WP_2_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND NOT bbc_ADDRESS(0));
+</td></tr><tr><td>
+FDCPE_WP_3: FDCPE port map (WP_3,bbc_DATA(3),from_CPU_Phi1,'0','0',WP_3_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WP_3_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND NOT bbc_ADDRESS(0));
+</td></tr><tr><td>
+FDCPE_WP_4: FDCPE port map (WP_4,bbc_DATA(4),from_CPU_Phi1,'0','0',WP_4_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WP_4_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND NOT bbc_ADDRESS(0));
+</td></tr><tr><td>
+FDCPE_WP_5: FDCPE port map (WP_5,bbc_DATA(5),from_CPU_Phi1,'0','0',WP_5_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WP_5_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND NOT bbc_ADDRESS(0));
+</td></tr><tr><td>
+FDCPE_WP_6: FDCPE port map (WP_6,bbc_DATA(6),from_CPU_Phi1,'0','0',WP_6_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WP_6_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND NOT bbc_ADDRESS(0));
+</td></tr><tr><td>
+FDCPE_WP_7: FDCPE port map (WP_7,bbc_DATA(7),from_CPU_Phi1,'0','0',WP_7_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WP_7_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND NOT bbc_ADDRESS(0));
+</td></tr><tr><td>
+FDCPE_WP_8: FDCPE port map (WP_8,bbc_DATA(0),from_CPU_Phi1,'0','0',WP_8_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WP_8_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND bbc_ADDRESS(0));
+</td></tr><tr><td>
+FDCPE_WP_9: FDCPE port map (WP_9,bbc_DATA(1),from_CPU_Phi1,'0','0',WP_9_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WP_9_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND bbc_ADDRESS(0));
+</td></tr><tr><td>
+FTCPE_cc4Bank_0: FTCPE port map (cc4Bank_0,cc4Bank_0_T,cc4Bank_2/cc4Bank_2_CLKF,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cc4Bank_0_T <= ((bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	cc4Bank_0)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND NOT bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	cc4Bank_0)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_nRST AND NOT cc4Bank_0)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT cc4Bank_0)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	cc4Bank_0));
+</td></tr><tr><td>
+FDCPE_cc4Bank_1: FDCPE port map (cc4Bank_1,cc4Bank_1_D,cc4Bank_2/cc4Bank_2_CLKF,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cc4Bank_1_D <= (($OpTx$FX_DC$56)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT cc4Bank_1 AND NOT $OpTx$FX_DC$105));
+</td></tr><tr><td>
+FTCPE_cc4Bank_2: FTCPE port map (cc4Bank_2,cc4Bank_2_T,cc4Bank_2/cc4Bank_2_CLKF,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cc4Bank_2_T <= ((bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND cc4Bank_2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND cc4Bank_2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND NOT bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT cc4Bank_2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_nRST AND cc4Bank_2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND cc4Bank_2));
+</td></tr><tr><td>
+</td></tr><tr><td>
+cc4Bank_2/cc4Bank_2_CLKF <= ((NOT bbc_nRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT from_CPU_Phi1 AND from_CPU_RnW AND NOT long_CLR AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT cc8Bank_2/cc8Bank_2_CLKF AND $OpTx$FX_DC$11 AND NOT $OpTx$FX_DC$36));
+</td></tr><tr><td>
+FDCPE_cc4Bank_3: FDCPE port map (cc4Bank_3,cc4Bank_3_D,cc4Bank_3/cc4Bank_3_CLKF,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cc4Bank_3_D <= ((cc4Bank_3 AND NOT $OpTx$FX_DC$56 AND NOT $OpTx$FX_DC$105)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$FX_DC$56 AND NOT $OpTx$FX_DC$105));
+</td></tr><tr><td>
+</td></tr><tr><td>
+cc4Bank_3/cc4Bank_3_CLKF <= ((NOT bbc_nRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT from_CPU_Phi1 AND NOT to_bbc_rD0 AND from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT long_CLR AND $OpTx$FX_DC$11 AND NOT $OpTx$FX_DC$36));
+</td></tr><tr><td>
+FTCPE_cc8Bank_0: FTCPE port map (cc8Bank_0,cc8Bank_0_T,cc8Bank_2/cc8Bank_2_CLKF,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cc8Bank_0_T <= ((bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(15) AND bbc_nRST AND cc8Bank_0)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(14) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND bbc_ADDRESS(11) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND NOT bbc_ADDRESS(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(15) AND bbc_nRST AND cc8Bank_0)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(14) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND bbc_ADDRESS(11) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND NOT bbc_ADDRESS(6) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(15) AND bbc_nRST AND cc8Bank_0)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT cc8Bank_0)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_nRST AND NOT cc8Bank_0));
+</td></tr><tr><td>
+FDCPE_cc8Bank_1: FDCPE port map (cc8Bank_1,cc8Bank_1_D,cc8Bank_2/cc8Bank_2_CLKF,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cc8Bank_1_D <= ((cc8Bank_1 AND NOT $OpTx$FX_DC$25)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	cc8Bank_0));
+</td></tr><tr><td>
+FDCPE_cc8Bank_2: FDCPE port map (cc8Bank_2,cc8Bank_2_D,cc8Bank_2/cc8Bank_2_CLKF,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cc8Bank_2_D <= ((cc8Bank_2 AND NOT $OpTx$FX_DC$25)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	cc8Bank_0));
+</td></tr><tr><td>
+</td></tr><tr><td>
+cc8Bank_2/cc8Bank_2_CLKF <= ((NOT bbc_nRST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT from_CPU_Phi1 AND from_CPU_RnW AND NOT long_CLR AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT cc4Bank_3/cc4Bank_3_CLKF AND $OpTx$FX_DC$11 AND NOT $OpTx$FX_DC$36));
+</td></tr><tr><td>
+FDCPE_cc8Bank_3: FDCPE port map (cc8Bank_3,cc8Bank_3_D,cc8Bank_2/cc8Bank_2_CLKF,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cc8Bank_3_D <= ((cc8Bank_3 AND NOT $OpTx$FX_DC$25)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	cc8Bank_0));
+</td></tr><tr><td>
+FDCPE_cc8Bank_4: FDCPE port map (cc8Bank_4,cc8Bank_4_D,cc8Bank_2/cc8Bank_2_CLKF,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cc8Bank_4_D <= ((cc8Bank_4 AND NOT $OpTx$FX_DC$25)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	cc8Bank_0));
+</td></tr><tr><td>
+FDCPE_cc8Bank_5: FDCPE port map (cc8Bank_5,cc8Bank_5_D,cc8Bank_2/cc8Bank_2_CLKF,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cc8Bank_5_D <= ((cc8Bank_5 AND NOT $OpTx$FX_DC$25)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	cc8Bank_0));
+</td></tr><tr><td>
+FDCPE_cc8Bank_6: FDCPE port map (cc8Bank_6,cc8Bank_6_D,cc8Bank_2/cc8Bank_2_CLKF,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cc8Bank_6_D <= ((cc8Bank_6 AND NOT $OpTx$FX_DC$25)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	cc8Bank_0));
+</td></tr><tr><td>
+FDCPE_cc8Bank_7: FDCPE port map (cc8Bank_7,cc8Bank_7_D,cc8Bank_2/cc8Bank_2_CLKF,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cc8Bank_7_D <= ((cc8Bank_7 AND NOT $OpTx$FX_DC$25)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	cc8Bank_0));
+</td></tr><tr><td>
+FDCPE_countseca0: FDCPE port map (countseca(0),countseca_D(0),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;countseca_D(0) <= ((NOT bbc_nRST AND countseca(0) AND NOT msec_tick/msec_tick_D2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_nRST AND NOT countseca(0) AND msec_tick/msec_tick_D2));
+</td></tr><tr><td>
+FTCPE_countseca1: FTCPE port map (countseca(1),countseca_T(1),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;countseca_T(1) <= ((bbc_nRST AND countseca(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_nRST AND countseca(0) AND msec_tick/msec_tick_D2));
+</td></tr><tr><td>
+FTCPE_countseca2: FTCPE port map (countseca(2),countseca_T(2),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;countseca_T(2) <= ((bbc_nRST AND countseca(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_nRST AND countseca(0) AND countseca(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	msec_tick/msec_tick_D2));
+</td></tr><tr><td>
+FTCPE_countseca3: FTCPE port map (countseca(3),countseca_T(3),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;countseca_T(3) <= ((bbc_nRST AND countseca(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (countseca(0) AND countseca(1) AND countseca(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	countseca(3) AND msec_tick/msec_tick_D2));
+</td></tr><tr><td>
+FDCPE_countsecb0: FDCPE port map (countsecb(0),countsecb_D(0),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;countsecb_D(0) <= ((NOT long_RST AND countsecb(0) AND NOT msec_tick/msec_tick_D2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT long_RST AND NOT countsecb(0) AND msec_tick/msec_tick_D2));
+</td></tr><tr><td>
+FDCPE_countsecb1: FDCPE port map (countsecb(1),countsecb_D(1),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;countsecb_D(1) <= ((NOT long_RST AND NOT countsecb(0) AND countsecb(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT long_RST AND countsecb(1) AND NOT msec_tick/msec_tick_D2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT long_RST AND countsecb(0) AND NOT countsecb(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT countsecb(2) AND msec_tick/msec_tick_D2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT long_RST AND countsecb(0) AND NOT countsecb(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	countsecb(3) AND msec_tick/msec_tick_D2));
+</td></tr><tr><td>
+FTCPE_countsecb2: FTCPE port map (countsecb(2),countsecb_T(2),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;countsecb_T(2) <= ((long_RST AND countsecb(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT long_RST AND countsecb(0) AND countsecb(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	msec_tick/msec_tick_D2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (countsecb(0) AND countsecb(2) AND NOT countsecb(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	msec_tick/msec_tick_D2));
+</td></tr><tr><td>
+FTCPE_countsecb3: FTCPE port map (countsecb(3),countsecb_T(3),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;countsecb_T(3) <= ((long_RST AND countsecb(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT long_RST AND countsecb(0) AND countsecb(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	countsecb(2) AND msec_tick/msec_tick_D2));
+</td></tr><tr><td>
+FDCPE_long_CLR: FDCPE port map (long_CLR,long_CLR_D,from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;long_CLR_D <= ((NOT long_RST AND NOT long_CLR)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT long_RST AND countsecb(0) AND NOT countsecb(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	countsecb(2) AND NOT countsecb(3)));
+</td></tr><tr><td>
+FDCPE_long_RST: FDCPE port map (long_RST,long_RST_D,from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;long_RST_D <= ((NOT bbc_nRST AND long_RST)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_nRST AND countseca(0) AND countseca(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	countseca(2) AND NOT countseca(3)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+msec_tick/msec_tick_D2 <= (NOT slow_clk(0) AND slow_clk(10) AND slow_clk(11) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT slow_clk(12) AND NOT slow_clk(13) AND NOT slow_clk(14) AND NOT slow_clk(15) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk(16) AND slow_clk(17) AND NOT slow_clk(18) AND NOT slow_clk(19) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT slow_clk(1) AND NOT slow_clk(20) AND NOT slow_clk(21) AND NOT slow_clk(22) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT slow_clk(2) AND NOT slow_clk(3) AND NOT slow_clk(4) AND NOT slow_clk(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk(6) AND NOT slow_clk(7) AND slow_clk(8) AND NOT slow_clk(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT slow_clk(23));
+</td></tr><tr><td>
+</td></tr><tr><td>
+nDBuf_CE <= NOT ((($OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT bbc_ADDRESS(14) AND bbc_ADDRESS(15) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	nRomBankSel0_3)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15))));
+</td></tr><tr><td>
+</td></tr><tr><td>
+nDBuf_Dir <= from_CPU_RnW;
+</td></tr><tr><td>
+</td></tr><tr><td>
+nRAM_CE <= (($OpTx$DEC_Ram_ADDRESS_16_OBUF$0.EXP)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (rD3 AND NOT Ram_ADDRESS(17) AND NOT Ram_ADDRESS(18))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT ROMDec AND NOT Ram_ADDRESS(17) AND NOT Ram_ADDRESS(18))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT nRomBankSel0_3 AND NOT Ram_ADDRESS(17) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT Ram_ADDRESS(18))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT rD2 AND NOT Ram_ADDRESS(17) AND NOT Ram_ADDRESS(18) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	$OpTx$INV$5)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (EF_0 AND RecMode AND NOT Ram_ADDRESS(17) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT Ram_ADDRESS(18) AND $OpTx$INV$5));
+</td></tr><tr><td>
+</td></tr><tr><td>
+nRDS <= NOT ((NOT from_CPU_Phi1 AND from_CPU_RnW AND NOT long_CLR));
+</td></tr><tr><td>
+</td></tr><tr><td>
+nRomBankSel0_3 <= NOT (((RecMode AND ROMDec AND $OpTx$FX_DC$13)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND to_bbc_rD0 AND ROMDec AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	BeebRomSel(3) AND $OpTx$FX_DC$13)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND ROMDec AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	BeebRomSel(2) AND $OpTx$FX_DC$13)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT to_bbc_rD1 AND to_bbc_rD0 AND ROMDec AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	BeebRomSel(1) AND $OpTx$FX_DC$13)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT to_bbc_rD1 AND NOT to_bbc_rD0 AND ROMDec AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	BeebRomSel(0) AND $OpTx$FX_DC$13)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+nRomBankSel_I(8) <= '0';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nRomBankSel(8) <= nRomBankSel_I(8) when nRomBankSel_OE(8) = '1' else 'Z';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nRomBankSel_OE(8) <= (NOT to_bbc_rD0 AND NOT RecMode AND ROMDec AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	IntegraRomSel(8) AND $OpTx$FX_SC$79);
+</td></tr><tr><td>
+</td></tr><tr><td>
+nRomBankSel_I(9) <= '0';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nRomBankSel(9) <= nRomBankSel_I(9) when nRomBankSel_OE(9) = '1' else 'Z';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nRomBankSel_OE(9) <= (to_bbc_rD0 AND IntegraRomSel(9) AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND $OpTx$FX_SC$79);
+</td></tr><tr><td>
+</td></tr><tr><td>
+nRomBankSel_I(10) <= '0';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nRomBankSel(10) <= nRomBankSel_I(10) when nRomBankSel_OE(10) = '1' else 'Z';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nRomBankSel_OE(10) <= (NOT to_bbc_rD0 AND IntegraRomSel(10) AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND $OpTx$FX_DC$11);
+</td></tr><tr><td>
+</td></tr><tr><td>
+nRomBankSel_I(11) <= '0';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nRomBankSel(11) <= nRomBankSel_I(11) when nRomBankSel_OE(11) = '1' else 'Z';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nRomBankSel_OE(11) <= (to_bbc_rD0 AND IntegraRomSel(11) AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND $OpTx$FX_DC$11);
+</td></tr><tr><td>
+</td></tr><tr><td>
+nRomBankSel_I(12) <= '0';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nRomBankSel(12) <= nRomBankSel_I(12) when nRomBankSel_OE(12) = '1' else 'Z';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nRomBankSel_OE(12) <= (NOT to_bbc_rD0 AND IntegraRomSel(12) AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND $OpTx$FX_SC$75);
+</td></tr><tr><td>
+</td></tr><tr><td>
+nRomBankSel_I(13) <= '0';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nRomBankSel(13) <= nRomBankSel_I(13) when nRomBankSel_OE(13) = '1' else 'Z';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nRomBankSel_OE(13) <= (to_bbc_rD0 AND IntegraRomSel(13) AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND $OpTx$FX_SC$75);
+</td></tr><tr><td>
+</td></tr><tr><td>
+nRomBankSel_I(14) <= '0';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nRomBankSel(14) <= nRomBankSel_I(14) when nRomBankSel_OE(14) = '1' else 'Z';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nRomBankSel_OE(14) <= (NOT to_bbc_rD0 AND IntegraRomSel(14) AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND $OpTx$FX_SC$69);
+</td></tr><tr><td>
+</td></tr><tr><td>
+nRomBankSel_I(15) <= '0';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nRomBankSel(15) <= nRomBankSel_I(15) when nRomBankSel_OE(15) = '1' else 'Z';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nRomBankSel_OE(15) <= (to_bbc_rD0 AND IntegraRomSel(15) AND NOT RecMode AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND $OpTx$FX_SC$69);
+</td></tr><tr><td>
+</td></tr><tr><td>
+nWDS <= NOT ((($OpTx$DEC_nWDS_OBUF$2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT from_CPU_Phi1 AND to_bbc_rD1 AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ROMDec AND WP_3 AND NOT BeebRomSel(3) AND $OpTx$FX_DC$13 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT $OpTx$BIN_STEP$493 AND NOT $OpTx$FX_SC$59)));
+</td></tr><tr><td>
+FDCPE_rD2: FDCPE port map (rD2,bbc_DATA(2),from_CPU_Phi1,NOT bbc_nRST,'0',rD2_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rD2_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2));
+</td></tr><tr><td>
+FDCPE_rD3: FDCPE port map (rD3,bbc_DATA(3),from_CPU_Phi1,NOT bbc_nRST,'0',rD3_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rD3_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2));
+</td></tr><tr><td>
+FDCPE_slow_clk0: FDCPE port map (slow_clk(0),slow_clk_D(0),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_D(0) <= (NOT slow_clk(0) AND NOT msec_tick/msec_tick_D2);
+</td></tr><tr><td>
+FTCPE_slow_clk1: FTCPE port map (slow_clk(1),slow_clk(0),from_CPU_Phi1,'0','0');
+</td></tr><tr><td>
+FTCPE_slow_clk2: FTCPE port map (slow_clk(2),slow_clk_T(2),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_T(2) <= (slow_clk(0) AND slow_clk(1));
+</td></tr><tr><td>
+FTCPE_slow_clk3: FTCPE port map (slow_clk(3),slow_clk_T(3),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_T(3) <= (slow_clk(0) AND slow_clk(1) AND slow_clk(2));
+</td></tr><tr><td>
+FDCPE_slow_clk4: FDCPE port map (slow_clk(4),slow_clk_D(4),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_D(4) <= ((slow_clk(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (slow_clk(0) AND slow_clk(1) AND slow_clk(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2));
+</td></tr><tr><td>
+FDCPE_slow_clk5: FDCPE port map (slow_clk(5),slow_clk_D(5),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_D(5) <= ((slow_clk(5) AND NOT msec_tick/msec_tick_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT slow_clk(5) AND NOT msec_tick/msec_tick_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2));
+</td></tr><tr><td>
+FTCPE_slow_clk6: FTCPE port map (slow_clk(6),slow_clk_T(6),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_T(6) <= ((slow_clk(6) AND msec_tick/msec_tick_D2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (slow_clk(5) AND NOT msec_tick/msec_tick_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2));
+</td></tr><tr><td>
+FTCPE_slow_clk7: FTCPE port map (slow_clk(7),slow_clk_T(7),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_T(7) <= (slow_clk(5) AND slow_clk(6) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2);
+</td></tr><tr><td>
+FDCPE_slow_clk8: FDCPE port map (slow_clk(8),slow_clk_D(8),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_D(8) <= ((slow_clk(8) AND NOT msec_tick/msec_tick_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (slow_clk(5) AND slow_clk(6) AND slow_clk(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT msec_tick/msec_tick_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2));
+</td></tr><tr><td>
+FDCPE_slow_clk9: FDCPE port map (slow_clk(9),slow_clk_D(9),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_D(9) <= ((slow_clk(9) AND NOT msec_tick/msec_tick_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT slow_clk(9) AND NOT msec_tick/msec_tick_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2));
+</td></tr><tr><td>
+FTCPE_slow_clk10: FTCPE port map (slow_clk(10),slow_clk_T(10),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_T(10) <= ((slow_clk(10) AND msec_tick/msec_tick_D2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (slow_clk(9) AND NOT msec_tick/msec_tick_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2));
+</td></tr><tr><td>
+FTCPE_slow_clk11: FTCPE port map (slow_clk(11),slow_clk_T(11),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_T(11) <= ((slow_clk(11) AND msec_tick/msec_tick_D2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (slow_clk(10) AND slow_clk(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT msec_tick/msec_tick_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2));
+</td></tr><tr><td>
+FDCPE_slow_clk12: FDCPE port map (slow_clk(12),slow_clk_D(12),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_D(12) <= ((slow_clk(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (slow_clk(10) AND slow_clk(11) AND slow_clk(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2));
+</td></tr><tr><td>
+FDCPE_slow_clk13: FDCPE port map (slow_clk(13),slow_clk_D(13),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_D(13) <= ((slow_clk(13) AND NOT msec_tick/msec_tick_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT slow_clk(13) AND NOT msec_tick/msec_tick_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2));
+</td></tr><tr><td>
+FTCPE_slow_clk14: FTCPE port map (slow_clk(14),slow_clk_T(14),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_T(14) <= (slow_clk(13) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2);
+</td></tr><tr><td>
+FTCPE_slow_clk15: FTCPE port map (slow_clk(15),slow_clk_T(15),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_T(15) <= (slow_clk(13) AND slow_clk(14) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2);
+</td></tr><tr><td>
+FDCPE_slow_clk16: FDCPE port map (slow_clk(16),slow_clk_D(16),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_D(16) <= ((slow_clk(16) AND NOT msec_tick/msec_tick_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (slow_clk(13) AND slow_clk(14) AND slow_clk(15) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT msec_tick/msec_tick_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2));
+</td></tr><tr><td>
+FDCPE_slow_clk17: FDCPE port map (slow_clk(17),slow_clk_D(17),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_D(17) <= ((slow_clk(17) AND NOT msec_tick/msec_tick_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT slow_clk(17) AND NOT msec_tick/msec_tick_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2));
+</td></tr><tr><td>
+FTCPE_slow_clk18: FTCPE port map (slow_clk(18),slow_clk_T(18),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_T(18) <= ((slow_clk(18) AND msec_tick/msec_tick_D2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (slow_clk(17) AND NOT msec_tick/msec_tick_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2));
+</td></tr><tr><td>
+FTCPE_slow_clk19: FTCPE port map (slow_clk(19),slow_clk_T(19),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_T(19) <= (slow_clk(17) AND slow_clk(18) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2);
+</td></tr><tr><td>
+FDCPE_slow_clk20: FDCPE port map (slow_clk(20),slow_clk_D(20),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_D(20) <= ((slow_clk(20) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT slow_clk_Madd__add0000__and0019/slow_clk_Madd__add0000__and0019_D2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (slow_clk(17) AND slow_clk(18) AND slow_clk(19) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT slow_clk_Madd__add0000__and0019/slow_clk_Madd__add0000__and0019_D2));
+</td></tr><tr><td>
+FDCPE_slow_clk21: FDCPE port map (slow_clk(21),slow_clk_D(21),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_D(21) <= ((slow_clk(21) AND NOT msec_tick/msec_tick_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT slow_clk_Madd__add0000__and0019/slow_clk_Madd__add0000__and0019_D2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT slow_clk(21) AND NOT msec_tick/msec_tick_D2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0019/slow_clk_Madd__add0000__and0019_D2));
+</td></tr><tr><td>
+FTCPE_slow_clk22: FTCPE port map (slow_clk(22),slow_clk_T(22),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_T(22) <= (slow_clk(21) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0019/slow_clk_Madd__add0000__and0019_D2);
+</td></tr><tr><td>
+FTCPE_slow_clk23: FTCPE port map (slow_clk(23),slow_clk_T(23),from_CPU_Phi1,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slow_clk_T(23) <= (slow_clk(21) AND slow_clk(22) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0019/slow_clk_Madd__add0000__and0019_D2);
+</td></tr><tr><td>
+</td></tr><tr><td>
+slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2 <= (slow_clk(0) AND slow_clk(1) AND slow_clk(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk(3) AND slow_clk(4));
+</td></tr><tr><td>
+</td></tr><tr><td>
+slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2 <= (slow_clk(5) AND slow_clk(6) AND slow_clk(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2);
+</td></tr><tr><td>
+</td></tr><tr><td>
+slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2 <= (slow_clk(10) AND slow_clk(11) AND slow_clk(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2);
+</td></tr><tr><td>
+</td></tr><tr><td>
+slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2 <= (slow_clk(13) AND slow_clk(14) AND slow_clk(15) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk(16) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2);
+</td></tr><tr><td>
+</td></tr><tr><td>
+slow_clk_Madd__add0000__and0019/slow_clk_Madd__add0000__and0019_D2 <= (slow_clk(17) AND slow_clk(18) AND slow_clk(19) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk(20) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2);
+</td></tr><tr><td>
+</td></tr><tr><td>
+to_bbc_Phi1 <= ((from_CPU_Phi1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(14) AND NOT bbc_ADDRESS(15) AND NOT MemSel AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ShEn)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(15) AND NOT MemSel AND ShEn));
+</td></tr><tr><td>
+</td></tr><tr><td>
+to_bbc_RnW <= ((from_CPU_RnW)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(14) AND NOT bbc_ADDRESS(15) AND NOT MemSel AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ShEn)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(15) AND NOT MemSel AND ShEn));
+</td></tr><tr><td>
+FDCPE_to_bbc_rD0: FDCPE port map (to_bbc_rD0,bbc_DATA(0),from_CPU_Phi1,NOT bbc_nRST,'0',to_bbc_rD0_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to_bbc_rD0_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2));
+</td></tr><tr><td>
+FDCPE_to_bbc_rD1: FDCPE port map (to_bbc_rD1,bbc_DATA(1),from_CPU_Phi1,NOT bbc_nRST,'0',to_bbc_rD1_CE);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to_bbc_rD1_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2));
+</td></tr><tr><td>
+Register Legend:
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FDCPE (Q,D,C,CLR,PRE,CE); 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FTCPE (Q,D,C,CLR,PRE,CE); 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LDCP  (Q,D,G,CLR,PRE); 
+</td></tr><tr><td>
+</td></tr>
+</table>
+<form><span class="pgRef"><table width="90%" align="center"><tr>
+<td align="left"><input type="button" onclick="javascript:parent.leftnav.showTop()" onmouseover="window.status='goto top of page'; return true;" onmouseout="window.status=''" value="back to top"></td>
+<td align="right"><input type="button" onclick="window.print()" onmouseover="window.status='print page'; return true;" onmouseout="window.status=''" value="print page"></td>
+</tr></table></span></form>
+</body></html>
