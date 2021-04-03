@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="Cpld" num="0" delta="new" >Unable to retrieve the path to the iSE Project Repository. Will use the default filename of &apos;<arg fmt="%s" index="1">IntegraBV2.ise</arg>&apos;.
+</msg>
+
+<msg type="info" file="Cpld" num="0" delta="new" >Inferring BUFG constraint for signal &apos;<arg fmt="%s" index="1">bbc_DATA&lt;1&gt;</arg>&apos; based upon the LOC constraint &apos;<arg fmt="%s" index="2">P22</arg>&apos;. It is recommended that you declare this BUFG explicitedly in your design. Note that for certain device families the output of a BUFG constraint can not drive a gated clock, and the BUFG constraint will be ignored.
+</msg>
+
+<msg type="info" file="Cpld" num="0" delta="new" >Inferring BUFG constraint for signal &apos;<arg fmt="%s" index="1">bbc_DATA&lt;4&gt;</arg>&apos; based upon the LOC constraint &apos;<arg fmt="%s" index="2">P23</arg>&apos;. It is recommended that you declare this BUFG explicitedly in your design. Note that for certain device families the output of a BUFG constraint can not drive a gated clock, and the BUFG constraint will be ignored.
+</msg>
+
+<msg type="warning" file="Cpld" num="1007" delta="old" >Removing unused input(s) &apos;<arg fmt="%s" index="1">RamWriteProt&lt;0&gt;</arg>&apos;.  The input(s) are unused after optimization. Please verify functionality via simulation.
+</msg>
+
+<msg type="warning" file="Cpld" num="1007" delta="old" >Removing unused input(s) &apos;<arg fmt="%s" index="1">RamWriteProt&lt;10&gt;</arg>&apos;.  The input(s) are unused after optimization. Please verify functionality via simulation.
+</msg>
+
+<msg type="warning" file="Cpld" num="1007" delta="old" >Removing unused input(s) &apos;<arg fmt="%s" index="1">RamWriteProt&lt;11&gt;</arg>&apos;.  The input(s) are unused after optimization. Please verify functionality via simulation.
+</msg>
+
+<msg type="warning" file="Cpld" num="1007" delta="old" >Removing unused input(s) &apos;<arg fmt="%s" index="1">RamWriteProt&lt;12&gt;</arg>&apos;.  The input(s) are unused after optimization. Please verify functionality via simulation.
+</msg>
+
+<msg type="warning" file="Cpld" num="1007" delta="old" >Removing unused input(s) &apos;<arg fmt="%s" index="1">RamWriteProt&lt;13&gt;</arg>&apos;.  The input(s) are unused after optimization. Please verify functionality via simulation.
+</msg>
+
+<msg type="warning" file="Cpld" num="1007" delta="old" >Removing unused input(s) &apos;<arg fmt="%s" index="1">RamWriteProt&lt;14&gt;</arg>&apos;.  The input(s) are unused after optimization. Please verify functionality via simulation.
+</msg>
+
+<msg type="warning" file="Cpld" num="1007" delta="old" >Removing unused input(s) &apos;<arg fmt="%s" index="1">RamWriteProt&lt;15&gt;</arg>&apos;.  The input(s) are unused after optimization. Please verify functionality via simulation.
+</msg>
+
+<msg type="warning" file="Cpld" num="1007" delta="old" >Removing unused input(s) &apos;<arg fmt="%s" index="1">RamWriteProt&lt;1&gt;</arg>&apos;.  The input(s) are unused after optimization. Please verify functionality via simulation.
+</msg>
+
+<msg type="warning" file="Cpld" num="1007" delta="old" >Removing unused input(s) &apos;<arg fmt="%s" index="1">RamWriteProt&lt;2&gt;</arg>&apos;.  The input(s) are unused after optimization. Please verify functionality via simulation.
+</msg>
+
+<msg type="warning" file="Cpld" num="1007" delta="old" >Removing unused input(s) &apos;<arg fmt="%s" index="1">RamWriteProt&lt;3&gt;</arg>&apos;.  The input(s) are unused after optimization. Please verify functionality via simulation.
+</msg>
+
+<msg type="warning" file="Cpld" num="1007" delta="old" >Removing unused input(s) &apos;<arg fmt="%s" index="1">RamWriteProt&lt;4&gt;</arg>&apos;.  The input(s) are unused after optimization. Please verify functionality via simulation.
+</msg>
+
+<msg type="warning" file="Cpld" num="1007" delta="old" >Removing unused input(s) &apos;<arg fmt="%s" index="1">RamWriteProt&lt;5&gt;</arg>&apos;.  The input(s) are unused after optimization. Please verify functionality via simulation.
+</msg>
+
+<msg type="warning" file="Cpld" num="1007" delta="old" >Removing unused input(s) &apos;<arg fmt="%s" index="1">RamWriteProt&lt;6&gt;</arg>&apos;.  The input(s) are unused after optimization. Please verify functionality via simulation.
+</msg>
+
+<msg type="warning" file="Cpld" num="1007" delta="old" >Removing unused input(s) &apos;<arg fmt="%s" index="1">RamWriteProt&lt;7&gt;</arg>&apos;.  The input(s) are unused after optimization. Please verify functionality via simulation.
+</msg>
+
+<msg type="warning" file="Cpld" num="1007" delta="old" >Removing unused input(s) &apos;<arg fmt="%s" index="1">RamWriteProt&lt;8&gt;</arg>&apos;.  The input(s) are unused after optimization. Please verify functionality via simulation.
+</msg>
+
+<msg type="warning" file="Cpld" num="1007" delta="old" >Removing unused input(s) &apos;<arg fmt="%s" index="1">RamWriteProt&lt;9&gt;</arg>&apos;.  The input(s) are unused after optimization. Please verify functionality via simulation.
+</msg>
+
+<msg type="warning" file="Cpld" num="1007" delta="old" >Removing unused input(s) &apos;<arg fmt="%s" index="1">from_CPU_dPhi2</arg>&apos;.  The input(s) are unused after optimization. Please verify functionality via simulation.
+</msg>
+
+<msg type="warning" file="Cpld" num="1239" delta="old" >The global <arg fmt="%s" index="1">clock</arg> designation (BUFG) on signal &apos;<arg fmt="%s" index="2">bbc_DATA_4_IBUF</arg>&apos; is ignored. Most likely the signal is gated and therefore cannot be used as a global control signal.
+</msg>
+
+<msg type="warning" file="Cpld" num="1239" delta="old" >The global <arg fmt="%s" index="1">clock</arg> designation (BUFG) on signal &apos;<arg fmt="%s" index="2">bbc_DATA_1_IBUF</arg>&apos; is ignored. Most likely the signal is gated and therefore cannot be used as a global control signal.
+</msg>
+
+<msg type="warning" file="Cpld" num="0" delta="new" >The signal(s) &apos;<arg fmt="%s" index="1">ROMDec</arg>&apos; are in combinational feedback loops.
+These signals may cause hazards/glitches. Apply the NOREDUCE parameter to the hazard reduction circuitry.
+Timing analysis of paths involving this node may be inaccurate or incomplete.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">54</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="895" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block inputs are required. Buffering output signal <arg fmt="%s" index="2">nWDS</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB4</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">53</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="895" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block inputs are required. Buffering output signal <arg fmt="%s" index="2">nWDS</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB4</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">52</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="895" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block inputs are required. Buffering output signal <arg fmt="%s" index="2">nWDS</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB4</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">51</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="895" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block inputs are required. Buffering output signal <arg fmt="%s" index="2">nWDS</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB4</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">50</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="895" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block inputs are required. Buffering output signal <arg fmt="%s" index="2">nWDS</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB4</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">49</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="895" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block inputs are required. Buffering output signal <arg fmt="%s" index="2">nWDS</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB4</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">48</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="895" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block inputs are required. Buffering output signal <arg fmt="%s" index="2">nWDS</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB4</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">47</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="895" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block inputs are required. Buffering output signal <arg fmt="%s" index="2">nWDS</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB4</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">46</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="895" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block inputs are required. Buffering output signal <arg fmt="%s" index="2">nWDS</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB4</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">45</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="895" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block inputs are required. Buffering output signal <arg fmt="%s" index="2">nWDS</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB4</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">44</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="895" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block inputs are required. Buffering output signal <arg fmt="%s" index="2">nWDS</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB4</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">43</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="895" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block inputs are required. Buffering output signal <arg fmt="%s" index="2">nWDS</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB4</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">42</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="895" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block inputs are required. Buffering output signal <arg fmt="%s" index="2">nWDS</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB4</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">41</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="895" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block inputs are required. Buffering output signal <arg fmt="%s" index="2">nWDS</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB4</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">40</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="895" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block inputs are required. Buffering output signal <arg fmt="%s" index="2">nWDS</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB4</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">39</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="895" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block inputs are required. Buffering output signal <arg fmt="%s" index="2">nWDS</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB4</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">38</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="895" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block inputs are required. Buffering output signal <arg fmt="%s" index="2">nWDS</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB4</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">37</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="895" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block inputs are required. Buffering output signal <arg fmt="%s" index="2">nWDS</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB4</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">36</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;14&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;17&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;16&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;18&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="891" delta="old" >Cannot place signal <arg fmt="%s" index="1">slow_clk&lt;14&gt;</arg>. Too many function block inputs required. Consider reducing the collapsing input limit to prevent the fitter from creating high input functions.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">35</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="895" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block inputs are required. Buffering output signal <arg fmt="%s" index="2">nWDS</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB1</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">34</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;14&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;17&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;16&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;18&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="891" delta="old" >Cannot place signal <arg fmt="%s" index="1">slow_clk&lt;22&gt;</arg>. Too many function block inputs required. Consider reducing the collapsing input limit to prevent the fitter from creating high input functions.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">33</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;14&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;17&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;16&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;18&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="891" delta="old" >Cannot place signal <arg fmt="%s" index="1">slow_clk&lt;22&gt;</arg>. Too many function block inputs required. Consider reducing the collapsing input limit to prevent the fitter from creating high input functions.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">32</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;14&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;17&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;16&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;18&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="891" delta="old" >Cannot place signal <arg fmt="%s" index="1">slow_clk&lt;2&gt;</arg>. Too many function block inputs required. Consider reducing the collapsing input limit to prevent the fitter from creating high input functions.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">31</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;14&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;16&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;17&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;15&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB4</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">30</arg>
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;14&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;16&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;17&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="warning" file="Cpld" num="896" delta="old" >Unable to map all desired signals into function block, FB<arg fmt="%d" index="1">4</arg>, because too many function block product terms are required. Buffering output signal <arg fmt="%s" index="2">Ram_ADDRESS&lt;15&gt;</arg> to allow all signals assigned to this function block to be placed.
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB4</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="old" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">90</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">29</arg>
+</msg>
+
+</messages>
+
