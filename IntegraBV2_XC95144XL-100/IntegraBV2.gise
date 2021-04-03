@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<generated_project xmlns="http://www.xilinx.com/XMLSchema" xmlns:xil_pn="http://www.xilinx.com/XMLSchema">
+
+  <!--                                                          -->
+
+  <!--             For tool use only. Do not edit.              -->
+
+  <!--                                                          -->
+
+  <!-- ProjectNavigator created generated project file.         -->
+
+  <!-- For use in tracking generated file and other information -->
+
+  <!-- allowing preservation of process status.                 -->
+
+  <!--                                                          -->
+
+  <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved. -->
+
+  <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
+
+  <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="IntegraBV2.xise"/>
+
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="IntegraBV2.bld"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="IntegraBV2.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_GYD" xil_pn:name="IntegraBV2.gyd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_JEDEC" xil_pn:name="IntegraBV2.jed"/>
+    <file xil_pn:fileType="FILE_LFP" xil_pn:name="IntegraBV2.lfp"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="IntegraBV2.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MFD" xil_pn:name="IntegraBV2.mfd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGA" xil_pn:name="IntegraBV2.nga"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="IntegraBV2.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="IntegraBV2.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="IntegraBV2.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="IntegraBV2.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PNX" xil_pn:name="IntegraBV2.pnx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="IntegraBV2.prj"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="IntegraBV2.rpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="IntegraBV2.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="IntegraBV2.syr"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="IntegraBV2.tim"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="IntegraBV2.tspec"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_VM6" xil_pn:name="IntegraBV2.vm6"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="IntegraBV2.xml"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="IntegraBV2.xst"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="IntegraBV2_beh.prj"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="IntegraBV2_build.xml"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="IntegraBV2_envsettings.html"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="IntegraBV2_html"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="IntegraBV2_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="IntegraBV2_isim_beh.wdb"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="IntegraBV2_ngdbuild.xrpt"/>
+    <file xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="IntegraBV2_pad.csv"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="IntegraBV2_summary.html"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="IntegraBV2_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
+
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1590184847" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1590184847">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1590184847" xil_pn:in_ck="1776159182678324019" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1590184847">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputChanged"/>
+      <status xil_pn:value="OutputRemoved"/>
+    </transform>
+    <transform xil_pn:end_ts="1590184847" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-5341927740331629285" xil_pn:start_ts="1590184847">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1590184847" xil_pn:in_ck="1776159182678324019" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1590184847">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputChanged"/>
+      <status xil_pn:value="OutputRemoved"/>
+    </transform>
+    <transform xil_pn:end_ts="1590184854" xil_pn:in_ck="1776159182678324019" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="2736741713279554131" xil_pn:start_ts="1590184847">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
+    </transform>
+    <transform xil_pn:end_ts="1590184855" xil_pn:in_ck="-1659186793984812413" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="4771516879298797718" xil_pn:start_ts="1590184854">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputChanged"/>
+      <status xil_pn:value="OutputRemoved"/>
+    </transform>
+    <transform xil_pn:end_ts="1589652461" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1589652461">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1589654563" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-7730583896163036517" xil_pn:start_ts="1589654562">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1617435105" xil_pn:in_ck="8176082773473692782" xil_pn:name="TRANEXT_xstsynthesize_xc9500xl" xil_pn:prop_ck="6631949067718593871" xil_pn:start_ts="1617435092">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="IntegraBV2.lso"/>
+      <outfile xil_pn:name="IntegraBV2.ngc"/>
+      <outfile xil_pn:name="IntegraBV2.ngr"/>
+      <outfile xil_pn:name="IntegraBV2.prj"/>
+      <outfile xil_pn:name="IntegraBV2.stx"/>
+      <outfile xil_pn:name="IntegraBV2.syr"/>
+      <outfile xil_pn:name="IntegraBV2.xst"/>
+      <outfile xil_pn:name="IntegraBV2_beh.prj"/>
+      <outfile xil_pn:name="IntegraBV2_xst.xrpt"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+    <transform xil_pn:end_ts="1608323472" xil_pn:in_ck="1578558130023827520" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="8765993334417930230" xil_pn:start_ts="1608323472">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1617435111" xil_pn:in_ck="-1985815477752782662" xil_pn:name="TRAN_ngdbuild" xil_pn:prop_ck="1893441463969615248" xil_pn:start_ts="1617435105">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="IntegraBV2.bld"/>
+      <outfile xil_pn:name="IntegraBV2.ngd"/>
+      <outfile xil_pn:name="IntegraBV2_ngdbuild.xrpt"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    </transform>
+    <transform xil_pn:end_ts="1617435194" xil_pn:in_ck="1578558130023820027" xil_pn:name="TRANEXT_vm6File_xc9500xl" xil_pn:prop_ck="-8957329423362962433" xil_pn:start_ts="1617435111">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="IntegraBV2.gyd"/>
+      <outfile xil_pn:name="IntegraBV2.mfd"/>
+      <outfile xil_pn:name="IntegraBV2.nga"/>
+      <outfile xil_pn:name="IntegraBV2.pad"/>
+      <outfile xil_pn:name="IntegraBV2.pnx"/>
+      <outfile xil_pn:name="IntegraBV2.rpt"/>
+      <outfile xil_pn:name="IntegraBV2.tim"/>
+      <outfile xil_pn:name="IntegraBV2.tspec"/>
+      <outfile xil_pn:name="IntegraBV2.vm6"/>
+      <outfile xil_pn:name="IntegraBV2.xml"/>
+      <outfile xil_pn:name="IntegraBV2_build.xml"/>
+      <outfile xil_pn:name="IntegraBV2_html"/>
+      <outfile xil_pn:name="IntegraBV2_pad.csv"/>
+    </transform>
+    <transform xil_pn:end_ts="1617435197" xil_pn:in_ck="1578558130023828891" xil_pn:name="TRANEXT_crtProg_xc9500" xil_pn:prop_ck="-6294026017969277533" xil_pn:start_ts="1617435194">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="IntegraBV2.jed"/>
+    </transform>
+    <transform xil_pn:end_ts="1607108982" xil_pn:in_ck="1578558130023828891" xil_pn:name="TRAN_timRpt" xil_pn:prop_ck="111903974446" xil_pn:start_ts="1607108979">
+      <status xil_pn:value="AbortedRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputChanged"/>
+    </transform>
+    <transform xil_pn:end_ts="1589749077" xil_pn:in_ck="6564947082511781499" xil_pn:name="TRAN_createTimingConstraints" xil_pn:start_ts="1589749077">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
+    </transform>
+  </transforms>
+
+</generated_project>

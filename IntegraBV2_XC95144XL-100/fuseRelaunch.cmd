@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "uni9000_ver" -lib "aim_ver" -lib "cpld_ver" -lib "xilinxcorelib_ver" -o "C:/Xilinx/Projects/IntegraBV2/IntegraBV2_isim_beh.exe" -prj "C:/Xilinx/Projects/IntegraBV2/IntegraBV2_beh.prj" "work.IntegraBV2" "work.glbl" 

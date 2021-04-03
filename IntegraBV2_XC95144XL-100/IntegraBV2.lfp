@@ -1,0 +1,5 @@
+# begin LFP file C:\Xilinx\Projects\IntegraBV2\IntegraBV2.lfp
+designfile IntegraBV2-Rev01.v
+parttype xc95144xl-tq100-10
+bus_delimiter 0;
+set_busdelim_onsave 1;

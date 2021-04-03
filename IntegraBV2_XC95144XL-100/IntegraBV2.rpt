@@ -1,0 +1,1889 @@
+ 
+cpldfit:  version P.20131013                        Xilinx Inc.
+                                  Fitter Report
+Design Name: IntegraBV2                          Date:  4- 3-2021,  8:33AM
+Device Used: XC95144XL-10-TQ100
+Fitting Status: Successful
+
+*************************  Mapped Resource Summary  **************************
+
+Macrocells     Product Terms    Function Block   Registers      Pins           
+Used/Tot       Used/Tot         Inps Used/Tot    Used/Tot       Used/Tot       
+131/144 ( 91%) 410 /720  ( 57%) 295/432 ( 68%)   75 /144 ( 52%) 64 /81  ( 79%)
+
+** Function Block Resources **
+
+Function    Mcells      FB Inps     Pterms      IO          
+Block       Used/Tot    Used/Tot    Used/Tot    Used/Tot    
+FB1          18/18*      38/54       49/90      11/11*
+FB2          18/18*      37/54       39/90      10/10*
+FB3          18/18*      45/54       42/90      10/10*
+FB4           8/18       46/54       82/90       9/10
+FB5          18/18*      45/54       56/90       9/10
+FB6          15/18       19/54       19/90       0/10
+FB7          18/18*      42/54       73/90      10/10*
+FB8          18/18*      23/54       50/90       5/10
+             -----       -----       -----      -----    
+            131/144     295/432     410/720     64/81 
+
+* - Resource is exhausted
+
+** Global Control Resources **
+
+Global clock net(s) unused.
+Global output enable net(s) unused.
+Signal 'bbc_nRST' mapped onto global set/reset net GSR.
+
+** Pin Resources **
+
+Signal Type    Required     Mapped  |  Pin Type            Used    Total 
+------------------------------------|------------------------------------
+Input         :   38          38    |  I/O              :    56      73
+Output        :   25          25    |  GCK/IO           :     3       3
+Bidirectional :    0           0    |  GTS/IO           :     4       4
+GCK           :    0           0    |  GSR/IO           :     1       1
+GTS           :    0           0    |
+GSR           :    1           1    |
+                 ----        ----
+        Total     64          64
+
+** Power Data **
+
+There are 131 macrocells in high performance mode (MCHP).
+There are 0 macrocells in low power mode (MCLP).
+End of Mapped Resource Summary
+**************************  Errors and Warnings  ***************************
+
+INFO:Cpld:994 - Exhaustive fitting is trying pterm limit: 90 and input limit: 29
+*************************  Summary of Mapped Logic  ************************
+
+** 25 Outputs **
+
+Signal                                                              Total Total Loc     Pin  Pin     Pin     Pwr  Slew Reg Init
+Name                                                                Pts   Inps          No.  Type    Use     Mode Rate State
+nRDS                                                                1     3     FB1_2   11   I/O     O       STD  SLOW 
+nRomBankSel<14>                                                     1     5     FB3_8   27   GCK/I/O O       STD  SLOW 
+nRomBankSel<15>                                                     1     5     FB3_9   28   I/O     O       STD  SLOW 
+nRomBankSel<12>                                                     1     5     FB3_11  29   I/O     O       STD  SLOW 
+nRomBankSel<13>                                                     1     5     FB3_12  30   I/O     O       STD  SLOW 
+nRomBankSel<10>                                                     1     5     FB3_14  32   I/O     O       STD  SLOW 
+nRomBankSel<11>                                                     1     5     FB3_15  33   I/O     O       STD  SLOW 
+nRomBankSel<8>                                                      1     5     FB3_17  34   I/O     O       STD  SLOW 
+nRAM_CE                                                             6     10    FB4_8   91   I/O     O       STD  SLOW 
+Ram_ADDRESS<18>                                                     9     21    FB4_9   92   I/O     O       STD  SLOW 
+Ram_ADDRESS<15>                                                     14    18    FB4_11  93   I/O     O       STD  SLOW 
+nWDS                                                                2     10    FB4_12  94   I/O     O       STD  SLOW 
+Ram_ADDRESS<17>                                                     15    23    FB4_14  95   I/O     O       STD  SLOW 
+Ram_ADDRESS<16>                                                     3     11    FB4_15  96   I/O     O       STD  SLOW 
+Ram_ADDRESS<14>                                                     18    23    FB4_17  97   I/O     O       STD  SLOW 
+nRomBankSel<9>                                                      1     5     FB5_2   35   I/O     O       STD  SLOW 
+nRomBankSel0_3                                                      5     9     FB5_5   36   I/O     O       STD  SLOW 
+to_bbc_rD1                                                          3     17    FB5_6   37   I/O     O       STD  SLOW RESET
+to_bbc_rD0                                                          3     17    FB5_8   39   I/O     O       STD  SLOW RESET
+nDBuf_Dir                                                           1     1     FB5_9   40   I/O     O       STD  SLOW 
+nDBuf_CE                                                            3     14    FB5_11  41   I/O     O       STD  SLOW 
+to_bbc_Phi1                                                         3     7     FB5_15  46   I/O     O       STD  SLOW 
+to_bbc_RnW                                                          3     7     FB7_2   50   I/O     O       STD  SLOW 
+RTC_DS                                                              1     15    FB8_8   66   I/O     O       STD  SLOW 
+RTC_AS                                                              1     18    FB8_9   67   I/O     O       STD  SLOW 
+
+** 106 Buried Nodes **
+
+Signal                                                              Total Total Loc     Pwr  Reg Init
+Name                                                                Pts   Inps          Mode State
+slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2  1     5     FB1_1   STD  
+slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2  1     5     FB1_3   STD  
+msec_tick/msec_tick_D2                                              1     24    FB1_4   STD  
+slow_clk<8>                                                         3     8     FB1_5   STD  RESET
+slow_clk<6>                                                         3     5     FB1_6   STD  RESET
+slow_clk<4>                                                         3     7     FB1_7   STD  RESET
+slow_clk<20>                                                        3     7     FB1_8   STD  RESET
+slow_clk<18>                                                        3     5     FB1_9   STD  RESET
+slow_clk<16>                                                        3     8     FB1_10  STD  RESET
+slow_clk<12>                                                        3     7     FB1_11  STD  RESET
+slow_clk<11>                                                        3     6     FB1_12  STD  RESET
+slow_clk<10>                                                        3     5     FB1_13  STD  RESET
+long_CLR                                                            3     7     FB1_14  STD  RESET
+countsecb<3>                                                        3     7     FB1_15  STD  RESET
+countsecb<0>                                                        3     4     FB1_16  STD  RESET
+countsecb<2>                                                        4     7     FB1_17  STD  RESET
+countsecb<1>                                                        5     7     FB1_18  STD  RESET
+slow_clk_Madd__add0000__and0019/slow_clk_Madd__add0000__and0019_D2  1     5     FB2_1   STD  
+slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2  1     5     FB2_2   STD  
+slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2  1     5     FB2_3   STD  
+$OpTx$FX_DC$105                                                     1     11    FB2_4   STD  
+slow_clk<7>                                                         2     4     FB2_5   STD  RESET
+slow_clk<23>                                                        2     4     FB2_6   STD  RESET
+slow_clk<22>                                                        2     3     FB2_7   STD  RESET
+slow_clk<19>                                                        2     4     FB2_8   STD  RESET
+slow_clk<15>                                                        2     4     FB2_9   STD  RESET
+slow_clk<14>                                                        2     3     FB2_10  STD  RESET
+slow_clk<0>                                                         2     3     FB2_11  STD  RESET
+slow_clk<9>                                                         3     4     FB2_12  STD  RESET
+slow_clk<5>                                                         3     4     FB2_13  STD  RESET
+slow_clk<21>                                                        3     4     FB2_14  STD  RESET
+slow_clk<17>                                                        3     4     FB2_15  STD  RESET
+slow_clk<13>                                                        3     4     FB2_16  STD  RESET
+countseca<0>                                                        3     4     FB2_17  STD  RESET
+$OpTx$FX_DC$56                                                      3     12    FB2_18  STD  
+N0$BUF2/N0$BUF2_TRST                                                1     5     FB3_1   STD  
+N0$BUF1/N0$BUF1_TRST                                                1     5     FB3_2   STD  
+cc8Bank_2/cc8Bank_2_CLKF                                            2     7     FB3_3   STD  
+cc4Bank_3/cc4Bank_3_CLKF                                            2     7     FB3_4   STD  
+cc4Bank_2/cc4Bank_2_CLKF                                            2     7     FB3_5   STD  
+
+Signal                                                              Total Total Loc     Pwr  Reg Init
+Name                                                                Pts   Inps          Mode State
+long_RST                                                            3     7     FB3_6   STD  RESET
+countseca<3>                                                        3     7     FB3_7   STD  RESET
+countseca<2>                                                        3     6     FB3_10  STD  RESET
+countseca<1>                                                        3     5     FB3_13  STD  RESET
+RecMode                                                             3     4     FB3_16  STD  RESET
+$OpTx$BIN_STEP$493                                                  12    29    FB3_18  STD  
+$OpTx$DEC_Ram_ADDRESS_16_OBUF$0                                     15    19    FB4_6   STD  
+$OpTx$DEC_nWDS_OBUF$2                                               2     10    FB5_1   STD  
+WP_9                                                                3     19    FB5_3   STD  RESET
+WP_8                                                                3     19    FB5_4   STD  RESET
+WP_2                                                                3     19    FB5_7   STD  RESET
+WP_11                                                               3     19    FB5_10  STD  RESET
+WP_10                                                               3     19    FB5_12  STD  RESET
+WP_1                                                                3     19    FB5_13  STD  RESET
+WP_0                                                                3     19    FB5_14  STD  RESET
+EF_1                                                                3     19    FB5_16  STD  RESET
+EF_0                                                                3     19    FB5_17  STD  RESET
+$OpTx$DEC_nWDS_OBUF$1                                               8     14    FB5_18  STD  
+$OpTx$FX_SC$79                                                      1     3     FB6_4   STD  
+$OpTx$FX_SC$75                                                      1     3     FB6_5   STD  
+$OpTx$FX_SC$69                                                      1     3     FB6_6   STD  
+$OpTx$FX_SC$59                                                      1     2     FB6_7   STD  
+$OpTx$FX_SC$40                                                      1     2     FB6_8   STD  
+$OpTx$FX_SC$38                                                      1     2     FB6_9   STD  
+$OpTx$FX_DC$91                                                      1     2     FB6_10  STD  
+$OpTx$FX_DC$81                                                      1     2     FB6_11  STD  
+$OpTx$FX_DC$67                                                      1     4     FB6_12  STD  
+$OpTx$FX_DC$13                                                      1     2     FB6_13  STD  
+$OpTx$FX_DC$11                                                      1     3     FB6_14  STD  
+slow_clk<3>                                                         2     4     FB6_15  STD  RESET
+slow_clk<2>                                                         2     3     FB6_16  STD  RESET
+slow_clk<1>                                                         2     2     FB6_17  STD  RESET
+ROMDec                                                              2     3     FB6_18  STD  
+rD2                                                                 3     17    FB7_1   STD  RESET
+cc8Bank_7                                                           3     16    FB7_3   STD  RESET
+cc8Bank_6                                                           3     16    FB7_4   STD  RESET
+cc8Bank_5                                                           3     16    FB7_5   STD  RESET
+cc8Bank_4                                                           3     16    FB7_6   STD  RESET
+cc8Bank_3                                                           3     16    FB7_7   STD  RESET
+cc8Bank_2                                                           3     16    FB7_8   STD  RESET
+
+Signal                                                              Total Total Loc     Pwr  Reg Init
+Name                                                                Pts   Inps          Mode State
+cc8Bank_1                                                           3     16    FB7_9   STD  RESET
+cc4Bank_3                                                           3     15    FB7_10  STD  RESET
+cc4Bank_1                                                           4     15    FB7_11  STD  RESET
+$OpTx$FX_DC$25                                                      3     13    FB7_12  STD  
+cc8Bank_0                                                           6     14    FB7_13  STD  RESET
+cc4Bank_2                                                           6     14    FB7_14  STD  RESET
+cc4Bank_0                                                           6     14    FB7_15  STD  RESET
+$OpTx$INV$5                                                         6     12    FB7_16  STD  
+$OpTx$FX_DC$73                                                      6     10    FB7_17  STD  
+$OpTx$FX_DC$36                                                      6     10    FB7_18  STD  
+rD3                                                                 3     17    FB8_1   STD  RESET
+WP_7                                                                3     19    FB8_2   STD  RESET
+WP_6                                                                3     19    FB8_3   STD  RESET
+WP_5                                                                3     19    FB8_4   STD  RESET
+WP_4                                                                3     19    FB8_5   STD  RESET
+WP_3                                                                3     19    FB8_6   STD  RESET
+WP_15                                                               3     19    FB8_7   STD  RESET
+WP_14                                                               3     19    FB8_10  STD  RESET
+WP_13                                                               3     19    FB8_11  STD  RESET
+WP_12                                                               3     19    FB8_12  STD  RESET
+ShEn                                                                3     17    FB8_13  STD  RESET
+PrvS8                                                               3     17    FB8_14  STD  RESET
+PrvS4                                                               3     17    FB8_15  STD  RESET
+PrvS1                                                               3     17    FB8_16  STD  RESET
+PrvEn                                                               3     17    FB8_17  STD  RESET
+MemSel                                                              3     17    FB8_18  STD  RESET
+
+** 39 Inputs **
+
+Signal                                                              Loc     Pin  Pin     Pin     
+Name                                                                        No.  Type    Use     
+bbc_ADDRESS<3>                                                      FB1_3   12   I/O     I
+bbc_ADDRESS<10>                                                     FB1_5   13   I/O     I
+bbc_ADDRESS<2>                                                      FB1_6   14   I/O     I
+bbc_ADDRESS<1>                                                      FB1_8   15   I/O     I
+bbc_DATA<7>                                                         FB1_9   16   I/O     I
+bbc_ADDRESS<0>                                                      FB1_11  17   I/O     I
+bbc_DATA<6>                                                         FB1_12  18   I/O     I
+bbc_DATA<0>                                                         FB1_14  19   I/O     I
+bbc_DATA<5>                                                         FB1_15  20   I/O     I
+bbc_DATA<1>                                                         FB1_17  22   GCK/I/O I
+bbc_nRST                                                            FB2_2   99   GSR/I/O GSR/I
+bbc_ADDRESS<12>                                                     FB2_5   1    GTS/I/O I
+bbc_ADDRESS<13>                                                     FB2_6   2    GTS/I/O I
+bbc_ADDRESS<7>                                                      FB2_8   3    GTS/I/O I
+bbc_ADDRESS<8>                                                      FB2_9   4    GTS/I/O I
+bbc_ADDRESS<6>                                                      FB2_11  6    I/O     I
+bbc_ADDRESS<9>                                                      FB2_12  7    I/O     I
+bbc_ADDRESS<5>                                                      FB2_14  8    I/O     I
+bbc_ADDRESS<11>                                                     FB2_15  9    I/O     I
+bbc_ADDRESS<4>                                                      FB2_17  10   I/O     I
+bbc_DATA<4>                                                         FB3_2   23   GCK/I/O I
+bbc_DATA<2>                                                         FB3_5   24   I/O     I
+bbc_DATA<3>                                                         FB3_6   25   I/O     I
+bbc_ADDRESS<15>                                                     FB4_5   89   I/O     I
+from_CPU_RnW                                                        FB4_6   90   I/O     I
+bbc_ADDRESS<14>                                                     FB5_12  42   I/O     I
+from_CPU_Phi1                                                       FB5_14  43   I/O     I
+IntegraRomSel<15>                                                   FB7_5   52   I/O     I
+IntegraRomSel<14>                                                   FB7_6   53   I/O     I
+IntegraRomSel<13>                                                   FB7_8   54   I/O     I
+IntegraRomSel<12>                                                   FB7_9   55   I/O     I
+IntegraRomSel<11>                                                   FB7_11  56   I/O     I
+IntegraRomSel<10>                                                   FB7_12  58   I/O     I
+IntegraRomSel<9>                                                    FB7_14  59   I/O     I
+IntegraRomSel<8>                                                    FB7_15  60   I/O     I
+BeebRomSel<3>                                                       FB7_17  61   I/O     I
+BeebRomSel<2>                                                       FB8_2   63   I/O     I
+BeebRomSel<1>                                                       FB8_5   64   I/O     I
+BeebRomSel<0>                                                       FB8_6   65   I/O     I
+
+Legend:
+Pin No. - ~ - User Assigned
+**************************  Function Block Details  ************************
+Legend:
+Total Pt     - Total product terms used by the macrocell signal
+Imp Pt       - Product terms imported from other macrocells
+Exp Pt       - Product terms exported to other macrocells
+               in direction shown
+Unused Pt    - Unused local product terms remaining in macrocell
+Loc          - Location where logic was mapped in device
+Pin Type/Use - I  - Input             GCK - Global Clock
+               O  - Output            GTS - Global Output Enable
+              (b) - Buried macrocell  GSR - Global Set/Reset
+X            - Signal used as input to the macrocell logic.
+Pin No.      - ~  - User Assigned
+*********************************** FB1  ***********************************
+Number of function block inputs used/remaining:               38/16
+Number of signals used by logic mapping into function block:  38
+Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
+Name                Pt      Pt    Pt  Pt               #    Type    Use
+slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2
+                      1       0     0   4     FB1_1         (b)     (b)
+nRDS                  1       0     0   4     FB1_2   11    I/O     O
+slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2
+                      1       0     0   4     FB1_3   12    I/O     I
+msec_tick/msec_tick_D2
+                      1       0     0   4     FB1_4         (b)     (b)
+slow_clk<8>           3       0     0   2     FB1_5   13    I/O     I
+slow_clk<6>           3       0     0   2     FB1_6   14    I/O     I
+slow_clk<4>           3       0     0   2     FB1_7         (b)     (b)
+slow_clk<20>          3       0     0   2     FB1_8   15    I/O     I
+slow_clk<18>          3       0     0   2     FB1_9   16    I/O     I
+slow_clk<16>          3       0     0   2     FB1_10        (b)     (b)
+slow_clk<12>          3       0     0   2     FB1_11  17    I/O     I
+slow_clk<11>          3       0     0   2     FB1_12  18    I/O     I
+slow_clk<10>          3       0     0   2     FB1_13        (b)     (b)
+long_CLR              3       0     0   2     FB1_14  19    I/O     I
+countsecb<3>          3       0     0   2     FB1_15  20    I/O     I
+countsecb<0>          3       0     0   2     FB1_16        (b)     (b)
+countsecb<2>          4       0     0   1     FB1_17  22    GCK/I/O I
+countsecb<1>          5       0     0   0     FB1_18        (b)     (b)
+
+Signals Used by Logic in Function Block
+  1: from_CPU_Phi1           14: slow_clk<13>      27: slow_clk<3> 
+  2: countsecb<0>            15: slow_clk<14>      28: slow_clk<4> 
+  3: countsecb<1>            16: slow_clk<15>      29: slow_clk<5> 
+  4: countsecb<2>            17: slow_clk<16>      30: slow_clk<6> 
+  5: countsecb<3>            18: slow_clk<17>      31: slow_clk<7> 
+  6: long_CLR                19: slow_clk<18>      32: slow_clk<8> 
+  7: long_RST                20: slow_clk<19>      33: slow_clk<9> 
+  8: msec_tick/msec_tick_D2  21: slow_clk<1>       34: slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2 
+  9: from_CPU_RnW            22: slow_clk<20>      35: slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2 
+ 10: slow_clk<0>             23: slow_clk<21>      36: slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2 
+ 11: slow_clk<10>            24: slow_clk<22>      37: slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2 
+ 12: slow_clk<11>            25: slow_clk<23>      38: slow_clk_Madd__add0000__and0019/slow_clk_Madd__add0000__and0019_D2 
+ 13: slow_clk<12>            26: slow_clk<2>      
+
+Signal                        1         2         3         4 FB
+Name                0----+----0----+----0----+----0----+----0 Inputs
+slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2 
+                     .............XXXX..................X.... 5
+nRDS                 X....X..X............................... 3
+slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2 
+                     .........X..........X....XXX............ 5
+msec_tick/msec_tick_D2 
+                     .........XXXXXXXXXXXXXXXXXXXXXXXX....... 24
+slow_clk<8>          X......X....................XXXX.XX..... 8
+slow_clk<6>          X......X....................XX...X...... 5
+slow_clk<4>          X........X..........X....XXX.....X...... 7
+slow_clk<20>         X................XXX.X..............XX.. 7
+slow_clk<18>         X......X.........XX.................X... 5
+slow_clk<16>         X......X.....XXXX..................XX... 8
+slow_clk<12>         X.........XXX...................X.XX.... 7
+slow_clk<11>         X......X..XX....................X.X..... 6
+slow_clk<10>         X......X..X.....................X.X..... 5
+long_CLR             XXXXXXX................................. 7
+countsecb<3>         XXXXX.XX................................ 7
+countsecb<0>         XX....XX................................ 4
+countsecb<2>         XXXXX.XX................................ 7
+countsecb<1>         XXXXX.XX................................ 7
+                    0----+----1----+----2----+----3----+----4
+                              0         0         0         0
+*********************************** FB2  ***********************************
+Number of function block inputs used/remaining:               37/17
+Number of signals used by logic mapping into function block:  37
+Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
+Name                Pt      Pt    Pt  Pt               #    Type    Use
+slow_clk_Madd__add0000__and0019/slow_clk_Madd__add0000__and0019_D2
+                      1       0     0   4     FB2_1         (b)     (b)
+slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2
+                      1       0     0   4     FB2_2   99    GSR/I/O GSR/I
+slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2
+                      1       0     0   4     FB2_3         (b)     (b)
+$OpTx$FX_DC$105       1       0     0   4     FB2_4         (b)     (b)
+slow_clk<7>           2       0     0   3     FB2_5   1     GTS/I/O I
+slow_clk<23>          2       0     0   3     FB2_6   2     GTS/I/O I
+slow_clk<22>          2       0     0   3     FB2_7         (b)     (b)
+slow_clk<19>          2       0     0   3     FB2_8   3     GTS/I/O I
+slow_clk<15>          2       0     0   3     FB2_9   4     GTS/I/O I
+slow_clk<14>          2       0     0   3     FB2_10        (b)     (b)
+slow_clk<0>           2       0     0   3     FB2_11  6     I/O     I
+slow_clk<9>           3       0     0   2     FB2_12  7     I/O     I
+slow_clk<5>           3       0     0   2     FB2_13        (b)     (b)
+slow_clk<21>          3       0     0   2     FB2_14  8     I/O     I
+slow_clk<17>          3       0     0   2     FB2_15  9     I/O     I
+slow_clk<13>          3       0     0   2     FB2_16        (b)     (b)
+countseca<0>          3       0     0   2     FB2_17  10    I/O     I
+$OpTx$FX_DC$56        3       0     0   2     FB2_18        (b)     (b)
+
+Signals Used by Logic in Function Block
+  1: from_CPU_Phi1     14: countseca<0>            26: slow_clk<21> 
+  2: bbc_ADDRESS<10>   15: msec_tick/msec_tick_D2  27: slow_clk<22> 
+  3: bbc_ADDRESS<11>   16: slow_clk<0>             28: slow_clk<5> 
+  4: bbc_ADDRESS<12>   17: slow_clk<10>            29: slow_clk<6> 
+  5: bbc_ADDRESS<13>   18: slow_clk<11>            30: slow_clk<7> 
+  6: bbc_ADDRESS<14>   19: slow_clk<12>            31: slow_clk<8> 
+  7: bbc_ADDRESS<15>   20: slow_clk<13>            32: slow_clk<9> 
+  8: bbc_ADDRESS<5>    21: slow_clk<14>            33: slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2 
+  9: bbc_ADDRESS<6>    22: slow_clk<17>            34: slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2 
+ 10: bbc_ADDRESS<7>    23: slow_clk<18>            35: slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2 
+ 11: bbc_ADDRESS<8>    24: slow_clk<19>            36: slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2 
+ 12: bbc_ADDRESS<9>    25: slow_clk<20>            37: slow_clk_Madd__add0000__and0019/slow_clk_Madd__add0000__and0019_D2 
+ 13: bbc_nRST         
+
+Signal                        1         2         3         4 FB
+Name                0----+----0----+----0----+----0----+----0 Inputs
+slow_clk_Madd__add0000__and0019/slow_clk_Madd__add0000__and0019_D2 
+                     .....................XXXX..........X.... 5
+slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2 
+                     ................XXX............X.X...... 5
+slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2 
+                     ...........................XXXX.X....... 5
+$OpTx$FX_DC$105      .XXXXXXXXXXX............................ 11
+slow_clk<7>          X..........................XX...X....... 4
+slow_clk<23>         X........................XX.........X... 4
+slow_clk<22>         X........................X..........X... 3
+slow_clk<19>         X....................XX............X.... 4
+slow_clk<15>         X..................XX.............X..... 4
+slow_clk<14>         X..................X..............X..... 3
+slow_clk<0>          X.............XX........................ 3
+slow_clk<9>          X.............X................X.X...... 4
+slow_clk<5>          X.............X............X....X....... 4
+slow_clk<21>         X.............X..........X..........X... 4
+slow_clk<17>         X.............X......X.............X.... 4
+slow_clk<13>         X.............X....X..............X..... 4
+countseca<0>         X...........XXX......................... 4
+$OpTx$FX_DC$56       .XXXXXXXXXXXX........................... 12
+                    0----+----1----+----2----+----3----+----4
+                              0         0         0         0
+*********************************** FB3  ***********************************
+Number of function block inputs used/remaining:               45/9
+Number of signals used by logic mapping into function block:  45
+Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
+Name                Pt      Pt    Pt  Pt               #    Type    Use
+N0$BUF2/N0$BUF2_TRST
+                      1       0   /\3   1     FB3_1         (b)     (b)
+N0$BUF1/N0$BUF1_TRST
+                      1       0     0   4     FB3_2   23    GCK/I/O I
+cc8Bank_2/cc8Bank_2_CLKF
+                      2       0     0   3     FB3_3         (b)     (b)
+cc4Bank_3/cc4Bank_3_CLKF
+                      2       0     0   3     FB3_4         (b)     (b)
+cc4Bank_2/cc4Bank_2_CLKF
+                      2       0     0   3     FB3_5   24    I/O     I
+long_RST              3       0     0   2     FB3_6   25    I/O     I
+countseca<3>          3       0     0   2     FB3_7         (b)     (b)
+nRomBankSel<14>       1       0     0   4     FB3_8   27    GCK/I/O O
+nRomBankSel<15>       1       0     0   4     FB3_9   28    I/O     O
+countseca<2>          3       0     0   2     FB3_10        (b)     (b)
+nRomBankSel<12>       1       0     0   4     FB3_11  29    I/O     O
+nRomBankSel<13>       1       0     0   4     FB3_12  30    I/O     O
+countseca<1>          3       0     0   2     FB3_13        (b)     (b)
+nRomBankSel<10>       1       0     0   4     FB3_14  32    I/O     O
+nRomBankSel<11>       1       0     0   4     FB3_15  33    I/O     O
+RecMode               3       0     0   2     FB3_16        (b)     (b)
+nRomBankSel<8>        1       0   \/4   0     FB3_17  34    I/O     O
+$OpTx$BIN_STEP$493   12       7<-   0   0     FB3_18        (b)     (b)
+
+Signals Used by Logic in Function Block
+  1: $OpTx$FX_DC$11     16: IntegraRomSel<14>  31: WP_8 
+  2: $OpTx$FX_DC$13     17: IntegraRomSel<15>  32: WP_9 
+  3: $OpTx$FX_DC$36     18: IntegraRomSel<8>   33: bbc_nRST 
+  4: $OpTx$FX_DC$81     19: IntegraRomSel<9>   34: cc4Bank_3/cc4Bank_3_CLKF 
+  5: $OpTx$FX_DC$91     20: ROMDec             35: cc8Bank_2/cc8Bank_2_CLKF 
+  6: $OpTx$FX_SC$38     21: RecMode            36: countseca<0> 
+  7: $OpTx$FX_SC$40     22: from_CPU_Phi1      37: countseca<1> 
+  8: $OpTx$FX_SC$59     23: WP_10              38: countseca<2> 
+  9: $OpTx$FX_SC$69     24: WP_11              39: countseca<3> 
+ 10: $OpTx$FX_SC$75     25: WP_12              40: long_CLR 
+ 11: $OpTx$FX_SC$79     26: WP_13              41: long_RST 
+ 12: IntegraRomSel<10>  27: WP_14              42: msec_tick/msec_tick_D2 
+ 13: IntegraRomSel<11>  28: WP_15              43: from_CPU_RnW 
+ 14: IntegraRomSel<12>  29: WP_4               44: to_bbc_rD0 
+ 15: IntegraRomSel<13>  30: WP_6               45: to_bbc_rD1 
+
+Signal                        1         2         3         4         5 FB
+Name                0----+----0----+----0----+----0----+----0----+----0 Inputs
+N0$BUF2/N0$BUF2_TRST 
+                     ........X......X...XX......................X...... 5
+N0$BUF1/N0$BUF1_TRST 
+                     ........X.......X..XX......................X...... 5
+cc8Bank_2/cc8Bank_2_CLKF 
+                     X.X..................X..........XX.....X..X....... 7
+cc4Bank_3/cc4Bank_3_CLKF 
+                     X.X..................X..........X......X..XX...... 7
+cc4Bank_2/cc4Bank_2_CLKF 
+                     X.X..................X..........X.X....X..X....... 7
+long_RST             .....................X..........X..XXXX.X......... 7
+countseca<3>         .....................X..........X..XXXX..X........ 7
+nRomBankSel<14>      ........X......X...XX......................X...... 5
+nRomBankSel<15>      ........X.......X..XX......................X...... 5
+countseca<2>         .....................X..........X..XXX...X........ 6
+nRomBankSel<12>      .........X...X.....XX......................X...... 5
+nRomBankSel<13>      .........X....X....XX......................X...... 5
+countseca<1>         .....................X..........X..XX....X........ 5
+nRomBankSel<10>      X..........X.......XX......................X...... 5
+nRomBankSel<11>      X...........X......XX......................X...... 5
+RecMode              ....................XX..........X......X.......... 4
+nRomBankSel<8>       ..........X......X.XX......................X...... 5
+$OpTx$BIN_STEP$493   XX.XXXXXXXXXXXXXXXX...XXXXXXXXXX............X..... 29
+                    0----+----1----+----2----+----3----+----4----+----5
+                              0         0         0         0         0
+*********************************** FB4  ***********************************
+Number of function block inputs used/remaining:               46/8
+Number of signals used by logic mapping into function block:  46
+Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
+Name                Pt      Pt    Pt  Pt               #    Type    Use
+(unused)              0       0   /\5   0     FB4_1         (b)     (b)
+(unused)              0       0   /\3   2     FB4_2   87    I/O     (b)
+(unused)              0       0   \/1   4     FB4_3         (b)     (b)
+(unused)              0       0   \/5   0     FB4_4         (b)     (b)
+(unused)              0       0   \/5   0     FB4_5   89    I/O     I
+$OpTx$DEC_Ram_ADDRESS_16_OBUF$0
+                     15      11<- \/1   0     FB4_6   90    I/O     I
+(unused)              0       0   \/5   0     FB4_7         (b)     (b)
+nRAM_CE               6       6<- \/5   0     FB4_8   91    I/O     O
+Ram_ADDRESS<18>       9       5<- \/1   0     FB4_9   92    I/O     O
+(unused)              0       0   \/5   0     FB4_10        (b)     (b)
+Ram_ADDRESS<15>      14       9<-   0   0     FB4_11  93    I/O     O
+nWDS                  2       0   /\3   0     FB4_12  94    I/O     O
+(unused)              0       0   \/5   0     FB4_13        (b)     (b)
+Ram_ADDRESS<17>      15      10<-   0   0     FB4_14  95    I/O     O
+Ram_ADDRESS<16>       3       3<- /\5   0     FB4_15  96    I/O     O
+(unused)              0       0   /\3   2     FB4_16        (b)     (b)
+Ram_ADDRESS<14>      18      13<-   0   0     FB4_17  97    I/O     O
+(unused)              0       0   /\5   0     FB4_18        (b)     (b)
+
+Signals Used by Logic in Function Block
+  1: $OpTx$BIN_STEP$493               17: IntegraRomSel<13>     32: cc4Bank_3 
+  2: $OpTx$DEC_Ram_ADDRESS_16_OBUF$0  18: IntegraRomSel<8>      33: cc8Bank_0 
+  3: $OpTx$DEC_nWDS_OBUF$2            19: IntegraRomSel<9>      34: cc8Bank_1 
+  4: $OpTx$FX_DC$11                   20: N0$BUF1/N0$BUF1_TRST  35: cc8Bank_2 
+  5: $OpTx$FX_DC$13                   21: N0$BUF2/N0$BUF2_TRST  36: cc8Bank_3 
+  6: $OpTx$FX_DC$67                   22: ROMDec                37: cc8Bank_4 
+  7: $OpTx$FX_SC$59                   23: Ram_ADDRESS<17>       38: cc8Bank_5 
+  8: $OpTx$INV$5                      24: Ram_ADDRESS<18>       39: cc8Bank_6 
+  9: BeebRomSel<1>                    25: RecMode               40: cc8Bank_7 
+ 10: BeebRomSel<2>                    26: from_CPU_Phi1         41: from_CPU_RnW 
+ 11: BeebRomSel<3>                    27: WP_3                  42: nRomBankSel0_3 
+ 12: EF_0                             28: bbc_ADDRESS<14>       43: rD2 
+ 13: EF_1                             29: cc4Bank_0             44: rD3 
+ 14: IntegraRomSel<10>                30: cc4Bank_1             45: to_bbc_rD0 
+ 15: IntegraRomSel<11>                31: cc4Bank_2             46: to_bbc_rD1 
+ 16: IntegraRomSel<12>               
+
+Signal                        1         2         3         4         5 FB
+Name                0----+----0----+----0----+----0----+----0----+----0 Inputs
+$OpTx$DEC_Ram_ADDRESS_16_OBUF$0 
+                     .......X...XXXXXX..XXX..X....XX.....X..X..XXXX.... 19
+nRAM_CE              .......X...XX........XXXX................XXX...... 10
+Ram_ADDRESS<18>      ...XX..X....XXX......X..X....XXX.XXXXXXX...XXX.... 21
+Ram_ADDRESS<15>      .....X.X.XX..XX....XXX..X...XXX........X..XXXX.... 18
+nWDS                 X.X.X.X...X..........X...XX.............X....X.... 10
+Ram_ADDRESS<17>      .....X.X....XXXXXXXXXX..X...X..X.X..XX.X..XXXX.... 23
+Ram_ADDRESS<16>      .X.....X......X......X..X............XX...XXXX.... 11
+Ram_ADDRESS<14>      .......XX.XXXXX.X.XX.X..X..X..X.XX.X.X.X..XXXX.... 23
+                    0----+----1----+----2----+----3----+----4----+----5
+                              0         0         0         0         0
+*********************************** FB5  ***********************************
+Number of function block inputs used/remaining:               45/9
+Number of signals used by logic mapping into function block:  45
+Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
+Name                Pt      Pt    Pt  Pt               #    Type    Use
+$OpTx$DEC_nWDS_OBUF$2
+                      2       0   /\1   2     FB5_1         (b)     (b)
+nRomBankSel<9>        1       0     0   4     FB5_2   35    I/O     O
+WP_9                  3       0     0   2     FB5_3         (b)     (b)
+WP_8                  3       0     0   2     FB5_4         (b)     (b)
+nRomBankSel0_3        5       0     0   0     FB5_5   36    I/O     O
+to_bbc_rD1            3       0     0   2     FB5_6   37    I/O     O
+WP_2                  3       0     0   2     FB5_7         (b)     (b)
+to_bbc_rD0            3       0     0   2     FB5_8   39    I/O     O
+nDBuf_Dir             1       0     0   4     FB5_9   40    I/O     O
+WP_11                 3       0     0   2     FB5_10        (b)     (b)
+nDBuf_CE              3       0     0   2     FB5_11  41    I/O     O
+WP_10                 3       0     0   2     FB5_12  42    I/O     I
+WP_1                  3       0     0   2     FB5_13        (b)     (b)
+WP_0                  3       0     0   2     FB5_14  43    I/O     I
+to_bbc_Phi1           3       0     0   2     FB5_15  46    I/O     O
+EF_1                  3       0     0   2     FB5_16        (b)     (b)
+EF_0                  3       0   \/2   0     FB5_17  49    I/O     (b)
+$OpTx$DEC_nWDS_OBUF$1
+                      8       3<-   0   0     FB5_18        (b)     (b)
+
+Signals Used by Logic in Function Block
+  1: $OpTx$BIN_STEP$493     16: from_CPU_Phi1     31: bbc_ADDRESS<3> 
+  2: $OpTx$DEC_nWDS_OBUF$1  17: ShEn              32: bbc_ADDRESS<4> 
+  3: $OpTx$FX_DC$13         18: WP_0              33: bbc_ADDRESS<5> 
+  4: $OpTx$FX_DC$73         19: WP_3              34: bbc_ADDRESS<6> 
+  5: $OpTx$FX_SC$59         20: WP_5              35: bbc_ADDRESS<7> 
+  6: $OpTx$FX_SC$79         21: WP_7              36: bbc_ADDRESS<8> 
+  7: $OpTx$INV$5            22: bbc_ADDRESS<0>    37: bbc_ADDRESS<9> 
+  8: BeebRomSel<0>          23: bbc_ADDRESS<10>   38: bbc_DATA<0> 
+  9: BeebRomSel<1>          24: bbc_ADDRESS<11>   39: bbc_DATA<1> 
+ 10: BeebRomSel<2>          25: bbc_ADDRESS<12>   40: bbc_DATA<2> 
+ 11: BeebRomSel<3>          26: bbc_ADDRESS<13>   41: bbc_DATA<3> 
+ 12: IntegraRomSel<9>       27: bbc_ADDRESS<14>   42: from_CPU_RnW 
+ 13: MemSel                 28: bbc_ADDRESS<15>   43: nRomBankSel0_3 
+ 14: ROMDec                 29: bbc_ADDRESS<1>    44: to_bbc_rD0 
+ 15: RecMode                30: bbc_ADDRESS<2>    45: to_bbc_rD1 
+
+Signal                        1         2         3         4         5 FB
+Name                0----+----0----+----0----+----0----+----0----+----0 Inputs
+$OpTx$DEC_nWDS_OBUF$2 
+                     XXX.......X..X.X..X.X....................X..X..... 10
+nRomBankSel<9>       .....X.....X.XX............................X...... 5
+WP_9                 ...............X.....XXXXXXXXXXXXXXXX.X..X........ 19
+WP_8                 ...............X.....XXXXXXXXXXXXXXXXX...X........ 19
+nRomBankSel0_3       ..X....XXXX..XX............................XX..... 9
+to_bbc_rD1           ...............X......XXXXXX.XXXXXXXX.X..X........ 17
+WP_2                 ...............X.....XXXXXXXXXXXXXXXX..X.X........ 19
+to_bbc_rD0           ...............X......XXXXXX.XXXXXXXXX...X........ 17
+nDBuf_Dir            .........................................X........ 1
+WP_11                ...............X.....XXXXXXXXXXXXXXXX...XX........ 19
+nDBuf_CE             ......X...............XXXXXX...XXXXXX.....X....... 14
+WP_10                ...............X.....XXXXXXXXXXXXXXXX..X.X........ 19
+WP_1                 ...............X.....XXXXXXXXXXXXXXXX.X..X........ 19
+WP_0                 ...............X.....XXXXXXXXXXXXXXXXX...X........ 19
+to_bbc_Phi1          ............X..XX.......XXXX...................... 7
+EF_1                 ...............X.....XXXXXXXXXXXXXXXX.X..X........ 19
+EF_0                 ...............X.....XXXXXXXXXXXXXXXXX...X........ 19
+$OpTx$DEC_nWDS_OBUF$1 
+                     X.XXX.XX.....X.X.X.XX....................X.XX..... 14
+                    0----+----1----+----2----+----3----+----4----+----5
+                              0         0         0         0         0
+*********************************** FB6  ***********************************
+Number of function block inputs used/remaining:               19/35
+Number of signals used by logic mapping into function block:  19
+Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
+Name                Pt      Pt    Pt  Pt               #    Type    Use
+(unused)              0       0     0   5     FB6_1         (b)     
+(unused)              0       0     0   5     FB6_2   74    I/O     
+(unused)              0       0     0   5     FB6_3         (b)     
+$OpTx$FX_SC$79        1       0     0   4     FB6_4         (b)     (b)
+$OpTx$FX_SC$75        1       0     0   4     FB6_5   76    I/O     (b)
+$OpTx$FX_SC$69        1       0     0   4     FB6_6   77    I/O     (b)
+$OpTx$FX_SC$59        1       0     0   4     FB6_7         (b)     (b)
+$OpTx$FX_SC$40        1       0     0   4     FB6_8   78    I/O     (b)
+$OpTx$FX_SC$38        1       0     0   4     FB6_9   79    I/O     (b)
+$OpTx$FX_DC$91        1       0     0   4     FB6_10        (b)     (b)
+$OpTx$FX_DC$81        1       0     0   4     FB6_11  80    I/O     (b)
+$OpTx$FX_DC$67        1       0     0   4     FB6_12  81    I/O     (b)
+$OpTx$FX_DC$13        1       0     0   4     FB6_13        (b)     (b)
+$OpTx$FX_DC$11        1       0     0   4     FB6_14  82    I/O     (b)
+slow_clk<3>           2       0     0   3     FB6_15  85    I/O     (b)
+slow_clk<2>           2       0     0   3     FB6_16        (b)     (b)
+slow_clk<1>           2       0     0   3     FB6_17  86    I/O     (b)
+ROMDec                2       0     0   3     FB6_18        (b)     (b)
+
+Signals Used by Logic in Function Block
+  1: $OpTx$FX_DC$73     8: cc8Bank_0         14: rD3 
+  2: $OpTx$INV$5        9: cc8Bank_2         15: slow_clk<0> 
+  3: BeebRomSel<1>     10: cc8Bank_3         16: slow_clk<1> 
+  4: BeebRomSel<2>     11: cc8Bank_6         17: slow_clk<2> 
+  5: from_CPU_Phi1     12: nRomBankSel0_3    18: to_bbc_rD0 
+  6: WP_1              13: rD2               19: to_bbc_rD1 
+  7: WP_2             
+
+Signal                        1         2         3         4 FB
+Name                0----+----0----+----0----+----0----+----0 Inputs
+$OpTx$FX_SC$79       ............XX....X..................... 3
+$OpTx$FX_SC$75       ............XX....X..................... 3
+$OpTx$FX_SC$69       ............XX....X..................... 3
+$OpTx$FX_SC$59       ............XX.......................... 2
+$OpTx$FX_SC$40       .X...............X...................... 2
+$OpTx$FX_SC$38       .X...............X...................... 2
+$OpTx$FX_DC$91       ...X..X................................. 2
+$OpTx$FX_DC$81       ..X..X.................................. 2
+$OpTx$FX_DC$67       .......XXXX............................. 4
+$OpTx$FX_DC$13       ............XX.......................... 2
+$OpTx$FX_DC$11       ............XX....X..................... 3
+slow_clk<3>          ....X.........XXX....................... 4
+slow_clk<2>          ....X.........XX........................ 3
+slow_clk<1>          ....X.........X......................... 2
+ROMDec               X...X......X............................ 3
+                    0----+----1----+----2----+----3----+----4
+                              0         0         0         0
+*********************************** FB7  ***********************************
+Number of function block inputs used/remaining:               42/12
+Number of signals used by logic mapping into function block:  42
+Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
+Name                Pt      Pt    Pt  Pt               #    Type    Use
+rD2                   3       0   /\2   0     FB7_1         (b)     (b)
+to_bbc_RnW            3       0     0   2     FB7_2   50    I/O     O
+cc8Bank_7             3       0     0   2     FB7_3         (b)     (b)
+cc8Bank_6             3       0     0   2     FB7_4         (b)     (b)
+cc8Bank_5             3       0     0   2     FB7_5   52    I/O     I
+cc8Bank_4             3       0     0   2     FB7_6   53    I/O     I
+cc8Bank_3             3       0     0   2     FB7_7         (b)     (b)
+cc8Bank_2             3       0     0   2     FB7_8   54    I/O     I
+cc8Bank_1             3       0     0   2     FB7_9   55    I/O     I
+cc4Bank_3             3       0   \/1   1     FB7_10        (b)     (b)
+cc4Bank_1             4       1<- \/2   0     FB7_11  56    I/O     I
+$OpTx$FX_DC$25        3       2<- \/4   0     FB7_12  58    I/O     I
+cc8Bank_0             6       4<- \/3   0     FB7_13        (b)     (b)
+cc4Bank_2             6       3<- \/2   0     FB7_14  59    I/O     I
+cc4Bank_0             6       2<- \/1   0     FB7_15  60    I/O     I
+$OpTx$INV$5           6       1<-   0   0     FB7_16        (b)     (b)
+$OpTx$FX_DC$73        6       1<-   0   0     FB7_17  61    I/O     I
+$OpTx$FX_DC$36        6       2<- /\1   0     FB7_18        (b)     (b)
+
+Signals Used by Logic in Function Block
+  1: $OpTx$FX_DC$105   15: bbc_ADDRESS<14>   29: cc4Bank_2 
+  2: $OpTx$FX_DC$25    16: bbc_ADDRESS<15>   30: cc4Bank_2/cc4Bank_2_CLKF 
+  3: $OpTx$FX_DC$56    17: bbc_ADDRESS<2>    31: cc4Bank_3 
+  4: MemSel            18: bbc_ADDRESS<3>    32: cc4Bank_3/cc4Bank_3_CLKF 
+  5: PrvEn             19: bbc_ADDRESS<4>    33: cc8Bank_0 
+  6: PrvS1             20: bbc_ADDRESS<5>    34: cc8Bank_1 
+  7: PrvS4             21: bbc_ADDRESS<6>    35: cc8Bank_2 
+  8: PrvS8             22: bbc_ADDRESS<7>    36: cc8Bank_2/cc8Bank_2_CLKF 
+  9: from_CPU_Phi1     23: bbc_ADDRESS<8>    37: cc8Bank_3 
+ 10: ShEn              24: bbc_ADDRESS<9>    38: cc8Bank_4 
+ 11: bbc_ADDRESS<10>   25: bbc_DATA<2>       39: cc8Bank_5 
+ 12: bbc_ADDRESS<11>   26: bbc_nRST          40: cc8Bank_6 
+ 13: bbc_ADDRESS<12>   27: cc4Bank_0         41: cc8Bank_7 
+ 14: bbc_ADDRESS<13>   28: cc4Bank_1         42: from_CPU_RnW 
+
+Signal                        1         2         3         4         5 FB
+Name                0----+----0----+----0----+----0----+----0----+----0 Inputs
+rD2                  ........X.XXXXXXXXXXXXXXX................X........ 17
+to_bbc_RnW           ...X.....X..XXXX.........................X........ 7
+cc8Bank_7            .X........XXXXXX...XXXXX.X......X..X....X......... 16
+cc8Bank_6            .X........XXXXXX...XXXXX.X......X..X...X.......... 16
+cc8Bank_5            .X........XXXXXX...XXXXX.X......X..X..X........... 16
+cc8Bank_4            .X........XXXXXX...XXXXX.X......X..X.X............ 16
+cc8Bank_3            .X........XXXXXX...XXXXX.X......X..XX............. 16
+cc8Bank_2            .X........XXXXXX...XXXXX.X......X.XX.............. 16
+cc8Bank_1            .X........XXXXXX...XXXXX.X......XX.X.............. 16
+cc4Bank_3            X.X.......XXXXXX...XXXXX......XX.................. 15
+cc4Bank_1            X.X.......XXXXXX...XXXXX...X.X.................... 15
+$OpTx$FX_DC$25       ..........XXXXXX...XXXXX.X......X................. 13
+cc8Bank_0            ..........XXXXXX...XXXXX.X......X..X.............. 14
+cc4Bank_2            ..........XXXXXX...XXXXX.X..XX.................... 14
+cc4Bank_0            ..........XXXXXX...XXXXX.XX..X.................... 14
+$OpTx$INV$5          ...XXXXX.XXXXXXX.................................. 12
+$OpTx$FX_DC$73       ....XXXX..XXXXXX.................................. 10
+$OpTx$FX_DC$36       ....XXXX..XXXXXX.................................. 10
+                    0----+----1----+----2----+----3----+----4----+----5
+                              0         0         0         0         0
+*********************************** FB8  ***********************************
+Number of function block inputs used/remaining:               23/31
+Number of signals used by logic mapping into function block:  23
+Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
+Name                Pt      Pt    Pt  Pt               #    Type    Use
+rD3                   3       0     0   2     FB8_1         (b)     (b)
+WP_7                  3       0     0   2     FB8_2   63    I/O     I
+WP_6                  3       0     0   2     FB8_3         (b)     (b)
+WP_5                  3       0     0   2     FB8_4         (b)     (b)
+WP_4                  3       0     0   2     FB8_5   64    I/O     I
+WP_3                  3       0     0   2     FB8_6   65    I/O     I
+WP_15                 3       0     0   2     FB8_7         (b)     (b)
+RTC_DS                1       0     0   4     FB8_8   66    I/O     O
+RTC_AS                1       0     0   4     FB8_9   67    I/O     O
+WP_14                 3       0     0   2     FB8_10        (b)     (b)
+WP_13                 3       0     0   2     FB8_11  68    I/O     (b)
+WP_12                 3       0     0   2     FB8_12  70    I/O     (b)
+ShEn                  3       0     0   2     FB8_13        (b)     (b)
+PrvS8                 3       0     0   2     FB8_14  71    I/O     (b)
+PrvS4                 3       0     0   2     FB8_15  72    I/O     (b)
+PrvS1                 3       0     0   2     FB8_16        (b)     (b)
+PrvEn                 3       0     0   2     FB8_17  73    I/O     (b)
+MemSel                3       0     0   2     FB8_18        (b)     (b)
+
+Signals Used by Logic in Function Block
+  1: from_CPU_Phi1      9: bbc_ADDRESS<1>    17: bbc_ADDRESS<9> 
+  2: bbc_ADDRESS<0>    10: bbc_ADDRESS<2>    18: bbc_DATA<3> 
+  3: bbc_ADDRESS<10>   11: bbc_ADDRESS<3>    19: bbc_DATA<4> 
+  4: bbc_ADDRESS<11>   12: bbc_ADDRESS<4>    20: bbc_DATA<5> 
+  5: bbc_ADDRESS<12>   13: bbc_ADDRESS<5>    21: bbc_DATA<6> 
+  6: bbc_ADDRESS<13>   14: bbc_ADDRESS<6>    22: bbc_DATA<7> 
+  7: bbc_ADDRESS<14>   15: bbc_ADDRESS<7>    23: from_CPU_RnW 
+  8: bbc_ADDRESS<15>   16: bbc_ADDRESS<8>   
+
+Signal                        1         2         3         4 FB
+Name                0----+----0----+----0----+----0----+----0 Inputs
+rD3                  X.XXXXXX.XXXXXXXXX....X................. 17
+WP_7                 XXXXXXXXXXXXXXXXX....XX................. 19
+WP_6                 XXXXXXXXXXXXXXXXX...X.X................. 19
+WP_5                 XXXXXXXXXXXXXXXXX..X..X................. 19
+WP_4                 XXXXXXXXXXXXXXXXX.X...X................. 19
+WP_3                 XXXXXXXXXXXXXXXXXX....X................. 19
+WP_15                XXXXXXXXXXXXXXXXX....XX................. 19
+RTC_DS               X.XXXXXX.XXXXXXXX....................... 15
+RTC_AS               XXXXXXXXXXXXXXXXX.....X................. 18
+WP_14                XXXXXXXXXXXXXXXXX...X.X................. 19
+WP_13                XXXXXXXXXXXXXXXXX..X..X................. 19
+WP_12                XXXXXXXXXXXXXXXXX.X...X................. 19
+ShEn                 X.XXXXXX.XXXXXXXX....XX................. 17
+PrvS8                X.XXXXXX.XXXXXXXX.X...X................. 17
+PrvS4                X.XXXXXX.XXXXXXXX..X..X................. 17
+PrvS1                X.XXXXXX.XXXXXXXX...X.X................. 17
+PrvEn                X.XXXXXX.XXXXXXXX...X.X................. 17
+MemSel               X.XXXXXX.XXXXXXXX....XX................. 17
+                    0----+----1----+----2----+----3----+----4
+                              0         0         0         0
+*******************************  Equations  ********************************
+
+********** Mapped Logic **********
+
+
+$OpTx$BIN_STEP$493 <= ((to_bbc_rD1 AND NOT WP_6 AND $OpTx$FX_SC$38 AND 
+	$OpTx$FX_SC$59)
+	OR (to_bbc_rD1 AND $OpTx$FX_DC$13 AND $OpTx$FX_SC$38 AND 
+	NOT $OpTx$FX_DC$91)
+	OR (NOT to_bbc_rD1 AND NOT WP_4 AND $OpTx$FX_SC$38 AND 
+	$OpTx$FX_SC$59)
+	OR (NOT to_bbc_rD1 AND $OpTx$FX_DC$13 AND $OpTx$FX_SC$40 AND 
+	NOT $OpTx$FX_DC$81)
+	OR (NOT IntegraRomSel(11) AND NOT WP_11 AND $OpTx$FX_DC$11 AND 
+	$OpTx$FX_SC$40)
+	OR (NOT IntegraRomSel(12) AND NOT WP_12 AND $OpTx$FX_SC$75 AND 
+	$OpTx$FX_SC$38)
+	OR (NOT IntegraRomSel(14) AND NOT WP_14 AND $OpTx$FX_SC$69 AND 
+	$OpTx$FX_SC$38)
+	OR (NOT IntegraRomSel(10) AND NOT WP_10 AND $OpTx$FX_DC$11 AND 
+	$OpTx$FX_SC$38)
+	OR (NOT IntegraRomSel(13) AND NOT WP_13 AND $OpTx$FX_SC$75 AND 
+	$OpTx$FX_SC$40)
+	OR (NOT IntegraRomSel(15) AND NOT WP_15 AND $OpTx$FX_SC$69 AND 
+	$OpTx$FX_SC$40)
+	OR (NOT IntegraRomSel(9) AND NOT WP_9 AND $OpTx$FX_SC$79 AND 
+	$OpTx$FX_SC$40)
+	OR (NOT WP_8 AND NOT IntegraRomSel(8) AND $OpTx$FX_SC$79 AND 
+	$OpTx$FX_SC$38));
+
+
+$OpTx$DEC_Ram_ADDRESS_16_OBUF$0 <= ((EXP13_.EXP)
+	OR (rD2 AND NOT rD3 AND NOT RecMode AND ROMDec AND NOT $OpTx$INV$5)
+	OR (to_bbc_rD1 AND rD2 AND rD3 AND ROMDec AND NOT $OpTx$INV$5 AND 
+	NOT N0$BUF1/N0$BUF1_TRST AND NOT N0$BUF2/N0$BUF2_TRST)
+	OR (to_bbc_rD1 AND to_bbc_rD0 AND rD2 AND NOT RecMode AND 
+	ROMDec AND cc8Bank_7 AND NOT $OpTx$INV$5 AND NOT N0$BUF1/N0$BUF1_TRST)
+	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND rD2 AND NOT RecMode AND 
+	ROMDec AND cc4Bank_1 AND NOT $OpTx$INV$5 AND NOT N0$BUF2/N0$BUF2_TRST)
+	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND rD2 AND NOT RecMode AND 
+	ROMDec AND cc4Bank_2 AND NOT $OpTx$INV$5 AND NOT N0$BUF2/N0$BUF2_TRST)
+	OR (to_bbc_rD1 AND rD2 AND NOT rD3 AND EF_1 AND ROMDec AND 
+	NOT $OpTx$INV$5)
+	OR (rD2 AND NOT EF_1 AND NOT EF_0 AND RecMode AND ROMDec AND 
+	NOT $OpTx$INV$5)
+	OR (to_bbc_rD0 AND rD2 AND rD3 AND NOT IntegraRomSel(13) AND 
+	ROMDec AND NOT $OpTx$INV$5 AND NOT N0$BUF1/N0$BUF1_TRST AND 
+	NOT N0$BUF2/N0$BUF2_TRST)
+	OR (NOT to_bbc_rD0 AND rD2 AND rD3 AND NOT IntegraRomSel(12) AND 
+	ROMDec AND NOT $OpTx$INV$5 AND NOT N0$BUF1/N0$BUF1_TRST AND 
+	NOT N0$BUF2/N0$BUF2_TRST));
+
+
+$OpTx$DEC_nWDS_OBUF$1 <= ((NOT from_CPU_Phi1 AND NOT to_bbc_rD0 AND NOT from_CPU_RnW AND 
+	ROMDec AND WP_0 AND NOT BeebRomSel(0) AND $OpTx$FX_DC$13 AND 
+	NOT $OpTx$BIN_STEP$493)
+	OR (NOT from_CPU_Phi1 AND to_bbc_rD1 AND NOT from_CPU_RnW AND 
+	WP_7 AND NOT $OpTx$FX_DC$73 AND NOT $OpTx$FX_DC$13 AND 
+	NOT $OpTx$BIN_STEP$493)
+	OR (NOT from_CPU_Phi1 AND NOT to_bbc_rD1 AND to_bbc_rD0 AND 
+	NOT from_CPU_RnW AND NOT $OpTx$FX_DC$73 AND NOT $OpTx$BIN_STEP$493 AND 
+	NOT $OpTx$FX_SC$59)
+	OR (NOT from_CPU_Phi1 AND NOT from_CPU_RnW AND $OpTx$INV$5 AND 
+	NOT $OpTx$BIN_STEP$493)
+	OR (NOT from_CPU_Phi1 AND NOT to_bbc_rD0 AND NOT from_CPU_RnW AND 
+	NOT $OpTx$FX_DC$73 AND NOT $OpTx$FX_DC$13 AND NOT $OpTx$BIN_STEP$493)
+	OR (NOT from_CPU_Phi1 AND NOT from_CPU_RnW AND NOT $OpTx$FX_DC$73 AND 
+	NOT $OpTx$FX_DC$13 AND NOT $OpTx$BIN_STEP$493 AND NOT $OpTx$FX_SC$59)
+	OR (NOT from_CPU_Phi1 AND to_bbc_rD1 AND NOT to_bbc_rD0 AND 
+	NOT from_CPU_RnW AND ROMDec AND $OpTx$FX_DC$13 AND NOT $OpTx$BIN_STEP$493)
+	OR (NOT from_CPU_Phi1 AND NOT to_bbc_rD1 AND to_bbc_rD0 AND 
+	NOT from_CPU_RnW AND WP_5 AND NOT $OpTx$FX_DC$73 AND NOT $OpTx$BIN_STEP$493));
+
+
+$OpTx$DEC_nWDS_OBUF$2 <= (($OpTx$DEC_nWDS_OBUF$1)
+	OR (NOT from_CPU_Phi1 AND to_bbc_rD1 AND NOT from_CPU_RnW AND 
+	ROMDec AND WP_3 AND WP_7 AND NOT BeebRomSel(3) AND $OpTx$FX_DC$13 AND 
+	NOT $OpTx$BIN_STEP$493));
+
+
+$OpTx$FX_DC$105 <= (NOT bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+	bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15));
+
+
+$OpTx$FX_DC$11 <= (to_bbc_rD1 AND NOT rD2 AND rD3);
+
+
+$OpTx$FX_DC$13 <= (NOT rD2 AND NOT rD3);
+
+
+$OpTx$FX_DC$25 <= ((NOT bbc_nRST)
+	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(14) AND 
+	bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND bbc_ADDRESS(11) AND 
+	bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND bbc_ADDRESS(15) AND cc8Bank_0)
+	OR (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+	bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15)));
+
+
+$OpTx$FX_DC$36 <= ((bbc_ADDRESS(14))
+	OR (NOT bbc_ADDRESS(15))
+	OR (bbc_ADDRESS(13) AND NOT bbc_ADDRESS(12) AND PrvS8 AND 
+	PrvEn)
+	OR (NOT bbc_ADDRESS(13) AND NOT bbc_ADDRESS(12) AND 
+	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND PrvEn AND PrvS1)
+	OR (NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND PrvS8 AND 
+	PrvEn)
+	OR (NOT bbc_ADDRESS(13) AND NOT bbc_ADDRESS(12) AND PrvEn AND 
+	PrvS4));
+
+
+$OpTx$FX_DC$56 <= ((NOT bbc_nRST)
+	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15))
+	OR (NOT bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND NOT bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15)));
+
+
+$OpTx$FX_DC$67 <= (NOT cc8Bank_0 AND NOT cc8Bank_6 AND NOT cc8Bank_2 AND NOT cc8Bank_3);
+
+
+$OpTx$FX_DC$73 <= ((bbc_ADDRESS(14))
+	OR (NOT bbc_ADDRESS(15))
+	OR (NOT bbc_ADDRESS(13) AND NOT bbc_ADDRESS(12) AND 
+	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND PrvEn AND PrvS1)
+	OR (bbc_ADDRESS(13) AND NOT bbc_ADDRESS(12) AND PrvS8 AND 
+	PrvEn)
+	OR (NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND PrvS8 AND 
+	PrvEn)
+	OR (NOT bbc_ADDRESS(13) AND NOT bbc_ADDRESS(12) AND PrvEn AND 
+	PrvS4));
+
+
+$OpTx$FX_DC$81 <= (WP_1 AND NOT BeebRomSel(1));
+
+
+$OpTx$FX_DC$91 <= (WP_2 AND NOT BeebRomSel(2));
+
+
+$OpTx$FX_SC$38 <= (NOT to_bbc_rD0 AND NOT $OpTx$INV$5);
+
+
+$OpTx$FX_SC$40 <= (to_bbc_rD0 AND NOT $OpTx$INV$5);
+
+
+$OpTx$FX_SC$59 <= (rD2 AND NOT rD3);
+
+
+$OpTx$FX_SC$69 <= (to_bbc_rD1 AND rD2 AND rD3);
+
+
+$OpTx$FX_SC$75 <= (NOT to_bbc_rD1 AND rD2 AND rD3);
+
+
+$OpTx$FX_SC$79 <= (NOT to_bbc_rD1 AND NOT rD2 AND rD3);
+
+
+$OpTx$INV$5 <= ((NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND 
+	NOT bbc_ADDRESS(12) AND NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND 
+	bbc_ADDRESS(15) AND PrvEn AND PrvS1)
+	OR (bbc_ADDRESS(14) AND NOT bbc_ADDRESS(15) AND NOT MemSel AND 
+	ShEn)
+	OR (bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	NOT bbc_ADDRESS(15) AND NOT MemSel AND ShEn)
+	OR (NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND 
+	NOT bbc_ADDRESS(12) AND bbc_ADDRESS(15) AND PrvS8 AND PrvEn)
+	OR (NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND 
+	bbc_ADDRESS(12) AND bbc_ADDRESS(15) AND PrvS8 AND PrvEn)
+	OR (NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND 
+	NOT bbc_ADDRESS(12) AND bbc_ADDRESS(15) AND PrvEn AND PrvS4));
+
+FDCPE_EF_0: FDCPE port map (EF_0,bbc_DATA(0),from_CPU_Phi1,NOT bbc_nRST,'0',EF_0_CE);
+EF_0_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND NOT bbc_ADDRESS(1) AND bbc_ADDRESS(0));
+
+FDCPE_EF_1: FDCPE port map (EF_1,bbc_DATA(1),from_CPU_Phi1,NOT bbc_nRST,'0',EF_1_CE);
+EF_1_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND NOT bbc_ADDRESS(1) AND bbc_ADDRESS(0));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FDCPE_MemSel: FDCPE port map (MemSel,bbc_DATA(7),from_CPU_Phi1,NOT bbc_nRST,'0',MemSel_CE);
+MemSel_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	NOT bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2));
+
+
+N0$BUF1/N0$BUF1_TRST <= (to_bbc_rD0 AND IntegraRomSel(15) AND NOT RecMode AND 
+	ROMDec AND $OpTx$FX_SC$69);
+
+
+N0$BUF2/N0$BUF2_TRST <= (NOT to_bbc_rD0 AND IntegraRomSel(14) AND NOT RecMode AND 
+	ROMDec AND $OpTx$FX_SC$69);
+
+FDCPE_PrvEn: FDCPE port map (PrvEn,bbc_DATA(6),from_CPU_Phi1,NOT bbc_nRST,'0',PrvEn_CE);
+PrvEn_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	NOT bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2));
+
+FDCPE_PrvS1: FDCPE port map (PrvS1,bbc_DATA(6),from_CPU_Phi1,NOT bbc_nRST,'0',PrvS1_CE);
+PrvS1_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	NOT bbc_ADDRESS(3) AND bbc_ADDRESS(2));
+
+FDCPE_PrvS4: FDCPE port map (PrvS4,bbc_DATA(5),from_CPU_Phi1,NOT bbc_nRST,'0',PrvS4_CE);
+PrvS4_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	NOT bbc_ADDRESS(3) AND bbc_ADDRESS(2));
+
+FDCPE_PrvS8: FDCPE port map (PrvS8,bbc_DATA(4),from_CPU_Phi1,NOT bbc_nRST,'0',PrvS8_CE);
+PrvS8_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	NOT bbc_ADDRESS(3) AND bbc_ADDRESS(2));
+
+
+ROMDec <= ((NOT from_CPU_Phi1 AND NOT $OpTx$FX_DC$73)
+	OR (NOT nRomBankSel0_3 AND NOT $OpTx$FX_DC$73));
+
+
+RTC_AS <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_Phi1 AND 
+	NOT from_CPU_RnW AND bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND NOT bbc_ADDRESS(1) AND 
+	NOT bbc_ADDRESS(0));
+
+
+RTC_DS <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_Phi1 AND 
+	bbc_ADDRESS(3) AND bbc_ADDRESS(2));
+
+
+Ram_ADDRESS(14) <= ((EXP10_.EXP)
+	OR (to_bbc_rD0 AND rD2 AND NOT rD3 AND NOT EF_1 AND ROMDec AND 
+	NOT $OpTx$INV$5)
+	OR (to_bbc_rD0 AND rD2 AND NOT rD3 AND EF_0 AND ROMDec AND 
+	NOT $OpTx$INV$5)
+	OR (to_bbc_rD1 AND to_bbc_rD0 AND rD2 AND EF_1 AND RecMode AND 
+	ROMDec AND NOT $OpTx$INV$5)
+	OR (to_bbc_rD1 AND to_bbc_rD0 AND NOT rD3 AND NOT RecMode AND 
+	ROMDec AND NOT BeebRomSel(3) AND NOT $OpTx$INV$5)
+	OR (NOT to_bbc_rD1 AND to_bbc_rD0 AND NOT rD3 AND NOT RecMode AND 
+	ROMDec AND NOT BeebRomSel(1) AND NOT $OpTx$INV$5)
+	OR (bbc_ADDRESS(14) AND $OpTx$INV$5)
+	OR (to_bbc_rD1 AND to_bbc_rD0 AND rD2 AND ROMDec AND 
+	NOT $OpTx$INV$5 AND NOT N0$BUF1/N0$BUF1_TRST)
+	OR (NOT to_bbc_rD1 AND to_bbc_rD0 AND rD3 AND RecMode AND 
+	ROMDec AND NOT $OpTx$INV$5)
+	OR (to_bbc_rD0 AND rD2 AND NOT rD3 AND NOT RecMode AND ROMDec AND 
+	NOT $OpTx$INV$5)
+	OR (to_bbc_rD0 AND NOT rD2 AND rD3 AND RecMode AND ROMDec AND 
+	NOT $OpTx$INV$5));
+
+
+Ram_ADDRESS(15) <= ((Ram_ADDRESS_18_OBUF.EXP)
+	OR (to_bbc_rD1 AND to_bbc_rD0 AND rD2 AND rD3 AND ROMDec AND 
+	cc8Bank_7 AND NOT $OpTx$INV$5 AND NOT N0$BUF1/N0$BUF1_TRST)
+	OR (to_bbc_rD1 AND to_bbc_rD0 AND rD3 AND 
+	NOT IntegraRomSel(11) AND ROMDec AND cc8Bank_7 AND NOT $OpTx$INV$5 AND 
+	NOT N0$BUF1/N0$BUF1_TRST)
+	OR (to_bbc_rD1 AND to_bbc_rD0 AND rD3 AND 
+	NOT IntegraRomSel(11) AND ROMDec AND NOT $OpTx$INV$5 AND NOT N0$BUF1/N0$BUF1_TRST AND 
+	NOT $OpTx$FX_DC$67)
+	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND rD2 AND rD3 AND ROMDec AND 
+	cc4Bank_1 AND NOT $OpTx$INV$5 AND NOT N0$BUF2/N0$BUF2_TRST)
+	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND rD2 AND rD3 AND ROMDec AND 
+	cc4Bank_0 AND NOT $OpTx$INV$5 AND NOT N0$BUF2/N0$BUF2_TRST)
+	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND rD2 AND rD3 AND ROMDec AND 
+	cc4Bank_2 AND NOT $OpTx$INV$5 AND NOT N0$BUF2/N0$BUF2_TRST)
+	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND rD3 AND 
+	NOT IntegraRomSel(10) AND ROMDec AND cc4Bank_1 AND NOT $OpTx$INV$5 AND 
+	NOT N0$BUF2/N0$BUF2_TRST)
+	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND rD3 AND 
+	NOT IntegraRomSel(10) AND ROMDec AND cc4Bank_0 AND NOT $OpTx$INV$5 AND 
+	NOT N0$BUF2/N0$BUF2_TRST)
+	OR (to_bbc_rD1 AND rD3 AND RecMode AND ROMDec AND 
+	NOT $OpTx$INV$5)
+	OR (to_bbc_rD1 AND rD2 AND ROMDec AND NOT $OpTx$INV$5 AND 
+	NOT N0$BUF1/N0$BUF1_TRST AND NOT N0$BUF2/N0$BUF2_TRST)
+	OR (to_bbc_rD1 AND to_bbc_rD0 AND NOT rD3 AND NOT RecMode AND 
+	ROMDec AND NOT BeebRomSel(3) AND NOT $OpTx$INV$5)
+	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND NOT rD3 AND NOT RecMode AND 
+	ROMDec AND NOT BeebRomSel(2) AND NOT $OpTx$INV$5)
+	OR (to_bbc_rD1 AND to_bbc_rD0 AND rD2 AND rD3 AND ROMDec AND 
+	NOT $OpTx$INV$5 AND NOT N0$BUF1/N0$BUF1_TRST AND NOT $OpTx$FX_DC$67));
+
+
+Ram_ADDRESS(16) <= (($OpTx$DEC_Ram_ADDRESS_16_OBUF$0)
+	OR (to_bbc_rD1 AND to_bbc_rD0 AND NOT rD2 AND rD3 AND 
+	NOT IntegraRomSel(11) AND NOT RecMode AND ROMDec AND cc8Bank_6 AND NOT $OpTx$INV$5)
+	OR (to_bbc_rD1 AND to_bbc_rD0 AND NOT rD2 AND rD3 AND 
+	NOT IntegraRomSel(11) AND NOT RecMode AND ROMDec AND cc8Bank_5 AND NOT $OpTx$INV$5));
+
+
+Ram_ADDRESS(17) <= NOT (((NOT rD3)
+	OR (NOT ROMDec)
+	OR ($OpTx$INV$5)
+	OR (to_bbc_rD1 AND to_bbc_rD0 AND rD2 AND NOT EF_1 AND 
+	N0$BUF1/N0$BUF1_TRST)
+	OR (to_bbc_rD1 AND to_bbc_rD0 AND rD2 AND NOT RecMode AND 
+	N0$BUF1/N0$BUF1_TRST)
+	OR (to_bbc_rD1 AND to_bbc_rD0 AND NOT rD2 AND 
+	IntegraRomSel(11) AND NOT RecMode)
+	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND rD2 AND NOT EF_1 AND 
+	N0$BUF2/N0$BUF2_TRST)
+	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND NOT rD2 AND 
+	IntegraRomSel(10) AND NOT RecMode)
+	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND rD2 AND NOT RecMode AND 
+	N0$BUF2/N0$BUF2_TRST)
+	OR (NOT to_bbc_rD1 AND NOT to_bbc_rD0 AND rD2 AND 
+	IntegraRomSel(12) AND NOT RecMode)
+	OR (NOT to_bbc_rD1 AND NOT to_bbc_rD0 AND NOT rD2 AND NOT RecMode AND 
+	IntegraRomSel(8))
+	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND NOT rD2 AND NOT RecMode AND 
+	NOT cc4Bank_0 AND NOT cc4Bank_3)
+	OR (to_bbc_rD1 AND to_bbc_rD0 AND NOT rD2 AND NOT RecMode AND 
+	NOT cc8Bank_7 AND NOT cc8Bank_4 AND NOT cc8Bank_5 AND NOT cc8Bank_1 AND 
+	$OpTx$FX_DC$67)
+	OR (NOT to_bbc_rD1 AND to_bbc_rD0 AND rD2 AND 
+	IntegraRomSel(13) AND NOT RecMode)
+	OR (NOT to_bbc_rD1 AND to_bbc_rD0 AND NOT rD2 AND 
+	IntegraRomSel(9) AND NOT RecMode)));
+
+
+Ram_ADDRESS(18) <= NOT (((NOT to_bbc_rD1 AND NOT rD3 AND NOT $OpTx$INV$5)
+	OR (NOT EF_1 AND RecMode AND NOT $OpTx$INV$5)
+	OR (to_bbc_rD0 AND IntegraRomSel(11) AND NOT RecMode AND 
+	NOT $OpTx$INV$5)
+	OR (NOT to_bbc_rD0 AND NOT RecMode AND NOT cc4Bank_1 AND NOT cc4Bank_2 AND 
+	NOT cc4Bank_3 AND NOT $OpTx$INV$5)
+	OR (to_bbc_rD0 AND NOT RecMode AND NOT cc8Bank_6 AND NOT cc8Bank_7 AND 
+	NOT cc8Bank_2 AND NOT cc8Bank_3 AND NOT cc8Bank_4 AND NOT cc8Bank_5 AND NOT cc8Bank_1 AND 
+	NOT $OpTx$INV$5)
+	OR (NOT ROMDec AND NOT $OpTx$INV$5)
+	OR (NOT $OpTx$INV$5 AND $OpTx$FX_DC$13)
+	OR (NOT RecMode AND NOT $OpTx$INV$5 AND NOT $OpTx$FX_DC$11)
+	OR (NOT to_bbc_rD0 AND IntegraRomSel(10) AND NOT RecMode AND 
+	NOT $OpTx$INV$5)));
+
+FDCPE_RecMode: FDCPE port map (RecMode,RecMode_D,from_CPU_Phi1,'0','0');
+RecMode_D <= ((long_CLR)
+	OR (bbc_nRST AND RecMode));
+
+FDCPE_ShEn: FDCPE port map (ShEn,bbc_DATA(7),from_CPU_Phi1,NOT bbc_nRST,'0',ShEn_CE);
+ShEn_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	NOT bbc_ADDRESS(3) AND bbc_ADDRESS(2));
+
+FDCPE_WP_0: FDCPE port map (WP_0,bbc_DATA(0),from_CPU_Phi1,'0','0',WP_0_CE);
+WP_0_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND NOT bbc_ADDRESS(0));
+
+FDCPE_WP_1: FDCPE port map (WP_1,bbc_DATA(1),from_CPU_Phi1,'0','0',WP_1_CE);
+WP_1_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND NOT bbc_ADDRESS(0));
+
+FDCPE_WP_10: FDCPE port map (WP_10,bbc_DATA(2),from_CPU_Phi1,'0','0',WP_10_CE);
+WP_10_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND bbc_ADDRESS(0));
+
+FDCPE_WP_11: FDCPE port map (WP_11,bbc_DATA(3),from_CPU_Phi1,'0','0',WP_11_CE);
+WP_11_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND bbc_ADDRESS(0));
+
+FDCPE_WP_12: FDCPE port map (WP_12,bbc_DATA(4),from_CPU_Phi1,'0','0',WP_12_CE);
+WP_12_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND bbc_ADDRESS(0));
+
+FDCPE_WP_13: FDCPE port map (WP_13,bbc_DATA(5),from_CPU_Phi1,'0','0',WP_13_CE);
+WP_13_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND bbc_ADDRESS(0));
+
+FDCPE_WP_14: FDCPE port map (WP_14,bbc_DATA(6),from_CPU_Phi1,'0','0',WP_14_CE);
+WP_14_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND bbc_ADDRESS(0));
+
+FDCPE_WP_15: FDCPE port map (WP_15,bbc_DATA(7),from_CPU_Phi1,'0','0',WP_15_CE);
+WP_15_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND bbc_ADDRESS(0));
+
+FDCPE_WP_2: FDCPE port map (WP_2,bbc_DATA(2),from_CPU_Phi1,'0','0',WP_2_CE);
+WP_2_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND NOT bbc_ADDRESS(0));
+
+FDCPE_WP_3: FDCPE port map (WP_3,bbc_DATA(3),from_CPU_Phi1,'0','0',WP_3_CE);
+WP_3_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND NOT bbc_ADDRESS(0));
+
+FDCPE_WP_4: FDCPE port map (WP_4,bbc_DATA(4),from_CPU_Phi1,'0','0',WP_4_CE);
+WP_4_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND NOT bbc_ADDRESS(0));
+
+FDCPE_WP_5: FDCPE port map (WP_5,bbc_DATA(5),from_CPU_Phi1,'0','0',WP_5_CE);
+WP_5_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND NOT bbc_ADDRESS(0));
+
+FDCPE_WP_6: FDCPE port map (WP_6,bbc_DATA(6),from_CPU_Phi1,'0','0',WP_6_CE);
+WP_6_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND NOT bbc_ADDRESS(0));
+
+FDCPE_WP_7: FDCPE port map (WP_7,bbc_DATA(7),from_CPU_Phi1,'0','0',WP_7_CE);
+WP_7_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND NOT bbc_ADDRESS(0));
+
+FDCPE_WP_8: FDCPE port map (WP_8,bbc_DATA(0),from_CPU_Phi1,'0','0',WP_8_CE);
+WP_8_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND bbc_ADDRESS(0));
+
+FDCPE_WP_9: FDCPE port map (WP_9,bbc_DATA(1),from_CPU_Phi1,'0','0',WP_9_CE);
+WP_9_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2) AND bbc_ADDRESS(1) AND bbc_ADDRESS(0));
+
+FTCPE_cc4Bank_0: FTCPE port map (cc4Bank_0,cc4Bank_0_T,cc4Bank_2/cc4Bank_2_CLKF,'0','0');
+cc4Bank_0_T <= ((bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+	cc4Bank_0)
+	OR (NOT bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND NOT bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+	cc4Bank_0)
+	OR (NOT bbc_nRST AND NOT cc4Bank_0)
+	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT cc4Bank_0)
+	OR (NOT bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+	bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+	cc4Bank_0));
+
+FDCPE_cc4Bank_1: FDCPE port map (cc4Bank_1,cc4Bank_1_D,cc4Bank_2/cc4Bank_2_CLKF,'0','0');
+cc4Bank_1_D <= (($OpTx$FX_DC$56)
+	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15))
+	OR (NOT cc4Bank_1 AND NOT $OpTx$FX_DC$105));
+
+FTCPE_cc4Bank_2: FTCPE port map (cc4Bank_2,cc4Bank_2_T,cc4Bank_2/cc4Bank_2_CLKF,'0','0');
+cc4Bank_2_T <= ((bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND cc4Bank_2)
+	OR (NOT bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+	bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND cc4Bank_2)
+	OR (NOT bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND NOT bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+	NOT cc4Bank_2)
+	OR (NOT bbc_nRST AND cc4Bank_2)
+	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND cc4Bank_2));
+
+
+cc4Bank_2/cc4Bank_2_CLKF <= ((NOT bbc_nRST)
+	OR (NOT from_CPU_Phi1 AND from_CPU_RnW AND NOT long_CLR AND 
+	NOT cc8Bank_2/cc8Bank_2_CLKF AND $OpTx$FX_DC$11 AND NOT $OpTx$FX_DC$36));
+
+FDCPE_cc4Bank_3: FDCPE port map (cc4Bank_3,cc4Bank_3_D,cc4Bank_3/cc4Bank_3_CLKF,'0','0');
+cc4Bank_3_D <= ((cc4Bank_3 AND NOT $OpTx$FX_DC$56 AND NOT $OpTx$FX_DC$105)
+	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND NOT bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	NOT bbc_ADDRESS(11) AND NOT bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND 
+	NOT $OpTx$FX_DC$56 AND NOT $OpTx$FX_DC$105));
+
+
+cc4Bank_3/cc4Bank_3_CLKF <= ((NOT bbc_nRST)
+	OR (NOT from_CPU_Phi1 AND NOT to_bbc_rD0 AND from_CPU_RnW AND 
+	NOT long_CLR AND $OpTx$FX_DC$11 AND NOT $OpTx$FX_DC$36));
+
+FTCPE_cc8Bank_0: FTCPE port map (cc8Bank_0,cc8Bank_0_T,cc8Bank_2/cc8Bank_2_CLKF,'0','0');
+cc8Bank_0_T <= ((bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+	bbc_ADDRESS(15) AND bbc_nRST AND cc8Bank_0)
+	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(14) AND 
+	bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND bbc_ADDRESS(11) AND 
+	bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND NOT bbc_ADDRESS(7) AND 
+	bbc_ADDRESS(15) AND bbc_nRST AND cc8Bank_0)
+	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(14) AND 
+	bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND bbc_ADDRESS(11) AND 
+	bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND NOT bbc_ADDRESS(6) AND 
+	bbc_ADDRESS(15) AND bbc_nRST AND cc8Bank_0)
+	OR (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+	bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT cc8Bank_0)
+	OR (NOT bbc_nRST AND NOT cc8Bank_0));
+
+FDCPE_cc8Bank_1: FDCPE port map (cc8Bank_1,cc8Bank_1_D,cc8Bank_2/cc8Bank_2_CLKF,'0','0');
+cc8Bank_1_D <= ((cc8Bank_1 AND NOT $OpTx$FX_DC$25)
+	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+	bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+	cc8Bank_0));
+
+FDCPE_cc8Bank_2: FDCPE port map (cc8Bank_2,cc8Bank_2_D,cc8Bank_2/cc8Bank_2_CLKF,'0','0');
+cc8Bank_2_D <= ((cc8Bank_2 AND NOT $OpTx$FX_DC$25)
+	OR (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+	bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+	cc8Bank_0));
+
+
+cc8Bank_2/cc8Bank_2_CLKF <= ((NOT bbc_nRST)
+	OR (NOT from_CPU_Phi1 AND from_CPU_RnW AND NOT long_CLR AND 
+	NOT cc4Bank_3/cc4Bank_3_CLKF AND $OpTx$FX_DC$11 AND NOT $OpTx$FX_DC$36));
+
+FDCPE_cc8Bank_3: FDCPE port map (cc8Bank_3,cc8Bank_3_D,cc8Bank_2/cc8Bank_2_CLKF,'0','0');
+cc8Bank_3_D <= ((cc8Bank_3 AND NOT $OpTx$FX_DC$25)
+	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+	bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+	cc8Bank_0));
+
+FDCPE_cc8Bank_4: FDCPE port map (cc8Bank_4,cc8Bank_4_D,cc8Bank_2/cc8Bank_2_CLKF,'0','0');
+cc8Bank_4_D <= ((cc8Bank_4 AND NOT $OpTx$FX_DC$25)
+	OR (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+	cc8Bank_0));
+
+FDCPE_cc8Bank_5: FDCPE port map (cc8Bank_5,cc8Bank_5_D,cc8Bank_2/cc8Bank_2_CLKF,'0','0');
+cc8Bank_5_D <= ((cc8Bank_5 AND NOT $OpTx$FX_DC$25)
+	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+	cc8Bank_0));
+
+FDCPE_cc8Bank_6: FDCPE port map (cc8Bank_6,cc8Bank_6_D,cc8Bank_2/cc8Bank_2_CLKF,'0','0');
+cc8Bank_6_D <= ((cc8Bank_6 AND NOT $OpTx$FX_DC$25)
+	OR (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+	cc8Bank_0));
+
+FDCPE_cc8Bank_7: FDCPE port map (cc8Bank_7,cc8Bank_7_D,cc8Bank_2/cc8Bank_2_CLKF,'0','0');
+cc8Bank_7_D <= ((cc8Bank_7 AND NOT $OpTx$FX_DC$25)
+	OR (bbc_ADDRESS(9) AND NOT bbc_ADDRESS(5) AND 
+	NOT bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND bbc_nRST AND 
+	cc8Bank_0));
+
+FDCPE_countseca0: FDCPE port map (countseca(0),countseca_D(0),from_CPU_Phi1,'0','0');
+countseca_D(0) <= ((NOT bbc_nRST AND countseca(0) AND NOT msec_tick/msec_tick_D2)
+	OR (NOT bbc_nRST AND NOT countseca(0) AND msec_tick/msec_tick_D2));
+
+FTCPE_countseca1: FTCPE port map (countseca(1),countseca_T(1),from_CPU_Phi1,'0','0');
+countseca_T(1) <= ((bbc_nRST AND countseca(1))
+	OR (NOT bbc_nRST AND countseca(0) AND msec_tick/msec_tick_D2));
+
+FTCPE_countseca2: FTCPE port map (countseca(2),countseca_T(2),from_CPU_Phi1,'0','0');
+countseca_T(2) <= ((bbc_nRST AND countseca(2))
+	OR (NOT bbc_nRST AND countseca(0) AND countseca(1) AND 
+	msec_tick/msec_tick_D2));
+
+FTCPE_countseca3: FTCPE port map (countseca(3),countseca_T(3),from_CPU_Phi1,'0','0');
+countseca_T(3) <= ((bbc_nRST AND countseca(3))
+	OR (countseca(0) AND countseca(1) AND countseca(2) AND 
+	countseca(3) AND msec_tick/msec_tick_D2));
+
+FDCPE_countsecb0: FDCPE port map (countsecb(0),countsecb_D(0),from_CPU_Phi1,'0','0');
+countsecb_D(0) <= ((NOT long_RST AND countsecb(0) AND NOT msec_tick/msec_tick_D2)
+	OR (NOT long_RST AND NOT countsecb(0) AND msec_tick/msec_tick_D2));
+
+FDCPE_countsecb1: FDCPE port map (countsecb(1),countsecb_D(1),from_CPU_Phi1,'0','0');
+countsecb_D(1) <= ((NOT long_RST AND NOT countsecb(0) AND countsecb(1))
+	OR (NOT long_RST AND countsecb(1) AND NOT msec_tick/msec_tick_D2)
+	OR (NOT long_RST AND countsecb(0) AND NOT countsecb(1) AND 
+	NOT countsecb(2) AND msec_tick/msec_tick_D2)
+	OR (NOT long_RST AND countsecb(0) AND NOT countsecb(1) AND 
+	countsecb(3) AND msec_tick/msec_tick_D2));
+
+FTCPE_countsecb2: FTCPE port map (countsecb(2),countsecb_T(2),from_CPU_Phi1,'0','0');
+countsecb_T(2) <= ((long_RST AND countsecb(2))
+	OR (NOT long_RST AND countsecb(0) AND countsecb(1) AND 
+	msec_tick/msec_tick_D2)
+	OR (countsecb(0) AND countsecb(2) AND NOT countsecb(3) AND 
+	msec_tick/msec_tick_D2));
+
+FTCPE_countsecb3: FTCPE port map (countsecb(3),countsecb_T(3),from_CPU_Phi1,'0','0');
+countsecb_T(3) <= ((long_RST AND countsecb(3))
+	OR (NOT long_RST AND countsecb(0) AND countsecb(1) AND 
+	countsecb(2) AND msec_tick/msec_tick_D2));
+
+FDCPE_long_CLR: FDCPE port map (long_CLR,long_CLR_D,from_CPU_Phi1,'0','0');
+long_CLR_D <= ((NOT long_RST AND NOT long_CLR)
+	OR (NOT long_RST AND countsecb(0) AND NOT countsecb(1) AND 
+	countsecb(2) AND NOT countsecb(3)));
+
+FDCPE_long_RST: FDCPE port map (long_RST,long_RST_D,from_CPU_Phi1,'0','0');
+long_RST_D <= ((NOT bbc_nRST AND long_RST)
+	OR (NOT bbc_nRST AND countseca(0) AND countseca(1) AND 
+	countseca(2) AND NOT countseca(3)));
+
+
+msec_tick/msec_tick_D2 <= (NOT slow_clk(0) AND slow_clk(10) AND slow_clk(11) AND 
+	NOT slow_clk(12) AND NOT slow_clk(13) AND NOT slow_clk(14) AND NOT slow_clk(15) AND 
+	slow_clk(16) AND slow_clk(17) AND NOT slow_clk(18) AND NOT slow_clk(19) AND 
+	NOT slow_clk(1) AND NOT slow_clk(20) AND NOT slow_clk(21) AND NOT slow_clk(22) AND 
+	NOT slow_clk(2) AND NOT slow_clk(3) AND NOT slow_clk(4) AND NOT slow_clk(5) AND 
+	slow_clk(6) AND NOT slow_clk(7) AND slow_clk(8) AND NOT slow_clk(9) AND 
+	NOT slow_clk(23));
+
+
+nDBuf_CE <= NOT ((($OpTx$INV$5)
+	OR (NOT bbc_ADDRESS(14) AND bbc_ADDRESS(15) AND 
+	nRomBankSel0_3)
+	OR (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15))));
+
+
+nDBuf_Dir <= from_CPU_RnW;
+
+
+nRAM_CE <= (($OpTx$DEC_Ram_ADDRESS_16_OBUF$0.EXP)
+	OR (rD3 AND NOT Ram_ADDRESS(17) AND NOT Ram_ADDRESS(18))
+	OR (NOT ROMDec AND NOT Ram_ADDRESS(17) AND NOT Ram_ADDRESS(18))
+	OR (NOT nRomBankSel0_3 AND NOT Ram_ADDRESS(17) AND 
+	NOT Ram_ADDRESS(18))
+	OR (NOT rD2 AND NOT Ram_ADDRESS(17) AND NOT Ram_ADDRESS(18) AND 
+	$OpTx$INV$5)
+	OR (EF_0 AND RecMode AND NOT Ram_ADDRESS(17) AND 
+	NOT Ram_ADDRESS(18) AND $OpTx$INV$5));
+
+
+nRDS <= NOT ((NOT from_CPU_Phi1 AND from_CPU_RnW AND NOT long_CLR));
+
+
+nRomBankSel0_3 <= NOT (((RecMode AND ROMDec AND $OpTx$FX_DC$13)
+	OR (to_bbc_rD1 AND to_bbc_rD0 AND ROMDec AND 
+	BeebRomSel(3) AND $OpTx$FX_DC$13)
+	OR (to_bbc_rD1 AND NOT to_bbc_rD0 AND ROMDec AND 
+	BeebRomSel(2) AND $OpTx$FX_DC$13)
+	OR (NOT to_bbc_rD1 AND to_bbc_rD0 AND ROMDec AND 
+	BeebRomSel(1) AND $OpTx$FX_DC$13)
+	OR (NOT to_bbc_rD1 AND NOT to_bbc_rD0 AND ROMDec AND 
+	BeebRomSel(0) AND $OpTx$FX_DC$13)));
+
+
+nRomBankSel_I(8) <= '0';
+nRomBankSel(8) <= nRomBankSel_I(8) when nRomBankSel_OE(8) = '1' else 'Z';
+nRomBankSel_OE(8) <= (NOT to_bbc_rD0 AND NOT RecMode AND ROMDec AND 
+	IntegraRomSel(8) AND $OpTx$FX_SC$79);
+
+
+nRomBankSel_I(9) <= '0';
+nRomBankSel(9) <= nRomBankSel_I(9) when nRomBankSel_OE(9) = '1' else 'Z';
+nRomBankSel_OE(9) <= (to_bbc_rD0 AND IntegraRomSel(9) AND NOT RecMode AND 
+	ROMDec AND $OpTx$FX_SC$79);
+
+
+nRomBankSel_I(10) <= '0';
+nRomBankSel(10) <= nRomBankSel_I(10) when nRomBankSel_OE(10) = '1' else 'Z';
+nRomBankSel_OE(10) <= (NOT to_bbc_rD0 AND IntegraRomSel(10) AND NOT RecMode AND 
+	ROMDec AND $OpTx$FX_DC$11);
+
+
+nRomBankSel_I(11) <= '0';
+nRomBankSel(11) <= nRomBankSel_I(11) when nRomBankSel_OE(11) = '1' else 'Z';
+nRomBankSel_OE(11) <= (to_bbc_rD0 AND IntegraRomSel(11) AND NOT RecMode AND 
+	ROMDec AND $OpTx$FX_DC$11);
+
+
+nRomBankSel_I(12) <= '0';
+nRomBankSel(12) <= nRomBankSel_I(12) when nRomBankSel_OE(12) = '1' else 'Z';
+nRomBankSel_OE(12) <= (NOT to_bbc_rD0 AND IntegraRomSel(12) AND NOT RecMode AND 
+	ROMDec AND $OpTx$FX_SC$75);
+
+
+nRomBankSel_I(13) <= '0';
+nRomBankSel(13) <= nRomBankSel_I(13) when nRomBankSel_OE(13) = '1' else 'Z';
+nRomBankSel_OE(13) <= (to_bbc_rD0 AND IntegraRomSel(13) AND NOT RecMode AND 
+	ROMDec AND $OpTx$FX_SC$75);
+
+
+nRomBankSel_I(14) <= '0';
+nRomBankSel(14) <= nRomBankSel_I(14) when nRomBankSel_OE(14) = '1' else 'Z';
+nRomBankSel_OE(14) <= (NOT to_bbc_rD0 AND IntegraRomSel(14) AND NOT RecMode AND 
+	ROMDec AND $OpTx$FX_SC$69);
+
+
+nRomBankSel_I(15) <= '0';
+nRomBankSel(15) <= nRomBankSel_I(15) when nRomBankSel_OE(15) = '1' else 'Z';
+nRomBankSel_OE(15) <= (to_bbc_rD0 AND IntegraRomSel(15) AND NOT RecMode AND 
+	ROMDec AND $OpTx$FX_SC$69);
+
+
+nWDS <= NOT ((($OpTx$DEC_nWDS_OBUF$2)
+	OR (NOT from_CPU_Phi1 AND to_bbc_rD1 AND NOT from_CPU_RnW AND 
+	ROMDec AND WP_3 AND NOT BeebRomSel(3) AND $OpTx$FX_DC$13 AND 
+	NOT $OpTx$BIN_STEP$493 AND NOT $OpTx$FX_SC$59)));
+
+FDCPE_rD2: FDCPE port map (rD2,bbc_DATA(2),from_CPU_Phi1,NOT bbc_nRST,'0',rD2_CE);
+rD2_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	NOT bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2));
+
+FDCPE_rD3: FDCPE port map (rD3,bbc_DATA(3),from_CPU_Phi1,NOT bbc_nRST,'0',rD3_CE);
+rD3_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	NOT bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2));
+
+FDCPE_slow_clk0: FDCPE port map (slow_clk(0),slow_clk_D(0),from_CPU_Phi1,'0','0');
+slow_clk_D(0) <= (NOT slow_clk(0) AND NOT msec_tick/msec_tick_D2);
+
+FTCPE_slow_clk1: FTCPE port map (slow_clk(1),slow_clk(0),from_CPU_Phi1,'0','0');
+
+FTCPE_slow_clk2: FTCPE port map (slow_clk(2),slow_clk_T(2),from_CPU_Phi1,'0','0');
+slow_clk_T(2) <= (slow_clk(0) AND slow_clk(1));
+
+FTCPE_slow_clk3: FTCPE port map (slow_clk(3),slow_clk_T(3),from_CPU_Phi1,'0','0');
+slow_clk_T(3) <= (slow_clk(0) AND slow_clk(1) AND slow_clk(2));
+
+FDCPE_slow_clk4: FDCPE port map (slow_clk(4),slow_clk_D(4),from_CPU_Phi1,'0','0');
+slow_clk_D(4) <= ((slow_clk(4) AND 
+	NOT slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2)
+	OR (slow_clk(0) AND slow_clk(1) AND slow_clk(2) AND 
+	slow_clk(3) AND 
+	NOT slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2));
+
+FDCPE_slow_clk5: FDCPE port map (slow_clk(5),slow_clk_D(5),from_CPU_Phi1,'0','0');
+slow_clk_D(5) <= ((slow_clk(5) AND NOT msec_tick/msec_tick_D2 AND 
+	NOT slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2)
+	OR (NOT slow_clk(5) AND NOT msec_tick/msec_tick_D2 AND 
+	slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2));
+
+FTCPE_slow_clk6: FTCPE port map (slow_clk(6),slow_clk_T(6),from_CPU_Phi1,'0','0');
+slow_clk_T(6) <= ((slow_clk(6) AND msec_tick/msec_tick_D2)
+	OR (slow_clk(5) AND NOT msec_tick/msec_tick_D2 AND 
+	slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2));
+
+FTCPE_slow_clk7: FTCPE port map (slow_clk(7),slow_clk_T(7),from_CPU_Phi1,'0','0');
+slow_clk_T(7) <= (slow_clk(5) AND slow_clk(6) AND 
+	slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2);
+
+FDCPE_slow_clk8: FDCPE port map (slow_clk(8),slow_clk_D(8),from_CPU_Phi1,'0','0');
+slow_clk_D(8) <= ((slow_clk(8) AND NOT msec_tick/msec_tick_D2 AND 
+	NOT slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2)
+	OR (slow_clk(5) AND slow_clk(6) AND slow_clk(7) AND 
+	NOT msec_tick/msec_tick_D2 AND 
+	NOT slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2 AND 
+	slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2));
+
+FDCPE_slow_clk9: FDCPE port map (slow_clk(9),slow_clk_D(9),from_CPU_Phi1,'0','0');
+slow_clk_D(9) <= ((slow_clk(9) AND NOT msec_tick/msec_tick_D2 AND 
+	NOT slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2)
+	OR (NOT slow_clk(9) AND NOT msec_tick/msec_tick_D2 AND 
+	slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2));
+
+FTCPE_slow_clk10: FTCPE port map (slow_clk(10),slow_clk_T(10),from_CPU_Phi1,'0','0');
+slow_clk_T(10) <= ((slow_clk(10) AND msec_tick/msec_tick_D2)
+	OR (slow_clk(9) AND NOT msec_tick/msec_tick_D2 AND 
+	slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2));
+
+FTCPE_slow_clk11: FTCPE port map (slow_clk(11),slow_clk_T(11),from_CPU_Phi1,'0','0');
+slow_clk_T(11) <= ((slow_clk(11) AND msec_tick/msec_tick_D2)
+	OR (slow_clk(10) AND slow_clk(9) AND 
+	NOT msec_tick/msec_tick_D2 AND 
+	slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2));
+
+FDCPE_slow_clk12: FDCPE port map (slow_clk(12),slow_clk_D(12),from_CPU_Phi1,'0','0');
+slow_clk_D(12) <= ((slow_clk(12) AND 
+	NOT slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2)
+	OR (slow_clk(10) AND slow_clk(11) AND slow_clk(9) AND 
+	slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2 AND 
+	NOT slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2));
+
+FDCPE_slow_clk13: FDCPE port map (slow_clk(13),slow_clk_D(13),from_CPU_Phi1,'0','0');
+slow_clk_D(13) <= ((slow_clk(13) AND NOT msec_tick/msec_tick_D2 AND 
+	NOT slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2)
+	OR (NOT slow_clk(13) AND NOT msec_tick/msec_tick_D2 AND 
+	slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2));
+
+FTCPE_slow_clk14: FTCPE port map (slow_clk(14),slow_clk_T(14),from_CPU_Phi1,'0','0');
+slow_clk_T(14) <= (slow_clk(13) AND 
+	slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2);
+
+FTCPE_slow_clk15: FTCPE port map (slow_clk(15),slow_clk_T(15),from_CPU_Phi1,'0','0');
+slow_clk_T(15) <= (slow_clk(13) AND slow_clk(14) AND 
+	slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2);
+
+FDCPE_slow_clk16: FDCPE port map (slow_clk(16),slow_clk_D(16),from_CPU_Phi1,'0','0');
+slow_clk_D(16) <= ((slow_clk(16) AND NOT msec_tick/msec_tick_D2 AND 
+	NOT slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2)
+	OR (slow_clk(13) AND slow_clk(14) AND slow_clk(15) AND 
+	NOT msec_tick/msec_tick_D2 AND 
+	slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2 AND 
+	NOT slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2));
+
+FDCPE_slow_clk17: FDCPE port map (slow_clk(17),slow_clk_D(17),from_CPU_Phi1,'0','0');
+slow_clk_D(17) <= ((slow_clk(17) AND NOT msec_tick/msec_tick_D2 AND 
+	NOT slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2)
+	OR (NOT slow_clk(17) AND NOT msec_tick/msec_tick_D2 AND 
+	slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2));
+
+FTCPE_slow_clk18: FTCPE port map (slow_clk(18),slow_clk_T(18),from_CPU_Phi1,'0','0');
+slow_clk_T(18) <= ((slow_clk(18) AND msec_tick/msec_tick_D2)
+	OR (slow_clk(17) AND NOT msec_tick/msec_tick_D2 AND 
+	slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2));
+
+FTCPE_slow_clk19: FTCPE port map (slow_clk(19),slow_clk_T(19),from_CPU_Phi1,'0','0');
+slow_clk_T(19) <= (slow_clk(17) AND slow_clk(18) AND 
+	slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2);
+
+FDCPE_slow_clk20: FDCPE port map (slow_clk(20),slow_clk_D(20),from_CPU_Phi1,'0','0');
+slow_clk_D(20) <= ((slow_clk(20) AND 
+	NOT slow_clk_Madd__add0000__and0019/slow_clk_Madd__add0000__and0019_D2)
+	OR (slow_clk(17) AND slow_clk(18) AND slow_clk(19) AND 
+	slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2 AND 
+	NOT slow_clk_Madd__add0000__and0019/slow_clk_Madd__add0000__and0019_D2));
+
+FDCPE_slow_clk21: FDCPE port map (slow_clk(21),slow_clk_D(21),from_CPU_Phi1,'0','0');
+slow_clk_D(21) <= ((slow_clk(21) AND NOT msec_tick/msec_tick_D2 AND 
+	NOT slow_clk_Madd__add0000__and0019/slow_clk_Madd__add0000__and0019_D2)
+	OR (NOT slow_clk(21) AND NOT msec_tick/msec_tick_D2 AND 
+	slow_clk_Madd__add0000__and0019/slow_clk_Madd__add0000__and0019_D2));
+
+FTCPE_slow_clk22: FTCPE port map (slow_clk(22),slow_clk_T(22),from_CPU_Phi1,'0','0');
+slow_clk_T(22) <= (slow_clk(21) AND 
+	slow_clk_Madd__add0000__and0019/slow_clk_Madd__add0000__and0019_D2);
+
+FTCPE_slow_clk23: FTCPE port map (slow_clk(23),slow_clk_T(23),from_CPU_Phi1,'0','0');
+slow_clk_T(23) <= (slow_clk(21) AND slow_clk(22) AND 
+	slow_clk_Madd__add0000__and0019/slow_clk_Madd__add0000__and0019_D2);
+
+
+slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2 <= (slow_clk(0) AND slow_clk(1) AND slow_clk(2) AND 
+	slow_clk(3) AND slow_clk(4));
+
+
+slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2 <= (slow_clk(5) AND slow_clk(6) AND slow_clk(7) AND 
+	slow_clk(8) AND 
+	slow_clk_Madd__add0000__and0003/slow_clk_Madd__add0000__and0003_D2);
+
+
+slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2 <= (slow_clk(10) AND slow_clk(11) AND slow_clk(12) AND 
+	slow_clk(9) AND 
+	slow_clk_Madd__add0000__and0007/slow_clk_Madd__add0000__and0007_D2);
+
+
+slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2 <= (slow_clk(13) AND slow_clk(14) AND slow_clk(15) AND 
+	slow_clk(16) AND 
+	slow_clk_Madd__add0000__and0011/slow_clk_Madd__add0000__and0011_D2);
+
+
+slow_clk_Madd__add0000__and0019/slow_clk_Madd__add0000__and0019_D2 <= (slow_clk(17) AND slow_clk(18) AND slow_clk(19) AND 
+	slow_clk(20) AND 
+	slow_clk_Madd__add0000__and0015/slow_clk_Madd__add0000__and0015_D2);
+
+
+to_bbc_Phi1 <= ((from_CPU_Phi1)
+	OR (bbc_ADDRESS(14) AND NOT bbc_ADDRESS(15) AND NOT MemSel AND 
+	ShEn)
+	OR (bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	NOT bbc_ADDRESS(15) AND NOT MemSel AND ShEn));
+
+
+to_bbc_RnW <= ((from_CPU_RnW)
+	OR (bbc_ADDRESS(14) AND NOT bbc_ADDRESS(15) AND NOT MemSel AND 
+	ShEn)
+	OR (bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	NOT bbc_ADDRESS(15) AND NOT MemSel AND ShEn));
+
+FDCPE_to_bbc_rD0: FDCPE port map (to_bbc_rD0,bbc_DATA(0),from_CPU_Phi1,NOT bbc_nRST,'0',to_bbc_rD0_CE);
+to_bbc_rD0_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	NOT bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2));
+
+FDCPE_to_bbc_rD1: FDCPE port map (to_bbc_rD1,bbc_DATA(1),from_CPU_Phi1,NOT bbc_nRST,'0',to_bbc_rD1_CE);
+to_bbc_rD1_CE <= (bbc_ADDRESS(9) AND bbc_ADDRESS(5) AND bbc_ADDRESS(4) AND 
+	bbc_ADDRESS(14) AND bbc_ADDRESS(13) AND bbc_ADDRESS(12) AND 
+	bbc_ADDRESS(11) AND bbc_ADDRESS(10) AND NOT bbc_ADDRESS(8) AND 
+	NOT bbc_ADDRESS(7) AND NOT bbc_ADDRESS(6) AND bbc_ADDRESS(15) AND NOT from_CPU_RnW AND 
+	NOT bbc_ADDRESS(3) AND NOT bbc_ADDRESS(2));
+
+Register Legend:
+ FDCPE (Q,D,C,CLR,PRE,CE); 
+ FTCPE (Q,D,C,CLR,PRE,CE); 
+ LDCP  (Q,D,G,CLR,PRE); 
+
+******************************  Device Pin Out *****************************
+
+Device : XC95144XL-10-TQ100
+
+
+   --------------------------------------------------  
+  /100 98  96  94  92  90  88  86  84  82  80  78  76  \
+ |   99  97  95  93  91  89  87  85  83  81  79  77    |
+ | 1                                               75  | 
+ | 2                                               74  | 
+ | 3                                               73  | 
+ | 4                                               72  | 
+ | 5                                               71  | 
+ | 6                                               70  | 
+ | 7                                               69  | 
+ | 8                                               68  | 
+ | 9                                               67  | 
+ | 10                                              66  | 
+ | 11                                              65  | 
+ | 12                                              64  | 
+ | 13              XC95144XL-10-TQ100              63  | 
+ | 14                                              62  | 
+ | 15                                              61  | 
+ | 16                                              60  | 
+ | 17                                              59  | 
+ | 18                                              58  | 
+ | 19                                              57  | 
+ | 20                                              56  | 
+ | 21                                              55  | 
+ | 22                                              54  | 
+ | 23                                              53  | 
+ | 24                                              52  | 
+ | 25                                              51  | 
+ |   27  29  31  33  35  37  39  41  43  45  47  49    |
+  \26  28  30  32  34  36  38  40  42  44  46  48  50  /
+   --------------------------------------------------  
+
+
+Pin Signal                         Pin Signal                        
+No. Name                           No. Name                          
+  1 bbc_ADDRESS<12>                  51 VCC                           
+  2 bbc_ADDRESS<13>                  52 IntegraRomSel<15>             
+  3 bbc_ADDRESS<7>                   53 IntegraRomSel<14>             
+  4 bbc_ADDRESS<8>                   54 IntegraRomSel<13>             
+  5 VCC                              55 IntegraRomSel<12>             
+  6 bbc_ADDRESS<6>                   56 IntegraRomSel<11>             
+  7 bbc_ADDRESS<9>                   57 VCC                           
+  8 bbc_ADDRESS<5>                   58 IntegraRomSel<10>             
+  9 bbc_ADDRESS<11>                  59 IntegraRomSel<9>              
+ 10 bbc_ADDRESS<4>                   60 IntegraRomSel<8>              
+ 11 nRDS                             61 BeebRomSel<3>                 
+ 12 bbc_ADDRESS<3>                   62 GND                           
+ 13 bbc_ADDRESS<10>                  63 BeebRomSel<2>                 
+ 14 bbc_ADDRESS<2>                   64 BeebRomSel<1>                 
+ 15 bbc_ADDRESS<1>                   65 BeebRomSel<0>                 
+ 16 bbc_DATA<7>                      66 RTC_DS                        
+ 17 bbc_ADDRESS<0>                   67 RTC_AS                        
+ 18 bbc_DATA<6>                      68 KPR                           
+ 19 bbc_DATA<0>                      69 GND                           
+ 20 bbc_DATA<5>                      70 KPR                           
+ 21 GND                              71 KPR                           
+ 22 bbc_DATA<1>                      72 KPR                           
+ 23 bbc_DATA<4>                      73 KPR                           
+ 24 bbc_DATA<2>                      74 KPR                           
+ 25 bbc_DATA<3>                      75 GND                           
+ 26 VCC                              76 KPR                           
+ 27 nRomBankSel<14>                  77 KPR                           
+ 28 nRomBankSel<15>                  78 KPR                           
+ 29 nRomBankSel<12>                  79 KPR                           
+ 30 nRomBankSel<13>                  80 KPR                           
+ 31 GND                              81 KPR                           
+ 32 nRomBankSel<10>                  82 KPR                           
+ 33 nRomBankSel<11>                  83 TDO                           
+ 34 nRomBankSel<8>                   84 GND                           
+ 35 nRomBankSel<9>                   85 KPR                           
+ 36 nRomBankSel0_3                   86 KPR                           
+ 37 to_bbc_rD1                       87 KPR                           
+ 38 VCC                              88 VCC                           
+ 39 to_bbc_rD0                       89 bbc_ADDRESS<15>               
+ 40 nDBuf_Dir                        90 from_CPU_RnW                  
+ 41 nDBuf_CE                         91 nRAM_CE                       
+ 42 bbc_ADDRESS<14>                  92 Ram_ADDRESS<18>               
+ 43 from_CPU_Phi1                    93 Ram_ADDRESS<15>               
+ 44 GND                              94 nWDS                          
+ 45 TDI                              95 Ram_ADDRESS<17>               
+ 46 to_bbc_Phi1                      96 Ram_ADDRESS<16>               
+ 47 TMS                              97 Ram_ADDRESS<14>               
+ 48 TCK                              98 VCC                           
+ 49 KPR                              99 bbc_nRST                      
+ 50 to_bbc_RnW                      100 GND                           
+
+
+Legend :  NC  = Not Connected, unbonded pin
+         PGND = Unused I/O configured as additional Ground pin
+         TIE  = Unused I/O floating -- must tie to VCC, GND or other signal
+         KPR  = Unused I/O with weak keeper (leave unconnected)
+         VCC  = Dedicated Power Pin
+         GND  = Dedicated Ground Pin
+         TDI  = Test Data In, JTAG pin
+         TDO  = Test Data Out, JTAG pin
+         TCK  = Test Clock, JTAG pin
+         TMS  = Test Mode Select, JTAG pin
+  PROHIBITED  = User reserved pin
+****************************  Compiler Options  ****************************
+
+Following is a list of all global compiler options used by the fitter run.
+
+Device(s) Specified                         : xc95144xl-10-TQ100
+Optimization Method                         : DENSITY
+Multi-Level Logic Optimization              : ON
+Ignore Timing Specifications                : ON
+Default Register Power Up Value             : LOW
+Keep User Location Constraints              : ON
+What-You-See-Is-What-You-Get                : OFF
+Exhaustive Fitting                          : ON
+Keep Unused Inputs                          : OFF
+Slew Rate                                   : SLOW
+Power Mode                                  : STD
+Ground on Unused IOs                        : OFF
+Set I/O Pin Termination                     : KEEPER
+Global Clock Optimization                   : ON
+Global Set/Reset Optimization               : ON
+Global Ouput Enable Optimization            : ON
+Input Limit                                 : 29
+Pterm Limit                                 : 90
