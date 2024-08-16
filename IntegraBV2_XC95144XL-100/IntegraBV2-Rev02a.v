@@ -8,7 +8,7 @@ IntegraBV2-Rev02a.v
                 Recovery Mode via long RST
 		Read default Write Enable status from jumpers on Power Up
 		128K PALPROM in Bank 11
-		32K PALPROM in Bank 10
+		64K PALPROM in Bank 10
 						 
 Copyright (C) 2024 Ken Lowe
 
