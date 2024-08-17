@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 /************************************************************************
-IntegraBV2-Rev02b.v
+IntegraBV2.v
 
 IntegraB V2  -	A fully expanded ROM / RAM Board for BBC Micro
 Revision 01a -	July 2024 - Basic IntegraB board implementation
