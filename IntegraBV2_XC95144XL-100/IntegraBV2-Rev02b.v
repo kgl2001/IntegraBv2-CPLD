@@ -558,9 +558,16 @@ module IntegraBV2(
 
 	//  Software based write protect function
 	//  -------------------------------------
-	//  On power up, initial Write Protect status is read from jumper bank RamWriteProt
-	//  On entering Recovery Mode, RAM Banks 4..7 are write enabled. All others are disabled
-	//  The Write protect status can subsequently be adjusted as follows:
+	//  Each time the IBOS *SRWE and *SRWP commands are called, the updated values
+	//  are written to the bank of WP registers in the CPLD, and to two 8 bit
+	//  registers in Private RAM.
+	//  On power up or BREAK, the CPLD will read the Write Protect status (in 32k
+	//  chunks) from jumper bank RamWriteProt and fan these out to bank of 16k
+	//  registers, WP. IBOS will read these registers on BREAK and store to two
+	//  default registers in the RTC for use during an IBOS Reset. Afer reading
+	//  the WP registers, IBOS will then write to the WP registers with the settings
+	//  that are currently saved in Private RAM, restoring the previously set values.
+	//  The CPLD Write Protect status is adjusted by IBOS as follows:
 	//  RAM Banks 0..7 are write enabled / protected by writing to address &FE3A
 	//  RAM Banks 8..F are write enabled / protected by writing to address &FE3B
 	//  Logic state 0 = write protected. Logic state 1 = write enabled
