@@ -10,11 +10,13 @@ Revision 02a -	July 2024 - Extended functions added:
 				CC 128K PALPROM in Banks 11 & 25..31
 				CC 64K or WE(QST) 32K PALPROM in Banks 10 & 22..24
 Revision 02b -	August 2024 - Added logic to switch between RAM / PALPROM
+				Add logic to access Private & Shadow RAM in Recovery
+				Add logic to access unused RAM banks 18 & 19 in Recovery
 				Clock PALPROMs on negedge Phi2
 				Additional WE PALPROM type added to Bank 11 (WEWAP)
 				Additional WE PALPROM type added to Bank 10 (WETED)
-				CC 32K PALPROM in Banks 9 & 21
-				CC 32K PALPROM in Banks 8 & 20
+				CC 32K PALPROM added to Banks 9 & 21
+				CC 32K PALPROM added to Banks 8 & 20
 
 Copyright (C) 2024 Ken Lowe
 
@@ -274,18 +276,22 @@ module IntegraBV2(
 	assign	nRomBankSel[13] =  (GenBankSel[13] && IntegraRomSel[13] && !RecMode && Phi2) ? 1'b0 : 1'bz;
 	assign	nRomBankSel[14] =  (GenBankSel[14] && IntegraRomSel[14] && !RecMode && Phi2) ? 1'b0 : 1'bz;
 	assign	nRomBankSel[15] =  (GenBankSel[15] && IntegraRomSel[15] && !RecMode && Phi2) ? 1'b0 : 1'bz;
-
+	
 	// Logic to select IntegraB RAM Banks 0..15
 	// Check if bank is mapped to ROM on either beeb motherboard / IntegraB board, or to RAM on IntegraB board
 	// GenBankSel[x] is the output of the 4..16 line decoder. Logic '1' if output is decoded
-	//	IntegraRomSel[x] is based on jumper selection via pull up resistor. Logic '1' selects motherboard ROM. Logic '0' selects onboard RAM
+	// IntegraRomSel[x] is based on jumper selection via pull up resistor. Logic '1' selects motherboard ROM. Logic '0' selects onboard RAM
 	// nRamBankSel[x] is logic '0' when bank is selected otherwire logic '1'
 
 	// RAM addresses A0..A13 and data lines D0..D7 are wired to the CPU (via buffers on the IntegraB board)
 	// RAM addresses A14..A18 are switched by the CPLD based on which RAM bank has been selected
 	// ShadowSel is a 32k block based on Shadow RAM and Private RAM. A14 switches between the upper and lower bank.
-	// Additional logic on A[16] to allow swapping of RAM Banks 0..3 with RAM Banks 4..7. Swapping can only occur in Recovery Mode
-	// Banks 8..11 can be switched between RAM & PALPROM via Jumpers
+	// 'Extended Function' logic allows the following RAM bank remapping whilst in Recovery Mode:
+	//		mapping of RAM Banks 0..3 into GenBanks 4..7 by setting EF[0]=1.
+	// 		mapping of Private & Shadow RAM Banks 16 & 17 into GenBanks 12 & 13 by setting EF[0]=1.
+	//		mapping of unused RAM Banks 18 & 19 into GenBanks 14 & 15 by setting EF[0]=1
+	//		mapping of PALPROM hidden banks 20..31 into GenBanks 4..15 by setting EF[1]=1
+	// Banks 8..11 can be switched between RAM & PALPROM via Jumpers. This is done in the PALPROM logic.
 
 	assign	nRamBankSel[0]	= !((GenBankSel[0]  && !ShadowSel && !RecMode && !BeebRomSel[0])
 							||  (GenBankSel[4]  && !ShadowSel &&  RecMode &&  EF[0]));
@@ -323,63 +329,70 @@ module IntegraBV2(
 	assign	nRamBankSel[11]	= !((GenBankSel[11] && !ShadowSel && !RecMode && !IntegraRomSel[11] && pp8Bank[0])
 							||  (GenBankSel[11] && !ShadowSel &&  RecMode && !EF[1]));
 
+
 	assign	nRamBankSel[12]	= !((GenBankSel[12] && !ShadowSel && !RecMode && !IntegraRomSel[12])
-							||  (GenBankSel[12] && !ShadowSel &&  RecMode && !EF[1]));
+							||  (GenBankSel[12] && !ShadowSel &&  RecMode && !EF[0] && !EF[1]));
 
 	assign	nRamBankSel[13]	= !((GenBankSel[13] && !ShadowSel && !RecMode && !IntegraRomSel[13])
-							||  (GenBankSel[13] && !ShadowSel &&  RecMode && !EF[1]));
-
+							||  (GenBankSel[13] && !ShadowSel &&  RecMode && !EF[0] && !EF[1]));
+	
 	assign	nRamBankSel[14]	= !((GenBankSel[14] && !ShadowSel && !RecMode && !IntegraRomSel[14])
-							||  (GenBankSel[14] && !ShadowSel &&  RecMode && !EF[1]));
+							||  (GenBankSel[14] && !ShadowSel &&  RecMode && !EF[0] && !EF[1]));
 
 	assign	nRamBankSel[15]	= !((GenBankSel[15] && !ShadowSel && !RecMode && !IntegraRomSel[15])
-							||  (GenBankSel[15] && !ShadowSel &&  RecMode && !EF[1]));
+							||  (GenBankSel[15] && !ShadowSel &&  RecMode && !EF[0] && !EF[1]));
 
-	assign	nRamBankSel[16]	=  !(ShadowSel && !bbc_ADDRESS[14]);
+	// Note: In Recovery Mode, ShadowSel is always at logic 0 (set by ShEn latch).
+	assign	nRamBankSel[16]	= !((ShadowSel && !bbc_ADDRESS[14])
+							||  (GenBankSel[12] && !ShadowSel &&  RecMode &&  EF[0]));
 
-	assign	nRamBankSel[17]	=  !(ShadowSel &&  bbc_ADDRESS[14]);
+	// Note: In Recovery Mode, ShadowSel is always at logic 0 (set by ShEn latch).
+	assign	nRamBankSel[17]	= !((ShadowSel &&  bbc_ADDRESS[14])
+							||  (GenBankSel[13] && !ShadowSel &&  RecMode &&  EF[0]));
 
-	assign	nRamBankSel[19:18]	=  2'b11; // Banks 18 & 19 are unused
+	assign	nRamBankSel[18]	=  !(GenBankSel[14] && !ShadowSel &&  RecMode &&  EF[0]); // Bank 18 is unused
 
+	assign	nRamBankSel[19]	=  !(GenBankSel[15] && !ShadowSel &&  RecMode &&  EF[0]); // Bank 19 is unused
+							
 	// Bank 20 has been assigned to pp2a PALPROM. Base ROM is stored in Banks 8
-	assign	nRamBankSel[20]	= !((GenBankSel[8]  & !ShadowSel & !RecMode & !IntegraRomSel[8] &  pp2aBank[1])	//Bank 1 for pp2 PALPROM. Base ROM is in Bank 8
-							|   (GenBankSel[4]  & !ShadowSel &  RecMode & EF[1]));							//Accessed via Bank 4 when in recovery mode
+	assign	nRamBankSel[20]	= !((GenBankSel[8]  & !ShadowSel && !RecMode & !IntegraRomSel[8] &  pp2aBank[1])//Bank 1 for pp2 PALPROM. Base ROM is in Bank 8
+							|   (GenBankSel[4]  & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 4 when in recovery mode
 
 	// Bank 21 has been assigned to pp2b PALPROM. Base ROM is stored in Banks 9
-	assign	nRamBankSel[21]	= !((GenBankSel[9]  & !ShadowSel & !RecMode & !IntegraRomSel[9] &  pp2bBank[1])	//Bank 1 for pp2 PALPROM. Base ROM is in Bank 9
-							|   (GenBankSel[5]  & !ShadowSel &  RecMode & EF[1]));							//Accessed via Bank 5 when in recovery mode
+	assign	nRamBankSel[21]	= !((GenBankSel[9]  & !ShadowSel && !RecMode & !IntegraRomSel[9] &  pp2bBank[1])//Bank 1 for pp2 PALPROM. Base ROM is in Bank 9
+							|   (GenBankSel[5]  & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 5 when in recovery mode
 
 	// Banks 22..24 have been assigned to pp4 PALPROM. Base ROM is stored in Bank 10
-	assign	nRamBankSel[22]	= !((GenBankSel[10] & !ShadowSel & !RecMode & !IntegraRomSel[10] & pp4Bank[1])	//Bank 1 for pp4 PALPROM. Base ROM is in Bank 10
-							|   (GenBankSel[6]  & !ShadowSel &  RecMode & EF[1]));							//Accessed via Bank 6 when in recovery mode
+	assign	nRamBankSel[22]	= !((GenBankSel[10] & !ShadowSel && !RecMode & !IntegraRomSel[10] & pp4Bank[1])	//Bank 1 for pp4 PALPROM. Base ROM is in Bank 10
+							|   (GenBankSel[6]  & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 6 when in recovery mode
 
-	assign	nRamBankSel[23]	= !((GenBankSel[10] & !ShadowSel & !RecMode & !IntegraRomSel[10] & pp4Bank[2])	//Bank 2 for pp4 PALPROM. Base ROM is in Bank 10
-							|   (GenBankSel[7]  & !ShadowSel &  RecMode & EF[1]));							//Accessed via Bank 7 when in recovery mode
+	assign	nRamBankSel[23]	= !((GenBankSel[10] & !ShadowSel && !RecMode & !IntegraRomSel[10] & pp4Bank[2])	//Bank 2 for pp4 PALPROM. Base ROM is in Bank 10
+							|   (GenBankSel[7]  & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 7 when in recovery mode
 
-	assign	nRamBankSel[24]	= !((GenBankSel[10] & !ShadowSel & !RecMode & !IntegraRomSel[10] & pp4Bank[3])	//Bank 3 for pp4 PALPROM. Base ROM is in Bank 10
-							|   (GenBankSel[8]  & !ShadowSel &  RecMode & EF[1]));							//Accessed via Bank 8 when in recovery mode
+	assign	nRamBankSel[24]	= !((GenBankSel[10] & !ShadowSel && !RecMode & !IntegraRomSel[10] & pp4Bank[3])	//Bank 3 for pp4 PALPROM. Base ROM is in Bank 10
+							|   (GenBankSel[8]  & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 8 when in recovery mode
 
 	// Banks 25..31 have been assigned to pp8 PALPROM. Base ROM is stored in Bank 11
-	assign	nRamBankSel[25]	= !((GenBankSel[11] & !ShadowSel & !RecMode & !IntegraRomSel[11] & pp8Bank[1])	//Bank 1 for pp8 PALPROM. Base ROM is in Bank 11
-							|   (GenBankSel[9]  & !ShadowSel &  RecMode & EF[1]));							//Accessed via Bank 9 when in recovery mode
+	assign	nRamBankSel[25]	= !((GenBankSel[11] & !ShadowSel && !RecMode & !IntegraRomSel[11] & pp8Bank[1])	//Bank 1 for pp8 PALPROM. Base ROM is in Bank 11
+							|   (GenBankSel[9]  & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 9 when in recovery mode
 
-	assign	nRamBankSel[26]	= !((GenBankSel[11] & !ShadowSel & !RecMode & !IntegraRomSel[11] & pp8Bank[2])	//Bank 2 for pp8 PALPROM. Base ROM is in Bank 11
-							|   (GenBankSel[10] & !ShadowSel &  RecMode & EF[1]));							//Accessed via Bank 10 when in recovery mode
+	assign	nRamBankSel[26]	= !((GenBankSel[11] & !ShadowSel && !RecMode & !IntegraRomSel[11] & pp8Bank[2])	//Bank 2 for pp8 PALPROM. Base ROM is in Bank 11
+							|   (GenBankSel[10] & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 10 when in recovery mode
 
-	assign	nRamBankSel[27]	= !((GenBankSel[11] & !ShadowSel & !RecMode & !IntegraRomSel[11] & pp8Bank[3])	//Bank 3 for pp8 PALPROM. Base ROM is in Bank 11
-							|   (GenBankSel[11] & !ShadowSel &  RecMode & EF[1]));							//Accessed via Bank 11 when in recovery mode
+	assign	nRamBankSel[27]	= !((GenBankSel[11] & !ShadowSel && !RecMode & !IntegraRomSel[11] & pp8Bank[3])	//Bank 3 for pp8 PALPROM. Base ROM is in Bank 11
+							|   (GenBankSel[11] & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 11 when in recovery mode
 
-	assign	nRamBankSel[28]	= !((GenBankSel[11] & !ShadowSel & !RecMode & !IntegraRomSel[11] & pp8Bank[4])	//Bank 4 for pp8 PALPROM. Base ROM is in Bank 11
-							|   (GenBankSel[12] & !ShadowSel &  RecMode & EF[1]));							//Accessed via Bank 12 when in recovery mode
+	assign	nRamBankSel[28]	= !((GenBankSel[11] & !ShadowSel && !RecMode & !IntegraRomSel[11] & pp8Bank[4])	//Bank 4 for pp8 PALPROM. Base ROM is in Bank 11
+							|   (GenBankSel[12] & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 12 when in recovery mode
 
-	assign	nRamBankSel[29]	= !((GenBankSel[11] & !ShadowSel & !RecMode & !IntegraRomSel[11] & pp8Bank[5])	//Bank 5 for pp8 PALPROM. Base ROM is in Bank 11
-							|   (GenBankSel[13] & !ShadowSel &  RecMode & EF[1]));							//Accessed via Bank 13 when in recovery mode
+	assign	nRamBankSel[29]	= !((GenBankSel[11] & !ShadowSel && !RecMode & !IntegraRomSel[11] & pp8Bank[5])	//Bank 5 for pp8 PALPROM. Base ROM is in Bank 11
+							|   (GenBankSel[13] & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 13 when in recovery mode
 
-	assign	nRamBankSel[30]	= !((GenBankSel[11] & !ShadowSel & !RecMode & !IntegraRomSel[11] & pp8Bank[6])	//Bank 6 for pp8 PALPROM. Base ROM is in Bank 11
-							|   (GenBankSel[14] & !ShadowSel &  RecMode & EF[1]));							//Accessed via Bank 14 when in recovery mode
+	assign	nRamBankSel[30]	= !((GenBankSel[11] & !ShadowSel && !RecMode & !IntegraRomSel[11] & pp8Bank[6])	//Bank 6 for pp8 PALPROM. Base ROM is in Bank 11
+							|   (GenBankSel[14] & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 14 when in recovery mode
 
-	assign	nRamBankSel[31]	= !((GenBankSel[11] & !ShadowSel & !RecMode & !IntegraRomSel[11] & pp8Bank[7])	//Bank 7 for pp8 PALPROM. Base ROM is in Bank 11
-							|   (GenBankSel[15] & !ShadowSel &  RecMode & EF[1]));							//Accessed via Bank 15 when in recovery mode
+	assign	nRamBankSel[31]	= !((GenBankSel[11] & !ShadowSel && !RecMode & !IntegraRomSel[11] & pp8Bank[7])	//Bank 7 for pp8 PALPROM. Base ROM is in Bank 11
+							|   (GenBankSel[15] & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 15 when in recovery mode
 
 	
 	// Logic to Enable RAM IC
@@ -449,7 +462,7 @@ module IntegraBV2(
 
 	// This data is latched when address is in the range FE34..FE37
 	always @(negedge Phi2) begin
-		if (!bbc_nRST) begin
+		if (!bbc_nRST || RecMode) begin
 			PrvS8 = 1'b0;
 			PrvS4 = 1'b0;
 			PrvS1 = 1'b0;
@@ -568,8 +581,8 @@ module IntegraBV2(
 	//  the WP registers, IBOS will then write to the WP registers with the settings
 	//  that are currently saved in Private RAM, restoring the previously set values.
 	//  The CPLD Write Protect status is adjusted by IBOS as follows:
-	//  RAM Banks 0..7 are write enabled / protected by writing to address &FE3A
-	//  RAM Banks 8..F are write enabled / protected by writing to address &FE3B
+	//  	RAM Banks 0..7 are write enabled / protected by writing to address &FE3A
+	//  	RAM Banks 8..F are write enabled / protected by writing to address &FE3B
 	//  Logic state 0 = write protected. Logic state 1 = write enabled
 	//
 	always @(negedge Phi2) begin
