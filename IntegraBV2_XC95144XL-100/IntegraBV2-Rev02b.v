@@ -355,44 +355,44 @@ module IntegraBV2(
 	assign	nRamBankSel[19]	=  !(GenBankSel[15] && !ShadowSel &&  RecMode &&  EF[0]); // Bank 19 is unused
 							
 	// Bank 20 has been assigned to pp2a PALPROM. Base ROM is stored in Banks 8
-	assign	nRamBankSel[20]	= !((GenBankSel[8]  & !ShadowSel && !RecMode & !IntegraRomSel[8] &  pp2aBank[1])//Bank 1 for pp2 PALPROM. Base ROM is in Bank 8
-							|   (GenBankSel[4]  & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 4 when in recovery mode
+	assign	nRamBankSel[20]	= !((GenBankSel[8]  && !ShadowSel && !RecMode && !IntegraRomSel[8] &&  pp2aBank[1])//Bank 1 for pp2 PALPROM. Base ROM is in Bank 8
+							||  (GenBankSel[4]  && !ShadowSel &&  RecMode && EF[1]));							//Accessed via Bank 4 when in recovery mode
 
 	// Bank 21 has been assigned to pp2b PALPROM. Base ROM is stored in Banks 9
-	assign	nRamBankSel[21]	= !((GenBankSel[9]  & !ShadowSel && !RecMode & !IntegraRomSel[9] &  pp2bBank[1])//Bank 1 for pp2 PALPROM. Base ROM is in Bank 9
-							|   (GenBankSel[5]  & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 5 when in recovery mode
+	assign	nRamBankSel[21]	= !((GenBankSel[9]  && !ShadowSel && !RecMode && !IntegraRomSel[9] &&  pp2bBank[1])//Bank 1 for pp2 PALPROM. Base ROM is in Bank 9
+							||  (GenBankSel[5]  && !ShadowSel &&  RecMode && EF[1]));							//Accessed via Bank 5 when in recovery mode
 
 	// Banks 22..24 have been assigned to pp4 PALPROM. Base ROM is stored in Bank 10
-	assign	nRamBankSel[22]	= !((GenBankSel[10] & !ShadowSel && !RecMode & !IntegraRomSel[10] & pp4Bank[1])	//Bank 1 for pp4 PALPROM. Base ROM is in Bank 10
-							|   (GenBankSel[6]  & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 6 when in recovery mode
+	assign	nRamBankSel[22]	= !((GenBankSel[10] && !ShadowSel && !RecMode && !IntegraRomSel[10] && pp4Bank[1])	//Bank 1 for pp4 PALPROM. Base ROM is in Bank 10
+							||  (GenBankSel[6]  && !ShadowSel &&  RecMode && EF[1]));							//Accessed via Bank 6 when in recovery mode
 
-	assign	nRamBankSel[23]	= !((GenBankSel[10] & !ShadowSel && !RecMode & !IntegraRomSel[10] & pp4Bank[2])	//Bank 2 for pp4 PALPROM. Base ROM is in Bank 10
-							|   (GenBankSel[7]  & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 7 when in recovery mode
+	assign	nRamBankSel[23]	= !((GenBankSel[10] && !ShadowSel && !RecMode && !IntegraRomSel[10] && pp4Bank[2])	//Bank 2 for pp4 PALPROM. Base ROM is in Bank 10
+							||  (GenBankSel[7]  && !ShadowSel &&  RecMode && EF[1]));							//Accessed via Bank 7 when in recovery mode
 
-	assign	nRamBankSel[24]	= !((GenBankSel[10] & !ShadowSel && !RecMode & !IntegraRomSel[10] & pp4Bank[3])	//Bank 3 for pp4 PALPROM. Base ROM is in Bank 10
-							|   (GenBankSel[8]  & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 8 when in recovery mode
+	assign	nRamBankSel[24]	= !((GenBankSel[10] && !ShadowSel && !RecMode && !IntegraRomSel[10] && pp4Bank[3])	//Bank 3 for pp4 PALPROM. Base ROM is in Bank 10
+							||  (GenBankSel[8]  && !ShadowSel &&  RecMode && EF[1]));							//Accessed via Bank 8 when in recovery mode
 
 	// Banks 25..31 have been assigned to pp8 PALPROM. Base ROM is stored in Bank 11
-	assign	nRamBankSel[25]	= !((GenBankSel[11] & !ShadowSel && !RecMode & !IntegraRomSel[11] & pp8Bank[1])	//Bank 1 for pp8 PALPROM. Base ROM is in Bank 11
-							|   (GenBankSel[9]  & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 9 when in recovery mode
+	assign	nRamBankSel[25]	= !((GenBankSel[11] && !ShadowSel && !RecMode && !IntegraRomSel[11] && pp8Bank[1])	//Bank 1 for pp8 PALPROM. Base ROM is in Bank 11
+							||  (GenBankSel[9]  && !ShadowSel &&  RecMode && EF[1]));							//Accessed via Bank 9 when in recovery mode
 
-	assign	nRamBankSel[26]	= !((GenBankSel[11] & !ShadowSel && !RecMode & !IntegraRomSel[11] & pp8Bank[2])	//Bank 2 for pp8 PALPROM. Base ROM is in Bank 11
-							|   (GenBankSel[10] & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 10 when in recovery mode
+	assign	nRamBankSel[26]	= !((GenBankSel[11] && !ShadowSel && !RecMode && !IntegraRomSel[11] && pp8Bank[2])	//Bank 2 for pp8 PALPROM. Base ROM is in Bank 11
+							||  (GenBankSel[10] && !ShadowSel &&  RecMode && EF[1]));							//Accessed via Bank 10 when in recovery mode
 
-	assign	nRamBankSel[27]	= !((GenBankSel[11] & !ShadowSel && !RecMode & !IntegraRomSel[11] & pp8Bank[3])	//Bank 3 for pp8 PALPROM. Base ROM is in Bank 11
-							|   (GenBankSel[11] & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 11 when in recovery mode
+	assign	nRamBankSel[27]	= !((GenBankSel[11] && !ShadowSel && !RecMode && !IntegraRomSel[11] && pp8Bank[3])	//Bank 3 for pp8 PALPROM. Base ROM is in Bank 11
+							||  (GenBankSel[11] && !ShadowSel &&  RecMode && EF[1]));							//Accessed via Bank 11 when in recovery mode
 
-	assign	nRamBankSel[28]	= !((GenBankSel[11] & !ShadowSel && !RecMode & !IntegraRomSel[11] & pp8Bank[4])	//Bank 4 for pp8 PALPROM. Base ROM is in Bank 11
-							|   (GenBankSel[12] & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 12 when in recovery mode
+	assign	nRamBankSel[28]	= !((GenBankSel[11] && !ShadowSel && !RecMode && !IntegraRomSel[11] && pp8Bank[4])	//Bank 4 for pp8 PALPROM. Base ROM is in Bank 11
+							||  (GenBankSel[12] && !ShadowSel &&  RecMode && EF[1]));							//Accessed via Bank 12 when in recovery mode
 
-	assign	nRamBankSel[29]	= !((GenBankSel[11] & !ShadowSel && !RecMode & !IntegraRomSel[11] & pp8Bank[5])	//Bank 5 for pp8 PALPROM. Base ROM is in Bank 11
-							|   (GenBankSel[13] & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 13 when in recovery mode
+	assign	nRamBankSel[29]	= !((GenBankSel[11] && !ShadowSel && !RecMode && !IntegraRomSel[11] && pp8Bank[5])	//Bank 5 for pp8 PALPROM. Base ROM is in Bank 11
+							||  (GenBankSel[13] && !ShadowSel &&  RecMode && EF[1]));							//Accessed via Bank 13 when in recovery mode
 
-	assign	nRamBankSel[30]	= !((GenBankSel[11] & !ShadowSel && !RecMode & !IntegraRomSel[11] & pp8Bank[6])	//Bank 6 for pp8 PALPROM. Base ROM is in Bank 11
-							|   (GenBankSel[14] & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 14 when in recovery mode
+	assign	nRamBankSel[30]	= !((GenBankSel[11] && !ShadowSel && !RecMode && !IntegraRomSel[11] && pp8Bank[6])	//Bank 6 for pp8 PALPROM. Base ROM is in Bank 11
+							||  (GenBankSel[14] && !ShadowSel &&  RecMode && EF[1]));							//Accessed via Bank 14 when in recovery mode
 
-	assign	nRamBankSel[31]	= !((GenBankSel[11] & !ShadowSel && !RecMode & !IntegraRomSel[11] & pp8Bank[7])	//Bank 7 for pp8 PALPROM. Base ROM is in Bank 11
-							|   (GenBankSel[15] & !ShadowSel &&  RecMode & EF[1]));							//Accessed via Bank 15 when in recovery mode
+	assign	nRamBankSel[31]	= !((GenBankSel[11] && !ShadowSel && !RecMode && !IntegraRomSel[11] && pp8Bank[7])	//Bank 7 for pp8 PALPROM. Base ROM is in Bank 11
+							||  (GenBankSel[15] && !ShadowSel &&  RecMode && EF[1]));							//Accessed via Bank 15 when in recovery mode
 
 	
 	// Logic to Enable RAM IC
