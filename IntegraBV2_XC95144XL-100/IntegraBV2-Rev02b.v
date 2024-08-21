@@ -287,23 +287,23 @@ module IntegraBV2(
 	// RAM addresses A14..A18 are switched by the CPLD based on which RAM bank has been selected
 	// ShadowSel is a 32k block based on Shadow RAM and Private RAM. A14 switches between the upper and lower bank.
 	// 'Extended Function' logic allows the following RAM bank remapping whilst in Recovery Mode:
-	//		mapping of RAM Banks 0..3 into GenBanks 4..7 by setting EF[0]=1.
-	// 		mapping of Private & Shadow RAM Banks 16 & 17 into GenBanks 12 & 13 by setting EF[0]=1.
-	//		mapping of unused RAM Banks 18 & 19 into GenBanks 14 & 15 by setting EF[0]=1
-	//		mapping of PALPROM hidden banks 20..31 into GenBanks 4..15 by setting EF[1]=1
+	//		mapping of RAM Banks 0..3 into GenBanks 4..7 by setting EF[0]=1 & EF[1]=0.
+	// 		mapping of Private & Shadow RAM Banks 16 & 17 into GenBanks 12 & 13 by setting EF[0]=1 & EF[1]=0.
+	//		mapping of unused RAM Banks 18 & 19 into GenBanks 14 & 15 by setting EF[0]=1 & EF[1]=0.
+	//		mapping of PALPROM hidden banks 20..31 into GenBanks 4..15 by setting EF[1]=1.
 	// Banks 8..11 can be switched between RAM & PALPROM via Jumpers. This is done in the PALPROM logic.
 
 	assign	nRamBankSel[0]	= !((GenBankSel[0]  && !ShadowSel && !RecMode && !BeebRomSel[0])
-							||  (GenBankSel[4]  && !ShadowSel &&  RecMode &&  EF[0]));
+							||  (GenBankSel[4]  && !ShadowSel &&  RecMode &&  EF[0] &&  !EF[1]));
 	
 	assign	nRamBankSel[1]	= !((GenBankSel[1]  && !ShadowSel && !RecMode && !BeebRomSel[1])
-							||  (GenBankSel[5]  && !ShadowSel &&  RecMode &&  EF[0]));
+							||  (GenBankSel[5]  && !ShadowSel &&  RecMode &&  EF[0] &&  !EF[1]));
 
 	assign	nRamBankSel[2]	= !((GenBankSel[2]  && !ShadowSel && !RecMode && !BeebRomSel[2])
-							||  (GenBankSel[6]  && !ShadowSel &&  RecMode &&  EF[0]));
+							||  (GenBankSel[6]  && !ShadowSel &&  RecMode &&  EF[0] &&  !EF[1]));
 
 	assign	nRamBankSel[3]	= !((GenBankSel[3]  && !ShadowSel && !RecMode && !BeebRomSel[3])
-							||  (GenBankSel[7]  && !ShadowSel &&  RecMode &&  EF[0]));
+							||  (GenBankSel[7]  && !ShadowSel &&  RecMode &&  EF[0] &&  !EF[1]));
 
 	assign	nRamBankSel[4]	= !((GenBankSel[4]  && !ShadowSel && !RecMode)
 							||  (GenBankSel[4]  && !ShadowSel &&  RecMode && !EF[0] && !EF[1]));
@@ -344,15 +344,15 @@ module IntegraBV2(
 
 	// Note: In Recovery Mode, ShadowSel is always at logic 0 (set by ShEn latch).
 	assign	nRamBankSel[16]	= !((ShadowSel && !bbc_ADDRESS[14])
-							||  (GenBankSel[12] && !ShadowSel &&  RecMode &&  EF[0]));
+							||  (GenBankSel[12] && !ShadowSel &&  RecMode &&  EF[0] &&  !EF[1]));
 
 	// Note: In Recovery Mode, ShadowSel is always at logic 0 (set by ShEn latch).
 	assign	nRamBankSel[17]	= !((ShadowSel &&  bbc_ADDRESS[14])
-							||  (GenBankSel[13] && !ShadowSel &&  RecMode &&  EF[0]));
+							||  (GenBankSel[13] && !ShadowSel &&  RecMode &&  EF[0] &&  !EF[1]));
 
-	assign	nRamBankSel[18]	=  !(GenBankSel[14] && !ShadowSel &&  RecMode &&  EF[0]); // Bank 18 is unused
+	assign	nRamBankSel[18]	=  !(GenBankSel[14] && !ShadowSel &&  RecMode &&  EF[0] &&  !EF[1]); // Bank 18 is unused
 
-	assign	nRamBankSel[19]	=  !(GenBankSel[15] && !ShadowSel &&  RecMode &&  EF[0]); // Bank 19 is unused
+	assign	nRamBankSel[19]	=  !(GenBankSel[15] && !ShadowSel &&  RecMode &&  EF[0] &&  !EF[1]); // Bank 19 is unused
 							
 	// Bank 20 has been assigned to pp2a PALPROM. Base ROM is stored in Banks 8
 	assign	nRamBankSel[20]	= !((GenBankSel[8]  && !ShadowSel && !RecMode && !IntegraRomSel[8] &&  pp2aBank[1])//Bank 1 for pp2 PALPROM. Base ROM is in Bank 8
