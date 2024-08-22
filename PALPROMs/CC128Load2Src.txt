@@ -1,0 +1,190 @@
+REM CC128K 128k PALPROM Loader
+REM This will only work
+REM with IntegraB V2 board.
+REM The board must be in
+REM Recovery Mode (long break)
+REM before running this code.
+REM (C) Ken Lowe 2024
+REM Version 2.0 12/08/2024
+DIM osblock% 16
+DIM mcode% &100
+DIM buffer% &4000
+CLOSE#0
+MODE7
+PRINT"Integra-B V2 PALPROM Loader"
+PRINT"---------------------------"'
+PRINT"Checking for V2 Hardware.....";
+IFNOT(FNvercheck)VDU7,129:PRINT"Error"''"Sorry. V2 Harware not detected.":END
+VDU130:PRINT"Ok"'"Checking for recovery mode...";
+IFNOT(FNrecmode)VDU7,129:PRINT"Error"''"Please press CTRL-BREAK for longer"'"than 1 second, and re-run this program":END
+VDU130:PRINT"Ok"'"Loading image to Bank........";
+bank%=10
+file$="MegaROM"
+wpinflags%=2^(bank%-8)*&100
+wpoutflags%=&4000
+rrinflags%=2^(bank%-8)*&100
+rroutflags%=0
+wpflags%=FNreadwpflags
+rrflags%=?&FE39*&100+(?&FE38 OR &F0)
+gblue%=148:gred%=145:ggreen%=146:gwhite%=151
+jopen%=98:jclosed%=106
+VDU130:PRINT;bank%
+PRINT"Checking jumper settings.....";
+IF(wpinflags% AND wpoutflags%)<>0 VDU7,129:PRINT"Error"''"Incompatible wp in/out flags defined.":END
+IF(rrinflags% AND rroutflags%)<>0 VDU7,129:PRINT"Error"''"Incompatible rr in/out flags defined.":END
+IF(FNcheckwp+FNcheckrr)<>0 VDU7,129:PRINT"Error"'':PROCjumpers:END
+PROCSWRAMCopy
+PROCSetSWTable
+fh%=OPENIN(file$)
+VDU130:PRINT"Ok"''"Loading ";file$;" to SWRAM banks..."
+PRINT"Writing block ";
+FORN%=0TO7
+S%=FNpartload(fh%,buffer%,N%*&4000,&4000)
+IFS%PRINT"Failed":STOP
+PRINT;N%;" ";
+?newrom=FNSWRAM(N%):?&70=buffer%MOD256:?&71=buffer%DIV256:?&72=0:?&73=&80
+CALLsrload
+NEXT
+PRINT'"Complete. Press BREAK to initialise"
+?&FE39=0:?&FE3A=0:?&FE3B=0
+CLOSE#?osblock%
+END
+DEFFNpartload(H%,L%,O%,C%)
+A%=3:REM OSGBPB part load function
+X%=osblock% MOD256
+Y%=osblock% DIV256
+?osblock%=H%:REM file handle
+osblock%!1=L%:REM load addr
+osblock%!5=C%:REM no of bytes to read
+osblock%!9=O%:REM offset within file
+Q%=L%:REM preserve original load address
+=((USR&FFD1 AND &FF000000) DIV &1000000) AND 1
+DEFPROCSWRAMCopy
+FORpass%=0TO2STEP2
+P%=mcode%
+[OPT pass%
+.srload
+LDA&F4
+STAoldrom
+LDAnewrom
+STA&F4
+STA&FE30
+LDY#0
+.loop1
+LDA(&70),Y:STA(&72),Y
+INY:BNEloop1
+INC&71:INC&73
+BIT&73:BVCloop1
+LDAoldrom
+STA&F4
+STA&FE30
+RTS
+.newrom EQUB0
+.oldrom EQUB0
+]
+NEXT
+ENDPROC
+DEFPROCSetSWTable
+REM bank, &FE39, &FE3A, &FE3B
+REM &FE39: SWRAM 0=Normal 2=Hidden
+REM &FE3A: W/P 0..7  0=W/P 1=W/E
+REM &FE3B: W/P 8..15 0=W/P 1=W/E
+DIMswrammap%(7, 3)
+FORn%=0TO7
+FORo%=0TO3
+READ swrammap%(n%,o%)
+NEXT:NEXT
+DATA 11,0,0,8
+DATA 9,2,0,2
+DATA 10,2,0,4
+DATA 11,2,0,8
+DATA 12,2,0,16
+DATA 13,2,0,32
+DATA 14,2,0,64
+DATA 15,2,0,128
+ENDPROC
+DEFFNSWRAM (block%)
+?&FE39=swrammap%(block%,1)
+?&FE3A=swrammap%(block%,2)
+?&FE3B=swrammap%(block%,3)
+=swrammap%(block%,0)
+DEFFNvercheck
+?&FE39=0:ver%=(?&FE38 AND &E0)=&60
+IFver% ?&FE39=3:ver%=(?&FE38 AND &E0)=&00
+=ver%
+DEFFNrecmode
+=(?&FE38 AND &10)=&10
+DEFFNreadwpflags
+shortWP%=0
+?&FE38=&3E:loWP%=?&FE3C:?&FE38=&3F:hiWP%=?&FE3C
+longWP%=hiWP%*&100+loWP%
+FORn%=0TO7
+IF(longWP% AND 2^(n%*2))=2^(n%*2) shortWP%=(shortWP% OR 2^n%)
+NEXT
+=?&FE3F*&100+shortWP%
+DEFFNcheckwp
+DIMwptab%(15,1)
+wpcount%=0
+FORn%=15TO0STEP-1
+col%=gblue%:jmp%=jclosed%
+IF NOT((wpflags% AND 2^n%)=2^n%) AND ((wpinflags% AND 2^n%)=2^n%) col%=ggreen%:wpcount%=wpcount%+1
+IF ((wpflags% AND 2^n%)=2^n%) AND ((wpoutflags% AND 2^n%)=2^n%) col%=gred%:jmp%=jopen%:wpcount%=wpcount%+1
+IF NOT((wpflags% AND 2^n%)=2^n%) AND NOT((wpinflags% AND 2^n%)=2^n%) col%=gwhite%:jmp%=jopen%
+wptab%(n%,0)=col%:wptab%(n%,1)=jmp%
+NEXT
+=wpcount%
+DEFFNcheckrr
+DIMrrtab%(15,1)
+rrcount%=0
+FORn%=15TO8STEP-1
+col%=gblue%:jmp%=jclosed%
+IF NOT((rrflags% AND 2^n%)=2^n%) AND ((rrinflags% AND 2^n%)=2^n%) col%=ggreen%:rrcount%=rrcount%+1
+IF ((rrflags% AND 2^n%)=2^n%) AND ((rroutflags% AND 2^n%)=2^n%) col%=gred%:jmp%=jopen%:rrcount%=rrcount%+1
+IF NOT((rrflags% AND 2^n%)=2^n%) AND NOT((rrinflags% AND 2^n%)=2^n%) col%=gwhite%:jmp%=jopen%
+rrtab%(n%,0)=col%:rrtab%(n%,1)=jmp%
+NEXT
+FORn%=3TO0STEP-1
+col%=gblue%:jmp%=jclosed%
+IF NOT((rrflags% AND 2^n%)=2^n%) AND ((rrinflags% AND 2^n%)=2^n%) col%=ggreen%:rrcount%=rrcount%+1
+IF ((rrflags% AND 2^n%)=2^n%) AND ((rroutflags% AND 2^n%)=2^n%) col%=gred%:jmp%=jopen%:rrcount%=rrcount%+1
+IF NOT((rrflags% AND 2^n%)=2^n%) AND NOT((rrinflags% AND 2^n%)=2^n%) col%=gwhite%:jmp%=jopen%
+rrtab%(n%,0)=col%:rrtab%(n%,1)=jmp%
+NEXT
+=rrcount%
+DEFPROCjumpers
+PRINT"   J4      Write Protect Jumper Bank"
+PRINT" ";
+VDU151,104,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,108,135
+PRINT'" ";
+VDU151,106
+FORn%=15TO0STEP-1
+PRINT;CHR$(wptab%(n%,0));CHR$(wptab%(n%,1));
+NEXT
+VDU151,106,135
+PRINT'" ";
+VDU151,42,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,46
+PRINT'"      RAM/PALPROM ";:VDU151,106,135:PRINT" Default W/E"
+PRINT'"   J2          RAM / ROM Jumper Bank"
+PRINT" ";
+VDU151,104,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,108,32,32,32,32,32,104,44,44,44,44,44,44,44,44,44,108,135
+PRINT'" ";
+VDU151,106
+FORn%=15TO8STEP-1
+PRINT;CHR$(rrtab%(n%,0));CHR$(rrtab%(n%,1));
+NEXT
+VDU151,106,135,32,32,32,151,106
+FORn%=3TO0STEP-1
+PRINT;CHR$(rrtab%(n%,0));CHR$(rrtab%(n%,1));
+NEXT
+VDU151,106,135
+PRINT'" ";
+VDU151,42,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,46,32,32,32,32,32,42,44,44,44,44,44,44,44,44,44,46
+PRINT''"Jumpers to Change:"
+VDU146,106,135:PRINT"Install Jumper   ";:VDU145,98,135:PRINT"Remove Jumper"
+PRINT"Jumpers to Leave:"
+VDU148,106,135:PRINT"Jumper Installed ";:VDU151,98,135:PRINT"Jumper Removed"
+REM VDU146,106,135:PRINT"Add Jumper    ";:VDU148,106,135:PRINT"Jumper Installed"
+REM VDU145,98,135:PRINT"Remove Jumper ";:VDU151,98,135:PRINT"No Jumper Installed"
+REM PRINTCHR$130;":";CHR$135;"Add Jumper    ";CHR$132;":";CHR$135;"Jumper Installed"
+REM PRINTCHR$129;":";CHR$135;"Remove Jumper ";CHR$135;":";CHR$135;"No Jumper Installed"
+ENDPROC
