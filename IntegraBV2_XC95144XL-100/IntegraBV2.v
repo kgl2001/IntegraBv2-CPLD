@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 /************************************************************************
-IntegraBV2-Rev02b.v
+IntegraBV2.v
 
 IntegraB V2  -	A fully expanded ROM / RAM Board for BBC Micro
 Revision 01a -	July 2024 - Basic IntegraB board implementation
@@ -287,6 +287,7 @@ module IntegraBV2(
 	// RAM addresses A14..A18 are switched by the CPLD based on which RAM bank has been selected
 	// ShadowSel is a 32k block based on Shadow RAM and Private RAM. A14 switches between the upper and lower bank.
 	// 'Extended Function' logic allows the following RAM bank remapping whilst in Recovery Mode:
+	//		mapping of RAM Banks 0..15 into GenBanks 0..15 by setting EF[0]=0 & EF[1]=0.
 	//		mapping of RAM Banks 0..3 into GenBanks 4..7 by setting EF[0]=1 & EF[1]=0.
 	// 		mapping of Private & Shadow RAM Banks 16 & 17 into GenBanks 12 & 13 by setting EF[0]=1 & EF[1]=0.
 	//		mapping of unused RAM Banks 18 & 19 into GenBanks 14 & 15 by setting EF[0]=1 & EF[1]=0.
@@ -355,13 +356,13 @@ module IntegraBV2(
 	assign	nRamBankSel[19]	=  !(GenBankSel[15] && !ShadowSel &&  RecMode &&  EF[0] &&  !EF[1]); // Bank 19 is unused
 							
 	// Bank 20 has been assigned to pp2a PALPROM. Base ROM is stored in Banks 8
-	assign	nRamBankSel[20]	= !((GenBankSel[8]  && !ShadowSel && !RecMode && !IntegraRomSel[8] &&  pp2aBank[1])//Bank 1 for pp2 PALPROM. Base ROM is in Bank 8
+	assign	nRamBankSel[20]	= !((GenBankSel[8]  && !ShadowSel && !RecMode && !IntegraRomSel[8] &&  pp2aBank[1])	//Bank 1 for pp2 PALPROM. Base ROM is in Bank 8
 							||  (GenBankSel[4]  && !ShadowSel &&  RecMode && EF[1]));							//Accessed via Bank 4 when in recovery mode
 
 	// Bank 21 has been assigned to pp2b PALPROM. Base ROM is stored in Banks 9
-	assign	nRamBankSel[21]	= !((GenBankSel[9]  && !ShadowSel && !RecMode && !IntegraRomSel[9] &&  pp2bBank[1])//Bank 1 for pp2 PALPROM. Base ROM is in Bank 9
+	assign	nRamBankSel[21]	= !((GenBankSel[9]  && !ShadowSel && !RecMode && !IntegraRomSel[9] &&  pp2bBank[1])	//Bank 1 for pp2 PALPROM. Base ROM is in Bank 9
 							||  (GenBankSel[5]  && !ShadowSel &&  RecMode && EF[1]));							//Accessed via Bank 5 when in recovery mode
-
+	
 	// Banks 22..24 have been assigned to pp4 PALPROM. Base ROM is stored in Bank 10
 	assign	nRamBankSel[22]	= !((GenBankSel[10] && !ShadowSel && !RecMode && !IntegraRomSel[10] && pp4Bank[1])	//Bank 1 for pp4 PALPROM. Base ROM is in Bank 10
 							||  (GenBankSel[6]  && !ShadowSel &&  RecMode && EF[1]));							//Accessed via Bank 6 when in recovery mode
@@ -560,8 +561,11 @@ module IntegraBV2(
 	//  banks to be wiped. However, RAM banks 0..3 and extended RAM banks are
 	//  not initially available in this mode, so the extended functions allow
 	//  these banks to be mapped in by writing to address &FE39 as follows:
-	//  EF[0]: Swap RAM Banks 0..3 with Banks 4..7 - Logic 0 - No swap
-	//  EF[1]: Switch in and out Extra RAM banks
+	//		mapping of RAM Banks 0..15 into GenBanks 0..15 by setting EF[0]=0 & EF[1]=0.
+	//		mapping of RAM Banks 0..3 into GenBanks 4..7 by setting EF[0]=1 & EF[1]=0.
+	// 		mapping of Private & Shadow RAM Banks 16 & 17 into GenBanks 12 & 13 by setting EF[0]=1 & EF[1]=0.
+	//		mapping of unused RAM Banks 18 & 19 into GenBanks 14 & 15 by setting EF[0]=1 & EF[1]=0.
+	//		mapping of PALPROM hidden banks 20..31 into GenBanks 4..15 by setting EF[1]=1.
 
 	always @(negedge Phi2) begin
 		if (!bbc_nRST) EF = 2'b00;
@@ -619,40 +623,44 @@ module IntegraBV2(
 	assign	bbc_DATA      = (Phi2 && aFE3F && RnW) ? ~RamPALSel[7:0] : 8'hzz;
 
 
-	// 32k Computer Concepts PALPROM (Inter-Word, Master ROM, AMX Design2)
-	// Uses RAM banks 8 & 20
+	// 32k Computer Concepts PALPROMs (CC32K: Inter-Word, Master ROM, AMX Design2)
+	// Use Jumper RamPALSel[0] to enable PALPROM A switching. Logic '0' (Jumper): Switching Enabled. Logic '1' (No jumper): Switching disabled.
+	// Use Jumper RamPALSel[1] to enable PALPROM B switching. Logic '0' (Jumper): Switching Enabled. Logic '1' (No jumper): Switching disabled.
+	// PALPROM A uses RAM banks 8 & 20
+	// PALPROM B Uses RAM banks 9 & 21
 	//
 	always @(negedge Phi2) begin
 		if (!nRDS && GenBankSel[8]) begin
 	//	if (RnW && GenBankSel[8]) begin
-			if (RamPALSel[0])				 pp2aBank = 2'b01;	//Disable PALPROM
-	//		else if ((acc2Bk0)) 			 pp2aBank = 2'b01;	//hBFE0..hBFFF
-			else if ((acc2Bk0) || !bbc_nRST) pp2aBank = 2'b01;	//hBFE0..hBFFF
-			else if ((acc2Bk1))				 pp2aBank = 2'b10;	//hBFC0..hBFDF
+			if (RamPALSel[0])				pp2aBank = 2'b01;	//Disable PALPROM switching
+	//		else if (acc2Bk0)	 			pp2aBank = 2'b01;	//hBFE0..hBFFF
+			else if (acc2Bk0 || !bbc_nRST)	pp2aBank = 2'b01;	//hBFE0..hBFFF
+			else if (acc2Bk1)				pp2aBank = 2'b10;	//hBFC0..hBFDF
 		end
 	end
 	
-
 	
-	// 32k Computer Concepts PALPROM (Inter-Word, Master ROM, AMX Design2)
-	// Uses RAM banks 9 & 21
-	//
 	always @(negedge Phi2) begin
 		if (!nRDS && GenBankSel[9]) begin
 	//	if (RnW && GenBankSel[9]) begin
-			if (RamPALSel[1])				 pp2bBank = 2'b01;	//Disable PALPROM
-	//		else if ((acc2Bk0)) 			 pp2bBank = 2'b01;	//hBFE0..hBFFF
-			else if ((acc2Bk0) || !bbc_nRST) pp2bBank = 2'b01;	//hBFE0..hBFFF
-			else if ((acc2Bk1))				 pp2bBank = 2'b10;	//hBFC0..hBFDF
+			if (RamPALSel[2])				pp2bBank = 2'b01;	//Disable PALPROM switching
+	//		else if (acc2Bk0)	 			pp2bBank = 2'b01;	//hBFE0..hBFFF
+			else if (acc2Bk0 || !bbc_nRST)	pp2bBank = 2'b01;	//hBFE0..hBFFF
+			else if (acc2Bk1)				pp2bBank = 2'b10;	//hBFC0..hBFDF
 		end
 	end
+	
 
-
-	// 32k Watford Electronic PALPROM (QuestPaint, ConQuest, PCB Designer, TED)
-	// Note the lower 8k is always active, and the upper 8k is switched
-	// Since we have no control over A13, we use 4 x 16k banks with the 32K PALPROM mapped as follows:
+	// Combined code for 64k Computer Concepts PALPROM (CC64K) & 32k Watford Electronic PALPROM (WEQST & WETED) 
+	// 64k Computer Concepts PALPROM (CC64K: Inter-Base, Publisher, Wordwise Plus II)
+	// Note: WW+II is a 32k PALPROM designed to work with CC64K PALPROM switching logic.
+	//		 It is therefore necessary to duplicate WW+II ROM into upper 32k bank to create a 64k ROM.
 	//
-	// RAM Bank | Address Range | PALPROM Address | QP/CQ/PCB Switch | TED
+	// 32k Watford Electronic PALPROM (WEQST: QuestPaint, ConQuest, PCB Designer & WETED: TED)
+	// Note: The lower 8k of WE PALPROMs is never swtiched. Only the upper 8k is switched
+	// 		 Since we have no control over A13, we use 4 x 16k banks with the 32K PALPROM mapped as follows:
+	//
+	// RAM Bank | Address Range | PALPROM Address | QP/CQ/PCB Switch | TED Switch
 	// ---------+---------------+-----------------+------------------+--------------
 	// 10       | h8000 - hAFFF | h0000 - h1FFF   |                  |              
 	// 10       | hB000 - hCFFF | h0000 - h1FFF   | h9340..h935F     | h9F80..h9F9F 
@@ -662,66 +670,62 @@ module IntegraBV2(
 	// 23       | hB000 - hCFFF | h4000 - h5FFF   | h8820..h883F     | h9FC0..h9FDF 
 	// 24       | h8000 - hAFFF | h0000 - h1FFF   |                  |              
 	// 24       | hB000 - hCFFF | h6000 - h7FFF   | h92C0..h92DF     | h9FE0..h9FFF 
-	
-	
-	// Uses RAM banks 10 & 22..24
-	/*
-	wire pp4Clk = (!nRDS && GenBankSel[10]) || !bbc_nRST;
-	always @(posedge pp4Clk) begin
-		if (RamPALSel[2])												pp4Bank = 4'b0001;	//Disable PALPROM
-		else if ((bbc_ADDRESS[15:5] == 11'b1001_0011_010) || !bbc_nRST) pp4Bank = 4'b0001;	//h9340..h935F
-		else if  (bbc_ADDRESS[15:5] == 11'b1001_0001_111)				pp4Bank = 4'b0010;	//h91E0..h91FF
-		else if  (bbc_ADDRESS[15:5] == 11'b1000_1000_001)				pp4Bank = 4'b0100;	//h8820..h883F
-		else if  (bbc_ADDRESS[15:5] == 11'b1001_0010_110)				pp4Bank = 4'b1000;	//h92C0..h92DF
-	end
-	*/
-
-	// 64k Computer Concepts PALPROM (Inter-Base, Publisher, Wordwise Plus II)
-	// Note: Need to duplicate WW+II ROM into upper 32k bank
-	// Uses RAM banks 10 & 22..24
-	/*
-		wire pp4Clk = (!nRDS && GenBankSel[10]) || !bbc_nRST;
-		always @(posedge pp4Clk) begin
-			if (RamPALSel[2])											  pp4Bank = 4'b0001;	//Disable PALPROM
-			else if ((bbc_ADDRESS[15:5] == 11'b10111111100) || !bbc_nRST) pp4Bank = 4'b0001;	//hBF80..hBF9F
-			else if ((bbc_ADDRESS[15:5] == 11'b10111111101))			  pp4Bank = 4'b0010;	//hBFA0..hBFBF
-			else if ((bbc_ADDRESS[15:5] == 11'b10111111110))			  pp4Bank = 4'b0100;	//hBFC0..hBFDF
-			else if ((bbc_ADDRESS[15:5] == 11'b10111111111))			  pp4Bank = 4'b1000;	//hBFE0..hBFFF
-		end
-	*/
-
-	// Combined code for 32k Watford Electronic PALPROM & 64k Computer Concepts PALPROM
+	//
 	// Use Jumper RamPALSel[4] to select PALPROM Type. Logic '0' (Jumper): WEQST, Logic '1' (No Jumper): CC64K
 	// And Jumper RamPALSel[5] to deselect CC64K / WEQST, and select WETED instead
-	// Both use RAM banks 10 & 22..24
-	//
+	// Use Jumper RamPALSel[2] to enable PALPROM switching. Logic '0' (Jumper): Switching Enabled. Logic '1' (No jumper): Switching disabled.
+	// Uses RAM banks 10 & 22..24
+
+	/* This won't fit, but the equivalent below does fit. Go figure!
+		always @(negedge Phi2) begin
+		if (!nRDS && GenBankSel[10]) begin
+		//if (RnW && GenBankSel[10]) begin
+			if ((!bbc_nRST)
+			     ||   (RamPALSel[5:4] == 2'b11)																		//Disable PALPROM switching
+			     ||  ((RamPALSel[5:4] == 2'b10) && (bbc_ADDRESS[15:5] == 11'b1001_0011_010))						//h9340..h935F (WEQST)
+				 ||  ((RamPALSel[5:4] == 2'b01) && (bbc_ADDRESS[15:5] == 11'b1001_1111_100))						//h9F80..h9F9F (WETED)
+				 ||  ((RamPALSel[5:4] == 2'b00) && (bbc_ADDRESS[15:5] == 11'b1011_1111_100)))	pp4Bank = 4'b0001;	//hBF80..hBF9F (CC64K)
+			else if (((RamPALSel[5:4] == 2'b10) && (bbc_ADDRESS[15:5] == 11'b1001_0001_111))						//h91E0..h91FF (WEQST)
+				 ||  ((RamPALSel[5:4] == 2'b01) && (bbc_ADDRESS[15:5] == 11'b1001_1111_101))						//h9FA0..h9FBF (WETED)
+				 ||  ((RamPALSel[5:4] == 2'b00) && (bbc_ADDRESS[15:5] == 11'b1011_1111_101)))	pp4Bank = 4'b0010;	//hBFA0..hBFBF (CC64K)
+			else if (((RamPALSel[5:4] == 2'b10) && (bbc_ADDRESS[15:5] == 11'b1000_1000_001))						//h8820..h883F (WEQST)
+				 ||  ((RamPALSel[5:4] == 2'b01) && (bbc_ADDRESS[15:5] == 11'b1001_1111_110))						//h9FC0..h9FDF (WETED)
+				 ||  ((RamPALSel[5:4] == 2'b00) && (bbc_ADDRESS[15:5] == 11'b1011_1111_110)))	pp4Bank = 4'b0100;	//hBFC0..hBFDF (CC64K)
+			else if (((RamPALSel[5:4] == 2'b10) && (bbc_ADDRESS[15:5] == 11'b1001_0010_110))						//h92C0..h92DF (WEQST)
+				 ||  ((RamPALSel[5:4] == 2'b01) && (bbc_ADDRESS[15:5] == 11'b1001_1111_111))						//h9FE0..h9FFF (WETED)
+				 ||  ((RamPALSel[5:4] == 2'b00) && (bbc_ADDRESS[15:5] == 11'b1011_1111_111)))	pp4Bank = 4'b1000;	//hBFE0..hBFFF (CC64K)
+		end
+	end
+	*/
+	
 	always @(negedge Phi2) begin
 		if (!nRDS && GenBankSel[10]) begin
 		//if (RnW && GenBankSel[10]) begin
-			if (RamPALSel[2])															 			pp4Bank = 4'b0001;	//Disable PALPROM
-			else if ((!RamPALSel[4] && RamPALSel[5] && (bbc_ADDRESS[15:5] == 11'b1001_0011_010))						//h9340..h935F (WEQST)
-				 ||   (RamPALSel[4] && RamPALSel[5] && (bbc_ADDRESS[15:5] == 11'b1011_1111_100))						//hBF80..hBF9F (CC64K)
-				 ||  (!RamPALSel[5] 				&& (bbc_ADDRESS[15:5] == 11'b1001_1111_100)))	pp4Bank = 4'b0001;	//h9F80..h9F9F (WETED)
-			else if ((!RamPALSel[4] && RamPALSel[5] && (bbc_ADDRESS[15:5] == 11'b1001_0001_111))						//h91E0..h91FF (WEQST)
-				 ||   (RamPALSel[4] && RamPALSel[5] && (bbc_ADDRESS[15:5] == 11'b1011_1111_101))						//hBFA0..hBFBF (CC64K)
-				 ||  (!RamPALSel[5] 				&& (bbc_ADDRESS[15:5] == 11'b1001_1111_101)))	pp4Bank = 4'b0010;	//h9FA0..h9FBF (WETED)
-			else if ((!RamPALSel[4] && RamPALSel[5] && (bbc_ADDRESS[15:5] == 11'b1000_1000_001))						//h8820..h883F (WEQST)
-				 ||   (RamPALSel[4] && RamPALSel[5] && (bbc_ADDRESS[15:5] == 11'b1011_1111_110))						//hBFC0..hBFDF (CC64K)
-				 ||  (!RamPALSel[5] 				&& (bbc_ADDRESS[15:5] == 11'b1001_1111_110)))	pp4Bank = 4'b0100;	//h9FC0..h9FDF (WETED)
-			else if ((!RamPALSel[4] && RamPALSel[5] && (bbc_ADDRESS[15:5] == 11'b1001_0010_110))						//h92C0..h92DF (WEQST)
-				 ||   (RamPALSel[4] && RamPALSel[5] && (bbc_ADDRESS[15:5] == 11'b1011_1111_111))						//hBFE0..hBFFF (CC64K)
-				 ||  (!RamPALSel[5] 				&& (bbc_ADDRESS[15:5] == 11'b1001_1111_111)))	pp4Bank = 4'b1000;	//h9FE0..h9FFF (WETED)
+			if ((!bbc_nRST)
+			     ||  (RamPALSel[5] &&  RamPALSel[4])																	//Disable PALPROM switching
+			     ||  (RamPALSel[5] && !RamPALSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_0011_010))						//h9340..h935F (WEQST)
+				 || (!RamPALSel[5] &&  RamPALSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_1111_100))						//h9F80..h9F9F (WETED)
+				 || (!RamPALSel[5] && !RamPALSel[4] && (bbc_ADDRESS[15:5] == 11'b1011_1111_100)))	pp4Bank = 4'b0001;	//hBF80..hBF9F (CC64K)
+			else if ((RamPALSel[5] && !RamPALSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_0001_111))						//h91E0..h91FF (WEQST)
+				 || (!RamPALSel[5] &&  RamPALSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_1111_101))						//h9FA0..h9FBF (WETED)
+				 || (!RamPALSel[5] && !RamPALSel[4] && (bbc_ADDRESS[15:5] == 11'b1011_1111_101)))	pp4Bank = 4'b0010;	//hBFA0..hBFBF (CC64K)
+			else if ((RamPALSel[5] && !RamPALSel[4] && (bbc_ADDRESS[15:5] == 11'b1000_1000_001))						//h8820..h883F (WEQST)
+				 || (!RamPALSel[5] &&  RamPALSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_1111_110))						//h9FC0..h9FDF (WETED)
+				 || (!RamPALSel[5] && !RamPALSel[4] && (bbc_ADDRESS[15:5] == 11'b1011_1111_110)))	pp4Bank = 4'b0100;	//hBFC0..hBFDF (CC64K)
+			else if ((RamPALSel[5] && !RamPALSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_0010_110))						//h92C0..h92DF (WEQST)
+				 || (!RamPALSel[5] &&  RamPALSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_1111_111))						//h9FE0..h9FFF (WETED)
+				 || (!RamPALSel[5] && !RamPALSel[4] && (bbc_ADDRESS[15:5] == 11'b1011_1111_111)))	pp4Bank = 4'b1000;	//hBFE0..hBFFF (CC64K)
 		end
 	end
-
-
-	/*
-	// 64k Watford Electronics PALPROM (Wapping)
-	// Note the lower 8k is always active, and the upper 8k is switched
-	// Since we have no control over A13, we use 8 x 16k banks with the 64K PALPROM mapped as follows:
+	
+	// Combined code for 128k Computer Concepts PALPROM (CC128K) & 64k Watford Electronics PALPROM (WEWAP)
+	// 128k Computer Concepts PALPROM (CC128K: SpellMaster, MegaROM)
+	// 64k Watford Electronics PALPROM (WEWAP: Wapping)
+	// Note: The lower 8k of WE PALPROMs is never swtiched. Only the upper 8k is switched
+	// 		 Since we have no control over A13, we use 8 x 16k banks with the 64K PALPROM mapped as follows:
 	//
-	// RAM Bank | Address Range | PALPROM Address | Wapping       
-	// ---------+---------------+-----------------+--------------
+	// RAM Bank | Address Range | PALPROM Address | Wapping Switch
+	// ---------+---------------+-----------------+----------------
 	// 11       | h8000 - hAFFF | h0000 - h1FFF   |              
 	// 11       | hB000 - hCFFF | h0000 - h1FFF   | h9F00..h9F1F 
 	// 25       | h8000 - hAFFF | h0000 - h1FFF   |              
@@ -738,103 +742,36 @@ module IntegraBV2(
 	// 30       | hB000 - hCFFF | hC000 - hDFFF   | h9FC0..h9FDF 
 	// 31       | h8000 - hAFFF | h0000 - h1FFF   |              
 	// 31       | hB000 - hCFFF | hE000 - hFFFF   | h9FE0..h9FFF 
-
-
+	//
+	// Use Jumper RamPALSel[6] to select PALPROM Type. Logic '0' (Jumper): WEWAP, Logic '1' (No Jumper): CC128K
+	// Use Jumper RamPALSel[3] to enable PALPROM switching. Logic '0' (Jumper): Switching Enabled. Logic '1' (No jumper): Switching disabled.
 	// Uses RAM banks 11 & 25..31
-	//
-	//wire pp8Clk = !((!nRDS && GenBankSel[11]) || !bbc_nRST);
-	wire pp8Clk = !(!nRDS && GenBankSel[11]);
-	always @(negedge pp8Clk) begin
-		if (RamPALSel[3])									pp8Bank = 8'b00000001; //Disable PALPROM
-		else if  (bbc_ADDRESS[15:5] == 11'b1001_1111_000)	pp8Bank = 8'b00000001;	//h9F00..h9F1F
-		else if ((bbc_ADDRESS[15:5] == 11'b1001_1111_001))	pp8Bank = 8'b00000010;	//h9F20..h9F3F
-		else if ((bbc_ADDRESS[15:5] == 11'b1001_1111_010))	pp8Bank = 8'b00000100;	//h9F40..h9F5F
-		else if ((bbc_ADDRESS[15:5] == 11'b1001_1111_011))	pp8Bank = 8'b00001000;	//h9F60..h9F7F
-		else if ((bbc_ADDRESS[15:5] == 11'b1001_1111_100))	pp8Bank = 8'b00010000;	//h9F80..h9F9F
-		else if ((bbc_ADDRESS[15:5] == 11'b1001_1111_101))	pp8Bank = 8'b00100000;	//h9FA0..h9FBF
-		else if ((bbc_ADDRESS[15:5] == 11'b1001_1111_110))	pp8Bank = 8'b01000000;	//h9FC0..h9FDF
-		else if ((bbc_ADDRESS[15:5] == 11'b1001_1111_111))	pp8Bank = 8'b10000000;	//h9FE0..h9FFF
-	end
-	*/
 	
-	/*
-	// 128k Computer Concepts PALPROM (SpellMaster, MegaROM)
-	// Use RAM banks 11 & 25..31
-	//
-	wire pp8Clk = !((!nRDS && GenBankSel[11]) || !bbc_nRST);
-	always @(negedge pp8Clk) begin
-		if  (RamPALSel[3])															pp8Bank = 8'b00000001;	//Disable PALPROM
-		else if  (bbc_ADDRESS[15:5] == 11'b1011_1111_111)							pp8Bank = 8'b00000001;	//hBFE0..hBFFF
-		else if ((bbc_ADDRESS[15:5] == 11'b1011_1111_110) && (pp8Bank[0] == 1'b1))	pp8Bank = 8'b00000010;	//hBFC0..hBFDF
-		else if ((bbc_ADDRESS[15:5] == 11'b1011_1111_101) && (pp8Bank[0] == 1'b1))	pp8Bank = 8'b00000100;	//hBFA0..hBFBF
-		else if ((bbc_ADDRESS[15:5] == 11'b1011_1111_100) && (pp8Bank[0] == 1'b1))	pp8Bank = 8'b00001000;	//hBF80..hBF9F
-		else if ((bbc_ADDRESS[15:5] == 11'b1011_1111_011) && (pp8Bank[0] == 1'b1))	pp8Bank = 8'b00010000;	//hBF60..hBF7F
-		else if ((bbc_ADDRESS[15:5] == 11'b1011_1111_010) && (pp8Bank[0] == 1'b1))	pp8Bank = 8'b00100000;	//hBF40..hBF5F
-		else if ((bbc_ADDRESS[15:5] == 11'b1011_1111_001) && (pp8Bank[0] == 1'b1))	pp8Bank = 8'b01000000;	//hBF20..hBF3F
-		else if ((bbc_ADDRESS[15:5] == 11'b1011_1111_000) && (pp8Bank[0] == 1'b1))	pp8Bank = 8'b10000000;	//hBF00..hBF1F
-	end
-	*/
-	
-	
-	// Combined code for 64k Watford Electronics PALPROM & 128k Computer Concepts PALPROM
-	// Use RAM banks 11 & 25..31
-	//
 	always @(negedge Phi2) begin
 		if (!nRDS && GenBankSel[11]) begin
 		//if (RnW && GenBankSel[11]) begin
-			if  (RamPALSel[3])																			pp8Bank = 8'b00000001;	//Disable PALPROM
-			else if ((RamPALSel[6] && (bbc_ADDRESS[15:5] == 11'b1011_1111_111))													//hBFE0..hBFFF	(CC128K)
-				 || (!RamPALSel[6] && (bbc_ADDRESS[15:5] == 11'b1001_1111_000)))					 	pp8Bank = 8'b00000001;	//h9F00..h9F1F	(WEWAP)
-			else if ((RamPALSel[6] && (bbc_ADDRESS[15:5] == 11'b1011_1111_110) && (pp8Bank[0] == 1'b1))							//hBFC0..hBFDF	(CC128K)
-				 || (!RamPALSel[6] && (bbc_ADDRESS[15:5] == 11'b1001_1111_001)))					 	pp8Bank = 8'b00000010;	//h9F20..h9F3F	(WEWAP)
-			else if ((RamPALSel[6] && (bbc_ADDRESS[15:5] == 11'b1011_1111_101) && (pp8Bank[0] == 1'b1))							//hBFA0..hBFBF	(CC128K)
-				 || (!RamPALSel[6] && (bbc_ADDRESS[15:5] == 11'b1001_1111_010)))					 	pp8Bank = 8'b00000100;	//h9F40..h9F5F	(WEWAP)
-			else if ((RamPALSel[6] && (bbc_ADDRESS[15:5] == 11'b1011_1111_100) && (pp8Bank[0] == 1'b1))							//hBF80..hBF9F	(CC128K)
-				 || (!RamPALSel[6] && (bbc_ADDRESS[15:5] == 11'b1001_1111_011)))					 	pp8Bank = 8'b00001000;	//h9F60..h9F7F	(WEWAP)
-			else if ((RamPALSel[6] && (bbc_ADDRESS[15:5] == 11'b1011_1111_011) && (pp8Bank[0] == 1'b1))							//hBF60..hBF7F	(CC128K)
-				 || (!RamPALSel[6] && (bbc_ADDRESS[15:5] == 11'b1001_1111_100)))					 	pp8Bank = 8'b00010000;	//h9F80..h9F9F	(WEWAP)
-			else if ((RamPALSel[6] && (bbc_ADDRESS[15:5] == 11'b1011_1111_010) && (pp8Bank[0] == 1'b1))							//hBF40..hBF5F	(CC128K)
-				 || (!RamPALSel[6] && (bbc_ADDRESS[15:5] == 11'b1001_1111_101)))					 	pp8Bank = 8'b00100000;	//h9FA0..h9FBF	(WEWAP)
-			else if ((RamPALSel[6] && (bbc_ADDRESS[15:5] == 11'b1011_1111_001) && (pp8Bank[0] == 1'b1))							//hBF20..hBF3F	(CC128K)
-				 || (!RamPALSel[6] && (bbc_ADDRESS[15:5] == 11'b1001_1111_110)))					 	pp8Bank = 8'b01000000;	//h9FC0..h9FDF	(WEWAP)
-			else if ((RamPALSel[6] && (bbc_ADDRESS[15:5] == 11'b1011_1111_000) && (pp8Bank[0] == 1'b1))							//hBF00..hBF1F	(CC128K)
-				 || (!RamPALSel[6] && (bbc_ADDRESS[15:5] == 11'b1001_1111_111)))					 	pp8Bank = 8'b10000000;	//h9FE0..h9FFF	(WEWAP)
+		// Won't fit if we try to use both jumpers 6 & 7 to disable PALPROM switching.
+		//	if ((!bbc_nRST)
+		//		 ||  (RamPALSel[6] && RamPALSel[7])																				//Disable PALPROM switching
+			if  (RamPALSel[6] || !bbc_nRST)																pp8Bank = 8'b00000001;	//Disable PALPROM switching
+			else if ((RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1011_1111_111))													//hBFE0..hBFFF	(CC128K)
+				 ||  (RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1011_1111_111))													//hBFE0..hBFFF	(CC128K)
+				 || (!RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1001_1111_000)))					 	pp8Bank = 8'b00000001;	//h9F00..h9F1F	(WEWAP)
+			else if ((RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1011_1111_110) && (pp8Bank[0] == 1'b1))							//hBFC0..hBFDF	(CC128K)
+				 || (!RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1001_1111_001)))					 	pp8Bank = 8'b00000010;	//h9F20..h9F3F	(WEWAP)
+			else if ((RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1011_1111_101) && (pp8Bank[0] == 1'b1))							//hBFA0..hBFBF	(CC128K)
+				 || (!RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1001_1111_010)))					 	pp8Bank = 8'b00000100;	//h9F40..h9F5F	(WEWAP)
+			else if ((RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1011_1111_100) && (pp8Bank[0] == 1'b1))							//hBF80..hBF9F	(CC128K)
+				 || (!RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1001_1111_011)))					 	pp8Bank = 8'b00001000;	//h9F60..h9F7F	(WEWAP)
+			else if ((RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1011_1111_011) && (pp8Bank[0] == 1'b1))							//hBF60..hBF7F	(CC128K)
+				 || (!RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1001_1111_100)))					 	pp8Bank = 8'b00010000;	//h9F80..h9F9F	(WEWAP)
+			else if ((RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1011_1111_010) && (pp8Bank[0] == 1'b1))							//hBF40..hBF5F	(CC128K)
+				 || (!RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1001_1111_101)))					 	pp8Bank = 8'b00100000;	//h9FA0..h9FBF	(WEWAP)
+			else if ((RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1011_1111_001) && (pp8Bank[0] == 1'b1))							//hBF20..hBF3F	(CC128K)
+				 || (!RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1001_1111_110)))					 	pp8Bank = 8'b01000000;	//h9FC0..h9FDF	(WEWAP)
+			else if ((RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1011_1111_000) && (pp8Bank[0] == 1'b1))							//hBF00..hBF1F	(CC128K)
+				 || (!RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1001_1111_111)))					 	pp8Bank = 8'b10000000;	//h9FE0..h9FFF	(WEWAP)
 		end
 	end
-
-
-	/*
-	// Alternative combined code for 64k Watford Electronics PALPROM & 128k Computer Concepts PALPROM
-	// Use RAM banks 11 & 25..31
-	//
-	//wire pp8Clk = !((!nRDS && GenBankSel[11]) || !bbc_nRST);
-	//wire pp8Clk = !(!nRDS && GenBankSel[11]);
-	always @(negedge Phi2) begin
-		if (!nRDS && GenBankSel[11]) begin
-		//if (RnW && GenBankSel[11]) begin
-			if (RamPALSel[3])													pp8Bank = 8'b00000001;	//Disable PALPROM
-			else if  (RamPALSel[6] && bbc_ADDRESS[15:5] == 11'b1011_1111_111)	pp8Bank = 8'b00000001;	//hBFE0..hBFFF
-			else if ((RamPALSel[6] && pp8Bank[0] == 1'b1)) begin
-				if (bbc_ADDRESS[15:5] == 11'b1011_1111_110)						pp8Bank = 8'b00000010;	//hBFC0..hBFDF	(CC128K)
-				else if (bbc_ADDRESS[15:5] == 11'b1011_1111_101)				pp8Bank = 8'b00000100;	//hBFA0..hBFBF	(CC128K)
-				else if (bbc_ADDRESS[15:5] == 11'b1011_1111_100)				pp8Bank = 8'b00001000;	//hBF80..hBF9F	(CC128K)
-				else if (bbc_ADDRESS[15:5] == 11'b1011_1111_011)				pp8Bank = 8'b00010000;	//hBF60..hBF7F	(CC128K)
-				else if (bbc_ADDRESS[15:5] == 11'b1011_1111_010)				pp8Bank = 8'b00100000;	//hBF40..hBF5F	(CC128K)
-				else if (bbc_ADDRESS[15:5] == 11'b1011_1111_001)				pp8Bank = 8'b01000000;	//hBF20..hBF3F	(CC128K)
-				else if (bbc_ADDRESS[15:5] == 11'b1011_1111_000)				pp8Bank = 8'b10000000;	//hBF00..hBF1F	(CC128K)
-			end
-			else if (!RamPALSel[6]) begin
-				if (bbc_ADDRESS[15:5] == 11'b1001_1111_000)						pp8Bank = 8'b00000001;	//h9F00..h9F1F	(WEWAP)
-				else if (bbc_ADDRESS[15:5] == 11'b1001_1111_001)				pp8Bank = 8'b00000010;	//h9F20..h9F3F	(WEWAP)
-				else if (bbc_ADDRESS[15:5] == 11'b1001_1111_010)				pp8Bank = 8'b00000100;	//h9F40..h9F5F	(WEWAP)
-				else if (bbc_ADDRESS[15:5] == 11'b1001_1111_011)				pp8Bank = 8'b00001000;	//h9F60..h9F7F	(WEWAP)
-				else if (bbc_ADDRESS[15:5] == 11'b1001_1111_100)				pp8Bank = 8'b00010000;	//h9F80..h9F9F	(WEWAP)
-				else if (bbc_ADDRESS[15:5] == 11'b1001_1111_101)				pp8Bank = 8'b00100000;	//h9FA0..h9FBF	(WEWAP)
-				else if (bbc_ADDRESS[15:5] == 11'b1001_1111_110)				pp8Bank = 8'b01000000;	//h9FC0..h9FDF	(WEWAP)
-				else if (bbc_ADDRESS[15:5] == 11'b1001_1111_111)				pp8Bank = 8'b10000000;	//h9FE0..h9FFF	(WEWAP)
-			end
-		end
-	end
-	*/
 
 endmodule
