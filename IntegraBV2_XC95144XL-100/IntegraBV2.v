@@ -624,32 +624,30 @@ module IntegraBV2(
 
 
 	// 32k Computer Concepts PALPROMs (CC32K: Inter-Word, Master ROM, AMX Design2)
-	// Use Jumper RamPALSel[0] to enable PALPROM A switching. Logic '0' (Jumper): Switching Enabled. Logic '1' (No jumper): Switching disabled.
-	// Use Jumper RamPALSel[1] to enable PALPROM B switching. Logic '0' (Jumper): Switching Enabled. Logic '1' (No jumper): Switching disabled.
+	// Use jumpers RamPALSel[1:0] for PALPROM A and jumpers RamPALSel[3:2] for PALPROM B.
+	// x0: CC32K. x1: Switching disabled.
+	// Logic '0' when jumper installed. Logic '1' when jumper removed.
 	// PALPROM A uses RAM banks 8 & 20
 	// PALPROM B Uses RAM banks 9 & 21
-	//
+	
 	always @(negedge Phi2) begin
 		if (!nRDS && GenBankSel[8]) begin
 	//	if (RnW && GenBankSel[8]) begin
 			if (RamPALSel[0])				pp2aBank = 2'b01;	//Disable PALPROM switching
-	//		else if (acc2Bk0)	 			pp2aBank = 2'b01;	//hBFE0..hBFFF
-			else if (acc2Bk0 || !bbc_nRST)	pp2aBank = 2'b01;	//hBFE0..hBFFF
-			else if (acc2Bk1)				pp2aBank = 2'b10;	//hBFC0..hBFDF
+			else if (acc2Bk0 || !bbc_nRST)	pp2aBank = 2'b01;	//hBFE0..hBFFF (CC32K)
+			else if (acc2Bk1)				pp2aBank = 2'b10;	//hBFC0..hBFDF (CC32K)
 		end
 	end
-	
-	
+
 	always @(negedge Phi2) begin
 		if (!nRDS && GenBankSel[9]) begin
 	//	if (RnW && GenBankSel[9]) begin
 			if (RamPALSel[2])				pp2bBank = 2'b01;	//Disable PALPROM switching
-	//		else if (acc2Bk0)	 			pp2bBank = 2'b01;	//hBFE0..hBFFF
-			else if (acc2Bk0 || !bbc_nRST)	pp2bBank = 2'b01;	//hBFE0..hBFFF
-			else if (acc2Bk1)				pp2bBank = 2'b10;	//hBFC0..hBFDF
+			else if (acc2Bk0 || !bbc_nRST)	pp2bBank = 2'b01;	//hBFE0..hBFFF (CC32K)
+			else if (acc2Bk1)				pp2bBank = 2'b10;	//hBFC0..hBFDF (CC32K)
 		end
 	end
-	
+
 
 	// Combined code for 64k Computer Concepts PALPROM (CC64K) & 32k Watford Electronic PALPROM (WEQST & WETED) 
 	// 64k Computer Concepts PALPROM (CC64K: Inter-Base, Publisher, Wordwise Plus II)
@@ -671,9 +669,9 @@ module IntegraBV2(
 	// 24       | h8000 - hAFFF | h0000 - h1FFF   |                  |              
 	// 24       | hB000 - hCFFF | h6000 - h7FFF   | h92C0..h92DF     | h9FE0..h9FFF 
 	//
-	// Use Jumper RamPALSel[4] to select PALPROM Type. Logic '0' (Jumper): WEQST, Logic '1' (No Jumper): CC64K
-	// And Jumper RamPALSel[5] to deselect CC64K / WEQST, and select WETED instead
-	// Use Jumper RamPALSel[2] to enable PALPROM switching. Logic '0' (Jumper): Switching Enabled. Logic '1' (No jumper): Switching disabled.
+	// Use jumpers RamPALSel[5:4] to select PALPROM Type.
+	// 00: CC64K, 01: WETED, 10: WEQST, 11: Disabled
+	// Logic '0' when jumper installed. Logic '1' when jumper removed.
 	// Uses RAM banks 10 & 22..24
 
 	/* This won't fit, but the equivalent below does fit. Go figure!
@@ -743,19 +741,16 @@ module IntegraBV2(
 	// 31       | h8000 - hAFFF | h0000 - h1FFF   |              
 	// 31       | hB000 - hCFFF | hE000 - hFFFF   | h9FE0..h9FFF 
 	//
-	// Use Jumper RamPALSel[6] to select PALPROM Type. Logic '0' (Jumper): WEWAP, Logic '1' (No Jumper): CC128K
-	// Use Jumper RamPALSel[3] to enable PALPROM switching. Logic '0' (Jumper): Switching Enabled. Logic '1' (No jumper): Switching disabled.
+	// Use jumpers RamPALSel[7:6] to select PALPROM Type.
+	// 00: CC128K, 10: WEWAP, x1: Disabled
+	// Logic '0' when jumper installed. Logic '1' when jumper removed.
 	// Uses RAM banks 11 & 25..31
 	
 	always @(negedge Phi2) begin
 		if (!nRDS && GenBankSel[11]) begin
 		//if (RnW && GenBankSel[11]) begin
-		// Won't fit if we try to use both jumpers 6 & 7 to disable PALPROM switching.
-		//	if ((!bbc_nRST)
-		//		 ||  (RamPALSel[6] && RamPALSel[7])																				//Disable PALPROM switching
 			if  (RamPALSel[6] || !bbc_nRST)																pp8Bank = 8'b00000001;	//Disable PALPROM switching
 			else if ((RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1011_1111_111))													//hBFE0..hBFFF	(CC128K)
-				 ||  (RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1011_1111_111))													//hBFE0..hBFFF	(CC128K)
 				 || (!RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1001_1111_000)))					 	pp8Bank = 8'b00000001;	//h9F00..h9F1F	(WEWAP)
 			else if ((RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1011_1111_110) && (pp8Bank[0] == 1'b1))							//hBFC0..hBFDF	(CC128K)
 				 || (!RamPALSel[7] && (bbc_ADDRESS[15:5] == 11'b1001_1111_001)))					 	pp8Bank = 8'b00000010;	//h9F20..h9F3F	(WEWAP)
