@@ -674,28 +674,6 @@ module IntegraBV2(
 	// Logic '0' when jumper installed. Logic '1' when jumper removed.
 	// Uses RAM banks 10 & 22..24
 
-	/* This won't fit, but the equivalent below does fit. Go figure!
-		always @(negedge Phi2) begin
-		if (!nRDS && GenBankSel[10]) begin
-		//if (RnW && GenBankSel[10]) begin
-			if ((!bbc_nRST)
-			     ||   (RamPALSel[5:4] == 2'b11)																		//Disable PALPROM switching
-			     ||  ((RamPALSel[5:4] == 2'b10) && (bbc_ADDRESS[15:5] == 11'b1001_0011_010))						//h9340..h935F (WEQST)
-				 ||  ((RamPALSel[5:4] == 2'b01) && (bbc_ADDRESS[15:5] == 11'b1001_1111_100))						//h9F80..h9F9F (WETED)
-				 ||  ((RamPALSel[5:4] == 2'b00) && (bbc_ADDRESS[15:5] == 11'b1011_1111_100)))	pp4Bank = 4'b0001;	//hBF80..hBF9F (CC64K)
-			else if (((RamPALSel[5:4] == 2'b10) && (bbc_ADDRESS[15:5] == 11'b1001_0001_111))						//h91E0..h91FF (WEQST)
-				 ||  ((RamPALSel[5:4] == 2'b01) && (bbc_ADDRESS[15:5] == 11'b1001_1111_101))						//h9FA0..h9FBF (WETED)
-				 ||  ((RamPALSel[5:4] == 2'b00) && (bbc_ADDRESS[15:5] == 11'b1011_1111_101)))	pp4Bank = 4'b0010;	//hBFA0..hBFBF (CC64K)
-			else if (((RamPALSel[5:4] == 2'b10) && (bbc_ADDRESS[15:5] == 11'b1000_1000_001))						//h8820..h883F (WEQST)
-				 ||  ((RamPALSel[5:4] == 2'b01) && (bbc_ADDRESS[15:5] == 11'b1001_1111_110))						//h9FC0..h9FDF (WETED)
-				 ||  ((RamPALSel[5:4] == 2'b00) && (bbc_ADDRESS[15:5] == 11'b1011_1111_110)))	pp4Bank = 4'b0100;	//hBFC0..hBFDF (CC64K)
-			else if (((RamPALSel[5:4] == 2'b10) && (bbc_ADDRESS[15:5] == 11'b1001_0010_110))						//h92C0..h92DF (WEQST)
-				 ||  ((RamPALSel[5:4] == 2'b01) && (bbc_ADDRESS[15:5] == 11'b1001_1111_111))						//h9FE0..h9FFF (WETED)
-				 ||  ((RamPALSel[5:4] == 2'b00) && (bbc_ADDRESS[15:5] == 11'b1011_1111_111)))	pp4Bank = 4'b1000;	//hBFE0..hBFFF (CC64K)
-		end
-	end
-	*/
-	
 	always @(negedge Phi2) begin
 		if (!nRDS && GenBankSel[10]) begin
 		//if (RnW && GenBankSel[10]) begin
