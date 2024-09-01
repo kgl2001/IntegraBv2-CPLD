@@ -5,7 +5,7 @@ REM The board must be in
 REM Recovery Mode (long break)
 REM before running this code.
 REM (C) Ken Lowe 2024
-REM Version 2.0 13/08/2024
+REM Version 2.2 01/09/2024
 DIM osblock% 16
 DIM mcode% &100
 DIM buffer% &4000
@@ -21,13 +21,9 @@ VDU130:PRINT"Ok"'"Loading image to Bank........";
 
 bank%=10
 numbanks%=4
-wpinjmp%=0
-wpoutjmp%=&30
+ppflags%=&30
+ppflagsmask%=&CF
 file$="IBaseROM"
-
-wpflags%=FNreadwpflags
-wpinflags%=(wpinjmp% OR 2^(bank%-8))*&100
-wpoutflags%=wpoutjmp%*&100
 
 rrflags%=?&FE39*&100+(?&FE38 OR &F0)
 rrinflags%=2^(bank%-8)*&100
@@ -40,10 +36,9 @@ VDU130:PRINT;bank%
 PROCassembly
 PROCSetSWTable
 PRINT"Checking jumper settings.....";
-IF(wpinflags% AND wpoutflags%)<>0 VDU7,129:PRINT"Error"''"Incompatible wp in/out flags defined.":END
-IF(rrinflags% AND rroutflags%)<>0 VDU7,129:PRINT"Error"''"Incompatible rr in/out flags defined.":END
-tochg%=FNcheckwp+FNcheckrr
+tochg%=FNcheckrr
 IF(tochg%)<>0 VDU7,129:PRINT;tochg%;"xError"'':PROCjumpers:END
+?&FE3F=&FF:REM Disable all bank switching in CPLD
 fh%=OPENIN(file$)
 VDU130:PRINT"Ok"''"Loading ";file$;" to SWRAM banks..."
 PRINT"Writing block ";
@@ -54,9 +49,11 @@ PRINT;n%;" ";
 ?newrom=FNswram(n%):?&70=buffer%MOD256:?&71=buffer%DIV256:?&72=0:?&73=&80
 CALLsrload
 NEXT
-PRINT''"Done. Press CTRL-BREAK to initialise"
-?&FE39=0:?&FE3A=0:?&FE3B=0
 CLOSE#?osblock%
+?&FE3A=0
+X%=&3F
+A%=(USR(ReadRtcRam) AND ppflagsmask%) OR ppflags%: CALL WriteRtcRam
+PRINT''"Done. Press CTRL-BREAK to initialise"
 END
 
 DEFFNpartload(h%,l%,o%,c%)
@@ -125,6 +122,29 @@ EQUS"0123456789ABCDEF"
 EQUS"0123456789ABCDEF"
 .newrom EQUB0
 .oldrom EQUB0
+
+.ReadRtcRam
+PHP
+JSR SeiSelectRtcAddressX
+LDA &FE3C
+PLP
+RTS
+
+.WriteRtcRam
+PHP
+JSR SeiSelectRtcAddressX
+STA &FE3C
+PLP
+RTS
+
+.SeiSelectRtcAddressX
+SEI
+JSR Nop2
+STX &FE38
+NOP
+.Nop2
+NOP:NOP
+RTS
 ]
 NEXT
 ENDPROC
@@ -150,6 +170,7 @@ DEFFNswram (block%)
 ?&FE3A=swrammap%(block%,2)
 ?&FE3B=swrammap%(block%,3)
 =swrammap%(block%,0)
+
 DEFFNvercheck
 ?&FE39=0:ver%=(?&FE38 AND &E0)=&60
 IFver% ?&FE39=3:ver%=(?&FE38 AND &E0)=&00
@@ -185,19 +206,6 @@ CALLjumpers
 =?jpCount%
 
 DEFPROCjumpers
-tmp%=FNcheckwp
-PRINT"   J4      Write Protect Jumper Bank"
-PRINT" ";
-VDU151,104,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,108,135
-PRINT'" ";
-VDU151,106
-FORn%=15TO0STEP-1
-PRINT;CHR$(?(jpstore+n%));CHR$(?(jpstore+16+n%));
-NEXT
-VDU151,106,135
-PRINT'" ";
-VDU151,42,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,46
-
 tmp%=FNcheckrr
 PRINT'"      RAM/PALPROM ";:VDU151,106,135:PRINT" Default W/E"
 PRINT'"   J2          RAM / ROM Jumper Bank"
