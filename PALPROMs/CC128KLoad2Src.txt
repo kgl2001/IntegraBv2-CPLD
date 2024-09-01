@@ -21,15 +21,9 @@ VDU130:PRINT"Ok"'"Loading image to Bank........";
 
 bank%=11
 numbanks%=8
-REM wpinjmp%=0
-REM wpoutjmp%=&40
 ppflags%=&C0
 ppflagsmask%=&3F
 file$="SpellROM"
-
-REM wpflags%=FNreadwpflags
-REM wpinflags%=(wpinjmp% OR 2^(bank%-8))*&100
-REM wpoutflags%=wpoutjmp%*&100
 
 rrflags%=?&FE39*&100+(?&FE38 OR &F0)
 rrinflags%=2^(bank%-8)*&100
@@ -42,11 +36,7 @@ VDU130:PRINT;bank%
 PROCassembly
 PROCSetSWTable
 PRINT"Checking jumper settings.....";
-REM IF(wpinflags% AND wpoutflags%)<>0 VDU7,129:PRINT"Error"''"Incompatible wp in/out flags defined.":END
-REM IF(rrinflags% AND rroutflags%)<>0 VDU7,129:PRINT"Error"''"Incompatible rr in/out flags defined.":END
-REM tochg%=FNcheckwp+FNcheckrr
 tochg%=FNcheckrr
-REM IF(tochg%)<>0 VDU7,129:PRINT;tochg%;"xError"'':PROCjumpers:END
 IF(tochg%)<>0 VDU7,129:PRINT;tochg%;"xError"'':PROCjumpers:END
 ?&FE3F=&FF:REM Disable all bank switching in CPLD
 fh%=OPENIN(file$)
@@ -220,19 +210,6 @@ CALLjumpers
 =?jpCount%
 
 DEFPROCjumpers
-REM tmp%=FNcheckwp
-REM PRINT"   J4      Write Protect Jumper Bank"
-REM PRINT" ";
-REM VDU151,104,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,108,135
-REM PRINT'" ";
-REM VDU151,106
-REM FORn%=15TO0STEP-1
-REM PRINT;CHR$(?(jpstore+n%));CHR$(?(jpstore+16+n%));
-REM NEXT
-REM VDU151,106,135
-REM PRINT'" ";
-REM VDU151,42,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,46
-
 tmp%=FNcheckrr
 PRINT'"      RAM/PALPROM ";:VDU151,106,135:PRINT" Default W/E"
 PRINT'"   J2          RAM / ROM Jumper Bank"
