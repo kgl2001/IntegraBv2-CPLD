@@ -1,0 +1,319 @@
+REM IntegraB V2 Reset Utility
+REM This will only work
+REM with IntegraB V2 board.
+REM The board must be in
+REM Recovery Mode (long break)
+REM before running this code.
+REM (C) Ken Lowe 2024
+REM Version 1.0 03/09/2024
+DIM osblock% 16
+DIM mcode% &200
+DIM buffer% &1000
+CLOSE#0
+langbank%=14:REM Adjust if installing Lang to a different bank
+hilangbank%=langbank%:REM Adjust if installing HiLang to a bank
+fsbank%=13:REM Adjust if installing FS to a different bank
+PROCassembly
+?(UserRegDefaultTable+1)=(hilangbank%*&10)ORlangbank%
+?(UserRegDefaultTable+&15)=fsbank%
+MODE7
+VDU131:PRINT"     Integra-B V2 Reset Utility"
+VDU131:PRINT"     --------------------------"
+VDU28,0,24,39,3
+PRINT"This utility will clear all internal"
+PRINT"RAM banks and will then configure the"
+PRINT"IntegraB V2 board with initial defaults."
+PRINT'"The utility will then install standard"
+PRINT"8K or 16K ROM images into Banks 0..15"
+PRINT"based on the load table within this"
+PRINT"utility. The following minimum config"
+PRINT"is recommended:"
+PRINT" - IBOS to bank 15"
+PRINT" - BASIC to bank 14"
+PRINT" - Filesystem to bank 13"
+PRINT'"If PALPROMs are to be installed, then"
+PRINT"Banks 8..12 should be left free."
+PRINT'"Press 'Y' to continue or 'N' to STOP...";
+IF(FNyn)=FALSE VDU7:PRINT''"Recovery aborted.":PROCResetFlags:END
+PRINT''"Checking for 2nd processor ..";
+A%=&EA:X%=0:Y%=&FF:IF((USR&FFF4)AND&FF00)<>0VDU7,129:PRINT"Error"''"Please disable 2nd processor and"'"re-run this program":PROCResetFlags:END
+VDU130:PRINT"Ok"'"Checking for V2 Hardware ....";
+IFNOT(FNvercheck)VDU7,129:PRINT"Error"''"Sorry. V2 Harware not detected.":PROCResetFlags:END
+VDU130:PRINT"Ok"'"Checking for recovery mode...";
+IFNOT(FNrecmode)VDU7,129:PRINT"Error"''"Please press CTRL-BREAK for longer"'"than 1 second, and re-run this program":PROCResetFlags:END
+VDU130:PRINT"Ok"'"Clearing RAM Chunks ......";
+FORn%=2TO0STEP-1
+?&FE39=n%
+CALL ClearChunks
+P.".";
+NEXT
+CALL ClearRTC
+VDU130:PRINT"Done"'"Restoring IBOS defaults .....";
+CALL RestoreDefaults
+bankfill%=0
+READ chunk%,path$,rom$
+IF chunk%=&FF VDU130:PRINT"Done"'"Loading ROM Images ..........";:VDU7,129:PRINT"Error"''"No ROM images found.":PROCResetFlags:END
+REPEAT
+IF (chunk%<0)OR(chunk%)>99 chunk%=99
+cc%=LEN(rom$)+2+(chunk%<10)
+bank%=chunk%
+IF bank%<4 ?&FE39=1:bank%=bank%+4 ELSE ?&FE39=0
+fh%=OPENIN(path$+"."+rom$)
+IF cc%>10 rom$=LEFT$(rom$,8+(chunk%>9))+".":cc%=10
+VDU130:PRINT"Done"'"Loading "+rom$+" to Bank "+STR$(chunk%)+" ";
+FORn%=cc%TO10:PRINT".";:NEXT
+IFchunk%>15 VDU7,129:PRINT"Error"''"Bank number out of range.":PROCResetFlags:END
+IFbankfill%=(bankfill% OR (2^chunk%)) VDU7,129:PRINT"Error"''"Bank already in use.":PROCResetFlags:END
+bankfill%=(bankfill% OR (2^chunk%))
+n%=0
+REPEAT
+s%=FNpartload(fh%,buffer%,n%*&1000,&1000)
+IFs%AND(n%MOD2=1)VDU7,129:PRINT"Error"''"Not an 8K or 16K ROM Image.":PROCResetFlags:END
+IF NOTs% ?newrom=bank%:?&70=buffer%MOD256:?&71=buffer%DIV256:?&72=0:?&73=&80+n%*&10:CALLsrload
+n%=n%+1
+UNTIL(n%>3)ORs%
+CLOSE#?osblock%
+READ chunk%,path$,rom$
+UNTIL chunk%=&FF
+VDU130:PRINT"Done"''"Complete. Press CTRL-BREAK to restart":PROCResetFlags:END
+
+REM Adjust this table as necessary
+DATA15,"ROMS","IBOS127"
+DATA14,"ROMS","BASIC200"
+DATA13,"ROMS","DNFS300"
+
+
+
+
+
+
+
+
+
+
+
+
+
+DATA255,"",""
+
+DEFPROCassembly
+FORpass%=0TO2STEP2
+P%=mcode%
+[OPT pass%
+.srload
+LDA&F4
+STAoldrom
+LDAnewrom
+STA&F4
+STA&FE30
+LDX#&10
+LDY#0
+.loop1
+LDA(&70),Y:STA(&72),Y
+INY:BNEloop1
+INC&71:INC&73
+DEX:BNEloop1
+LDAoldrom
+STA&F4
+STA&FE30
+RTS
+.newrom EQUB0
+.oldrom EQUB0
+
+.ClearChunks
+LDA #&FF
+STA &FE3A
+STA &FE3B
+LDA &F4:PHA
+LDX #15
+.ZeroSwrLoop
+STX &F4:STX &FE30
+LDA #&80:JSR ZeroPageAUpToC0
+DEX:CPX #3:BNE ZeroSwrLoop
+PLA:STA &F4:STA &FE30
+RTS
+
+.ZeroPageAUpToC0
+STA &71
+LDA #0:STA &70
+TAY
+.ZeroLoop
+LDA #0:STA (&70),Y
+INY:BNE ZeroLoop
+INC &71
+LDA &71:CMP #&C0:BNE ZeroLoop
+RTS
+
+.ClearRTC
+LDX #&31
+.ZeroUserRegLoop
+LDA #0
+JSR WriteUserReg
+DEX:CPX #&E:BCS ZeroUserRegLoop
+RTS
+
+.RestoreDefaults
+LDX #&B:LDA #&86:JSR WriteRtcRam
+DEX:LDA #&E0:JSR WriteRtcRam
+DEX
+.Loop
+LDA InitialRtcTimeValues,X:JSR WriteRtcRam
+DEX:BPL Loop
+
+LDY #&1E
+.SetDefaultLoop
+LDX UserRegDefaultTable + 0,Y
+LDA UserRegDefaultTable + 1,Y
+JSR WriteUserReg
+DEY:DEY:BPL SetDefaultLoop
+
+LDA #&FF
+JSR SwitchInPrivateRAM
+STA &830C:STA &830D
+STA &830E:STA &830F
+JSR SwitchOutPrivateRAM
+RTS
+
+.ReadUserReg
+CPX #&32:BCS ReadPrivateRam8300X
+CLC:TXA:ADC #&E:TAX
+JSR ReadRtcRam
+JMP CommonEnd
+
+.WriteUserReg
+CPX #&32:BCS WritePrivateRam8300X
+PHA
+CLC:TXA:ADC #&E:TAX
+PLA
+JSR WriteRtcRam
+
+.CommonEnd
+PHA
+TXA:SEC:SBC #&E:TAX ; restore original X
+PLA
+.Rts
+RTS
+
+.WritePrivateRam8300X
+PHP:SEI
+PHA
+JSR SwitchInPrivateRAM
+PLA
+STA &8300,X
+PHA
+JSR SwitchOutPrivateRAM
+PLA
+PLP
+PHA:PLA
+RTS
+
+.ReadPrivateRam8300X
+PHP:SEI
+JSR SwitchInPrivateRAM
+LDA &8300,X
+STA newrom
+JSR SwitchOutPrivateRAM
+PLP
+PHA:PLA
+RTS
+
+.SwitchInPrivateRAM
+LDA #01:STA &FE39
+LDA &F4:STA oldrom
+LDA #12:STA &F4:STA &FE30
+RTS
+
+.SwitchOutPrivateRAM
+LDA #0:STA &FE39
+LDA oldrom:STA &F4:STA &FE30
+RTS
+
+.ReadRtcRam
+PHP
+JSR SeiSelectRtcAddressX
+LDA &FE3C
+PLP
+RTS
+
+.WriteRtcRam
+PHP
+JSR SeiSelectRtcAddressX
+STA &FE3C
+PLP
+RTS
+
+.SeiSelectRtcAddressX
+SEI
+JSR Nop2
+STX &FE38
+NOP
+.Nop2
+NOP:NOP
+RTS
+
+.InitialRtcTimeValues
+EQUB 0
+EQUB 0
+EQUB 0
+EQUB 0
+EQUB 0
+EQUB 0
+EQUB 7
+EQUB 1
+EQUB 1
+EQUB 0
+
+.UserRegDefaultTable
+EQUW &0005
+EQUW &FF06
+EQUW &FF07
+EQUW &170A
+EQUW &200B
+EQUW &190C
+EQUW &050D
+EQUW &0A0E
+EQUW &2D0F
+EQUW &A110
+EQUW &0011
+
+EQUW &04B2
+EQUW &14B5
+EQUW &F0B8
+EQUW &90BA
+EQUW &F0FE
+.UserRegDefaultTableEnd
+]
+NEXT
+ENDPROC
+
+DEFFNpartload(h%,l%,o%,c%)
+A%=3:REM OSGBPB part load function
+X%=osblock%MOD256
+Y%=osblock%DIV256
+?osblock%=h%:REM file handle
+osblock%!1=l%:REM load addr
+osblock%!5=c%:REM no of bytes to read
+osblock%!9=o%:REM offset within file
+q%=l%:REM preserve original load address
+=((USR&FFD1 AND &FF000000) DIV &1000000) AND 1
+
+DEFFNvercheck
+?&FE39=0:ver%=(?&FE38 AND &E0)=&60
+IFver% ?&FE39=3:ver%=(?&FE38 AND &E0)=&00
+=ver%
+
+DEFFNrecmode
+=(?&FE38 AND &10)=&10
+
+DEFFNyn
+Y%=-1
+REPEAT
+A$=INKEY$(200)
+IFA$="Y" OR A$="y" THEN Y%=1
+IFA$="N" OR A$="n" THEN Y%=0
+UNTILY%<>TRUE
+=Y%
+
+DEFPROCResetFlags
+?&FE39=0:?&FE3A=0:?&FE3B=0
+ENDPROC
