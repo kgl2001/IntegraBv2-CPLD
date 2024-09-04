@@ -171,8 +171,8 @@ LDA UserRegDefaultTable + 1,Y
 JSR WriteUserReg
 DEY:DEY:BPL SetDefaultLoop
 
-LDA #&FF
 JSR SwitchInPrivateRAM
+LDA #&FF
 STA &830C:STA &830D
 STA &830E:STA &830F
 JSR SwitchOutPrivateRAM
