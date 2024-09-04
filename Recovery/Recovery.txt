@@ -13,9 +13,12 @@ CLOSE#0
 langbank%=14:REM Adjust if installing Lang to a different bank
 hilangbank%=langbank%:REM Adjust if installing HiLang to a bank
 fsbank%=13:REM Adjust if installing FS to a different bank
+writeprotFto0%=&00F0:REM Adjust to W/E banks other than 4..7
 PROCassembly
 ?(UserRegDefaultTable+1)=(hilangbank%*&10)ORlangbank%
 ?(UserRegDefaultTable+&15)=fsbank%
+?(UserRegDefaultTable+&1F)=writeprotFto0%MOD256
+?(UserRegDefaultTable+&21)=writeprotFto0%DIV256
 MODE7
 VDU131:PRINT"     Integra-B V2 Reset Utility"
 VDU131:PRINT"     --------------------------"
@@ -38,7 +41,7 @@ IF(FNyn)=FALSE VDU7:PRINT''"Recovery aborted.":PROCResetFlags:END
 PRINT''"Checking for 2nd processor ..";
 A%=&EA:X%=0:Y%=&FF:IF((USR&FFF4)AND&FF00)<>0VDU7,129:PRINT"Error"''"Please disable 2nd processor and"'"re-run this program":PROCResetFlags:END
 VDU130:PRINT"Ok"'"Checking for V2 Hardware ....";
-IFNOT(FNvercheck)VDU7,129:PRINT"Error"''"Sorry. V2 Harware not detected.":PROCResetFlags:END
+IFNOT(FNvercheck)VDU7,129:PRINT"Error"''"Sorry. V2 Hardware not detected.":PROCResetFlags:END
 VDU130:PRINT"Ok"'"Checking for recovery mode...";
 IFNOT(FNrecmode)VDU7,129:PRINT"Error"''"Please press CTRL-BREAK for longer"'"than 1 second, and re-run this program":PROCResetFlags:END
 VDU130:PRINT"Ok"'"Clearing RAM Chunks ......";
@@ -75,7 +78,8 @@ UNTIL(n%>3)ORs%
 CLOSE#?osblock%
 READ chunk%,path$,rom$
 UNTIL chunk%=&FF
-VDU130:PRINT"Done"''"Complete. Press CTRL-BREAK to restart":PROCResetFlags:END
+VDU130:PRINT"Done"''"Complete. Press CTRL-BREAK to restart."
+PROCResetFlags:?&FE4E=&7F:REPEAT:UNTIL0
 
 REM Adjust this table as necessary
 DATA15,"ROMS","IBOS127"
@@ -160,7 +164,7 @@ DEX
 LDA InitialRtcTimeValues,X:JSR WriteRtcRam
 DEX:BPL Loop
 
-LDY #&1E
+LDY #&20
 .SetDefaultLoop
 LDX UserRegDefaultTable + 0,Y
 LDA UserRegDefaultTable + 1,Y
@@ -280,7 +284,8 @@ EQUW &04B2
 EQUW &14B5
 EQUW &F0B8
 EQUW &90BA
-EQUW &F0FE
+EQUW &00FE
+EQUW &00FF
 .UserRegDefaultTableEnd
 ]
 NEXT
@@ -311,7 +316,7 @@ REPEAT
 A$=INKEY$(200)
 IFA$="Y" OR A$="y" THEN Y%=1
 IFA$="N" OR A$="n" THEN Y%=0
-UNTILY%<>TRUE
+UNTILY%<>-1
 =Y%
 
 DEFPROCResetFlags
