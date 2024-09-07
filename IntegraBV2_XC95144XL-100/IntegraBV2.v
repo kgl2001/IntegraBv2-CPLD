@@ -558,7 +558,6 @@ module IntegraBV2(
 
 	always @(negedge Phi2) begin
 		if (!bbc_nRST) EF = 2'b00;
-//		if (!bbc_nRST) EF = 3'b000;
 		else if (!RnW && aFE39) EF = bbc_DATA;
 	end
 
@@ -662,14 +661,14 @@ module IntegraBV2(
 	//
 	//  RAM Bank | Address Range | PALPROM Address | QP/CQ/PCB Switch | TED Switch
 	// ----------+---------------+-----------------+------------------+--------------
-	//   9 / 10  | h8000 - hAFFF | h0000 - h1FFF   |                  |              
-	//   9 / 10  | hB000 - hCFFF | h0000 - h1FFF   | h9340..h935F     | h9F80..h9F9F 
-	//  19 / 22  | h8000 - hAFFF | h0000 - h1FFF   |                  |              
-	//  19 / 22  | hB000 - hCFFF | h2000 - h3FFF   | h91E0..h91FF     | h9FA0..h9FBF 
-	//  20 / 23  | h8000 - hAFFF | h0000 - h1FFF   |                  |              
-	//  20 / 23  | hB000 - hCFFF | h4000 - h5FFF   | h8820..h883F     | h9FC0..h9FDF 
-	//  21 / 24  | h8000 - hAFFF | h0000 - h1FFF   |                  |              
-	//  21 / 24  | hB000 - hCFFF | h6000 - h7FFF   | h92C0..h92DF     | h9FE0..h9FFF 
+	//       10  | h8000 - hAFFF | h0000 - h1FFF   |                  |              
+	//       10  | hB000 - hCFFF | h0000 - h1FFF   | h9340..h935F     | h9F80..h9F9F 
+	//       22  | h8000 - hAFFF | h0000 - h1FFF   |                  |              
+	//       22  | hB000 - hCFFF | h2000 - h3FFF   | h91E0..h91FF     | h9FA0..h9FBF 
+	//       23  | h8000 - hAFFF | h0000 - h1FFF   |                  |              
+	//       23  | hB000 - hCFFF | h4000 - h5FFF   | h8820..h883F     | h9FC0..h9FDF 
+	//       24  | h8000 - hAFFF | h0000 - h1FFF   |                  |              
+	//       24  | hB000 - hCFFF | h6000 - h7FFF   | h92C0..h92DF     | h9FE0..h9FFF 
 	//
 	// Use jumpers ppSel[5:4] to select PALPROM Type.
 	// 00: CC64K, 01: WETED, 10: WEQST, 11: Disabled
@@ -705,22 +704,22 @@ module IntegraBV2(
 	//
 	// RAM Bank | Address Range | PALPROM Address | Wapping Switch
 	// ---------+---------------+-----------------+----------------
-	// 11       | h8000 - hAFFF | h0000 - h1FFF   |              
-	// 11       | hB000 - hCFFF | h0000 - h1FFF   | h9F00..h9F1F 
-	// 25       | h8000 - hAFFF | h0000 - h1FFF   |              
-	// 25       | hB000 - hCFFF | h2000 - h3FFF   | h9F20..h9F3F 
-	// 26       | h8000 - hAFFF | h0000 - h1FFF   |              
-	// 26       | hB000 - hCFFF | h4000 - h5FFF   | h9F40..h9F5F 
-	// 27       | h8000 - hAFFF | h0000 - h1FFF   |              
-	// 27       | hB000 - hCFFF | h6000 - h7FFF   | h9F60..h9F7F 
-	// 28       | h8000 - hAFFF | h0000 - h1FFF   |              
-	// 28       | hB000 - hCFFF | h8000 - h9FFF   | h9F80..h9F9F 
-	// 29       | h8000 - hAFFF | h0000 - h1FFF   |              
-	// 29       | hB000 - hCFFF | hA000 - hBFFF   | h9FA0..h9FBF 
-	// 30       | h8000 - hAFFF | h0000 - h1FFF   |              
-	// 30       | hB000 - hCFFF | hC000 - hDFFF   | h9FC0..h9FDF 
-	// 31       | h8000 - hAFFF | h0000 - h1FFF   |              
-	// 31       | hB000 - hCFFF | hE000 - hFFFF   | h9FE0..h9FFF 
+	//      11  | h8000 - hAFFF | h0000 - h1FFF   |              
+	//      11  | hB000 - hCFFF | h0000 - h1FFF   | h9F00..h9F1F 
+	//      25  | h8000 - hAFFF | h0000 - h1FFF   |              
+	//      25  | hB000 - hCFFF | h2000 - h3FFF   | h9F20..h9F3F 
+	//      26  | h8000 - hAFFF | h0000 - h1FFF   |              
+	//      26  | hB000 - hCFFF | h4000 - h5FFF   | h9F40..h9F5F 
+	//      27  | h8000 - hAFFF | h0000 - h1FFF   |              
+	//      27  | hB000 - hCFFF | h6000 - h7FFF   | h9F60..h9F7F 
+	//      28  | h8000 - hAFFF | h0000 - h1FFF   |              
+	//      28  | hB000 - hCFFF | h8000 - h9FFF   | h9F80..h9F9F 
+	//      29  | h8000 - hAFFF | h0000 - h1FFF   |              
+	//      29  | hB000 - hCFFF | hA000 - hBFFF   | h9FA0..h9FBF 
+	//      30  | h8000 - hAFFF | h0000 - h1FFF   |              
+	//      30  | hB000 - hCFFF | hC000 - hDFFF   | h9FC0..h9FDF 
+	//      31  | h8000 - hAFFF | h0000 - h1FFF   |              
+	//      31  | hB000 - hCFFF | hE000 - hFFFF   | h9FE0..h9FFF 
 	//
 	// Use jumpers ppSel[7:6] to select PALPROM Type.
 	// 00: CC128K, 10: WEWAP, x1: Disabled
