@@ -11,7 +11,7 @@ Revision 02a -	July 2024 - Extended functions added:
 				CC 64K or WE(QST) 32K PALPROM in Banks 10 & 22..24
 Revision 02b -	August 2024 - Added logic to switch between RAM / PALPROM
 				PALPROM Config loaded from IBOS
-				PALRPOM Enable/Disable integrated with zone selection
+				PALRPOM Enable/Disable via dedicated Enable/Disable bits
 				Add logic to access Private & Shadow RAM in Recovery
 				Add logic to access unused RAM banks 18 & 19 in Recovery
 				Clock PALPROMs on negedge Phi2
@@ -106,7 +106,7 @@ module IntegraBV2(
 	reg		[1:0] pp2bBank = 2'b01;			// Used to switch banks in a  32k CC PALPROM
 	reg		[3:0] pp4aBank = 4'b0001;		// Used to switch banks in a  64k CC PALPROM
 	reg		[7:0] pp8aBank = 8'b00000001;	// Used to switch banks in a 128k CC PALPROM
-	reg		[7:0] ppSel    = 8'hFF;			// Default to PALPROMs disabled.
+	reg		[7:0] ppSel    = 8'h00;			// Default to PALPROMs disabled.
 	wire	ShadowSel;
 	wire	[31:0] nRamBankSel;
 	wire	[15:0] GenBankSel;
@@ -606,7 +606,7 @@ module IntegraBV2(
 	assign	bbc_DATA      = (Phi2 && aFE39 && RnW) ? ~IntegraRomSel[15:8] : 8'hzz;
 	assign	bbc_DATA      = (Phi2 && aFE3A && RnW) ? WP[7:0]  : 8'hzz;
 	assign	bbc_DATA      = (Phi2 && aFE3B && RnW) ? WP[15:8] : 8'hzz;
-	assign	bbc_DATA      = (Phi2 && aFE3F && RnW) ? ~ppSel[7:0] : 8'hzz;
+	assign	bbc_DATA      = (Phi2 && aFE3F && RnW) ? ppSel[7:0] : 8'hzz;
 
 	
 	// Address decoding for Computer Concept 32k PALPROM
@@ -625,16 +625,15 @@ module IntegraBV2(
 	wire	acc2Bk1 = a8040 || aBFA0 || aBFE0;	
 
 	// 32k Computer Concepts PALPROMs (CC32K: Inter-Word, Master ROM, AMX Design2)
-	// Use jumpers ppSel[1:0] for PALPROM A and jumpers ppSel[3:2] for PALPROM B.
-	// x0: CC32K. x1: Switching disabled.
-	// Logic '0' when jumper installed. Logic '1' when jumper removed.
+	// Use register ppSel[1] for PALPROM A and register ppSel[2] for PALPROM B.
+	// 0: Switching disabled. 1: CC32K.
 	// PALPROM A uses RAM banks 8 & 20
 	// PALPROM B Uses RAM banks 9 & 21
 
 	always @(negedge Phi2) begin
 	//	if (!nRDS && GenBankSel[8]) begin
 		if (RnW && GenBankSel[8]) begin
-			if (ppSel[2])					 pp2aBank = 2'b01;	//Disable PALPROM switching
+				 if (!ppSel[1])				 pp2aBank = 2'b01;	//Disable PALPROM switching
 			else if ((acc2Bk0) || !bbc_nRST) pp2aBank = 2'b01;	//h8060..h807F or hBFC0..hBFDF (Bank 0 - CC32K)
 			else if ((acc2Bk1))				 pp2aBank = 2'b10;	//h8040..h805F or hBFA0..hBFBF or hBFE0..hBFFF (Bank 1 - CC32K)
 		end
@@ -643,7 +642,7 @@ module IntegraBV2(
 	always @(negedge Phi2) begin
 	//	if (!nRDS && GenBankSel[9]) begin
 		if (RnW && GenBankSel[9]) begin
-			if (ppSel[3])					 pp2bBank = 2'b01;	//Disable PALPROM switching
+				 if (!ppSel[2])				 pp2bBank = 2'b01;	//Disable PALPROM switching
 			else if ((acc2Bk0) || !bbc_nRST) pp2bBank = 2'b01;	//h8060..h807F or hBFC0..hBFDF (Bank 0 - CC32K)
 			else if ((acc2Bk1))				 pp2bBank = 2'b10;	//h8040..h805F or hBFA0..hBFBF or hBFE0..hBFFF (Bank 1 - CC32K)
 		end
@@ -670,28 +669,31 @@ module IntegraBV2(
 	//       24  | h8000 - hAFFF | h0000 - h1FFF   |                  |              
 	//       24  | hB000 - hCFFF | h6000 - h7FFF   | h92C0..h92DF     | h9FE0..h9FFF 
 	//
-	// Use jumpers ppSel[5:4] to select PALPROM Type.
-	// 00: CC64K, 01: WETED, 10: WEQST, 11: Disabled
-	// Logic '0' when jumper installed. Logic '1' when jumper removed.
+	// Use register ppSel[3] to enable / disable PALPROM switching.
+	// 0: Switching disabled. 1: switching enabled.
+	// Use registers ppSel[5:4] to select switching zone model.
+	// 00: WEQST, 01: WETED, 10: CC64K, 11: switching disabled
 	// Uses RAM banks 10 & 22..24
 
 	always @(negedge Phi2) begin
 		//if (!nRDS && GenBankSel[10]) begin
 		if (RnW && GenBankSel[10]) begin
-			if ((!bbc_nRST)
-			     ||  (ppSel[5] &&  ppSel[4])																	//Disable PALPROM switching
-			     ||  (ppSel[5] && !ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_0011_010))						//h9340..h935F (WEQST)
-			     || (!ppSel[5] &&  ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_1111_100))						//h9F80..h9F9F (WETED)
-			     || (!ppSel[5] && !ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1011_1111_100)))	pp4aBank = 4'b0001;	//hBF80..hBF9F (CC64K)
-			else if ((ppSel[5] && !ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_0001_111))						//h91E0..h91FF (WEQST)
-			     || (!ppSel[5] &&  ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_1111_101))						//h9FA0..h9FBF (WETED)
-			     || (!ppSel[5] && !ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1011_1111_101)))	pp4aBank = 4'b0010;	//hBFA0..hBFBF (CC64K)
-			else if ((ppSel[5] && !ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1000_1000_001))						//h8820..h883F (WEQST)
-			     || (!ppSel[5] &&  ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_1111_110))						//h9FC0..h9FDF (WETED)
-			     || (!ppSel[5] && !ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1011_1111_110)))	pp4aBank = 4'b0100;	//hBFC0..hBFDF (CC64K)
-			else if ((ppSel[5] && !ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_0010_110))						//h92C0..h92DF (WEQST)
-			     || (!ppSel[5] &&  ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_1111_111))						//h9FE0..h9FFF (WETED)
-			     || (!ppSel[5] && !ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1011_1111_111)))	pp4aBank = 4'b1000;	//hBFE0..hBFFF (CC64K)
+//			if ((!bbc_nRST)
+//				 || (!ppSel[3])
+			if ((!ppSel[3])
+			     ||   (ppSel[5] &&  ppSel[4])																	//Disable PALPROM switching
+			     ||  (!ppSel[5] && !ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_0011_010))						//h9340..h935F (WEQST)
+			     ||  (!ppSel[5] &&  ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_1111_100))						//h9F80..h9F9F (WETED)
+			     ||   (ppSel[5] && !ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1011_1111_100)))	pp4aBank = 4'b0001;	//hBF80..hBF9F (CC64K)
+			else if ((!ppSel[5] && !ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_0001_111))						//h91E0..h91FF (WEQST)
+			     ||  (!ppSel[5] &&  ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_1111_101))						//h9FA0..h9FBF (WETED)
+			     ||   (ppSel[5] && !ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1011_1111_101)))	pp4aBank = 4'b0010;	//hBFA0..hBFBF (CC64K)
+			else if ((!ppSel[5] && !ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1000_1000_001))						//h8820..h883F (WEQST)
+			     ||  (!ppSel[5] &&  ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_1111_110))						//h9FC0..h9FDF (WETED)
+			     ||   (ppSel[5] && !ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1011_1111_110)))	pp4aBank = 4'b0100;	//hBFC0..hBFDF (CC64K)
+			else if ((!ppSel[5] && !ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_0010_110))						//h92C0..h92DF (WEQST)
+			     ||  (!ppSel[5] &&  ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1001_1111_111))						//h9FE0..h9FFF (WETED)
+			     ||   (ppSel[5] && !ppSel[4] && (bbc_ADDRESS[15:5] == 11'b1011_1111_111)))	pp4aBank = 4'b1000;	//hBFE0..hBFFF (CC64K)
 		end
 	end	
 
@@ -721,15 +723,16 @@ module IntegraBV2(
 	//      31  | h8000 - hAFFF | h0000 - h1FFF   |              
 	//      31  | hB000 - hCFFF | hE000 - hFFFF   | h9FE0..h9FFF 
 	//
-	// Use jumpers ppSel[7:6] to select PALPROM Type.
-	// 00: CC128K, 10: WEWAP, x1: Disabled
-	// Logic '0' when jumper installed. Logic '1' when jumper removed.
+	// Use register ppSel[6] to enable / disable PALPROM switching.
+	// 0: Switching disabled. 1: switching enabled.
+	// Use register ppSel[7] to select switching zone model.
+	// 0: CC128K, 1: WEWAP
 	// Uses RAM banks 11 & 25..31
 	
 	always @(negedge Phi2) begin
 		//if (!nRDS && GenBankSel[11]) begin
 		if (RnW && GenBankSel[11]) begin
-			if  (ppSel[6] || !bbc_nRST)																	pp8aBank = 8'b00000001;	//Disable PALPROM
+			if  (!ppSel[6] || !bbc_nRST)																pp8aBank = 8'b00000001;	//Disable PALPROM
 			else if ((!ppSel[7] && (bbc_ADDRESS[15:5] == 11'b1011_1111_111))													//hBFE0..hBFFF	(CC128K)
 				 ||   (ppSel[7] && (bbc_ADDRESS[15:5] == 11'b1001_1111_000)))					 		pp8aBank = 8'b00000001;	//h9F00..h9F1F	(WEWAP)
 			else if ((!ppSel[7] && (bbc_ADDRESS[15:5] == 11'b1011_1111_110) && (pp8aBank[0] == 1'b1))							//hBFC0..hBFDF	(CC128K)
