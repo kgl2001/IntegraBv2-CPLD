@@ -5,24 +5,25 @@ REM The board must be in
 REM Recovery Mode (long break)
 REM before running this code.
 REM (C) Ken Lowe 2024
-REM Version 2.2 01/09/2024
+REM Version 2.3 08/09/2024
 DIM osblock% 16
-DIM mcode% &100
+DIM mcode% &200
 DIM buffer% &4000
 CLOSE#0
 MODE7
 PRINT"Integra-B V2 PALPROM Loader"
 PRINT"---------------------------"'
-PRINT"Checking for V2 Hardware.....";
+PRINT"Checking for V2 Hardware ....";
 IFNOT(FNvercheck)VDU7,129:PRINT"Error"''"Sorry. V2 Harware not detected.":END
-VDU130:PRINT"Ok"'"Checking for recovery mode...";
+VDU130:PRINT"Ok"'"Checking for recovery mode ..";
 IFNOT(FNrecmode)VDU7,129:PRINT"Error"''"Please press CTRL-BREAK for longer"'"than 1 second, and re-run this program":END
-VDU130:PRINT"Ok"'"Loading image to Bank........";
+VDU130:PRINT"Ok"'"Loading image to Bank .......";
 
 bank%=10
 numbanks%=4
-ppflags%=&30
-ppflagsmask%=&CF
+ppflags%=&28
+ppflagsmask%=&C7
+path$=""
 file$="WordP2ROM"
 
 rrflags%=?&FE39*&100+(?&FE38 OR &F0)
@@ -35,25 +36,30 @@ jopen%=98:jclosed%=106
 VDU130:PRINT;bank%
 PROCassembly
 PROCSetSWTable
-PRINT"Checking jumper settings.....";
+PRINT"Checking jumper settings ....";
 tochg%=FNcheckrr
 IF(tochg%)<>0 VDU7,129:PRINT;tochg%;"xError"'':PROCjumpers:END
 ?&FE3F=&FF:REM Disable all bank switching in CPLD
-fh%=OPENIN(file$)
-VDU130:PRINT"Ok"''"Loading ";file$;" to SWRAM banks..."
-PRINT"Writing block ";
+cc%=LEN(file$)
+IFpath$<>"" path$=path$+"."
+fh%=OPENIN(path$+file$)
+IF cc%>10 file$=LEFT$(file$,9)+".":cc%=10
+VDU130:PRINT"Ok"'"Loading ";file$;" to block ";
+FORn%=cc%TO10:PRINT".";:NEXT:PRINT"  ";
 FORn%=0TOnumbanks%-1
 s%=FNpartload(fh%,buffer%,n%MOD2*&4000,&4000)
-IFs%PRINT"Failed":STOP
-PRINT;n%;" ";
+IFs%VDU8,8,7,129:PRINT"Failed"''"Error opening file":END
+VDU8,8,131:PRINT;n%;
 ?newrom=FNswram(n%):?&70=buffer%MOD256:?&71=buffer%DIV256:?&72=0:?&73=&80
 CALLsrload
 NEXT
 CLOSE#?osblock%
+VDU8,8,130:PRINT"Done"'"Writing config to CMOS RAM...";
 ?&FE3A=0
 X%=&3F
 A%=(USR(ReadRtcRam) AND ppflagsmask%) OR ppflags%: CALL WriteRtcRam
-PRINT''"Done. Press CTRL-BREAK to initialise"
+A%=bank%:CALLremoveBankAFromSRDATA
+VDU130:PRINT"Done"''"Press CTRL-BREAK to initialise"
 END
 
 DEFFNpartload(h%,l%,o%,c%)
@@ -144,6 +150,58 @@ STX &FE38
 NOP
 .Nop2
 NOP:NOP
+RTS
+
+.removeBankAFromSRDATA
+JSR EnablePrivateRam8300X
+LDX #3
+.FindLoop
+CMP &830C,X:BEQ Found
+DEX:BPL FindLoop
+JSR DisablePrivateRam8300X
+RTS
+
+.Found
+LDA #&FF:STA &830C,X
+.Shuffle
+LDX #0:LDY #0
+.ShuffleLoop
+LDA &830C,X:BMI Unassigned
+STA &830C,Y:INY
+.Unassigned
+INX:CPX #&04:BNE ShuffleLoop
+TYA:TAX
+JMP PadLoopStart
+			
+.PadLoop
+LDA #&FF:STA &830C,Y
+INY
+.PadLoopStart
+CPY #4:BNE PadLoop
+JSR DisablePrivateRam8300X
+RTS
+
+.EnablePrivateRam8300X
+PHP:SEI
+PHA
+LDA #01:STA &FE39
+LDA #&10:STA &FE3B
+LDA &F4:STA oldrom
+LDA #12:STA &F4:STA &FE30
+PLA
+PLP
+PHA:PLA
+RTS
+
+.DisablePrivateRam8300X
+PHP:SEI
+PHA
+LDA oldrom:STA &F4:STA &FE30
+LDA #0:STA &FE39
+STA &FE3B
+PLA
+PLP
+PHA:PLA
 RTS
 ]
 NEXT
