@@ -56,7 +56,7 @@ VDU8,8,131:PRINT;n%;
 CALLsrload
 NEXT
 CLOSE#?osblock%
-VDU8,8,130:PRINT"Done"'"Writing config to CMOS RAM...";
+VDU8,8,130:PRINT"Done"'"Writing config to CMOS RAM ..";
 ?&FE3A=0
 X%=&3F
 A%=(USR(ReadRtcRam) AND ppflagsmask%) OR ppflags%:CALL WriteRtcRam
