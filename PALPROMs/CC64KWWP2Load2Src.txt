@@ -5,18 +5,21 @@ REM The board must be in
 REM Recovery Mode (long break)
 REM before running this code.
 REM (C) Ken Lowe 2024
-REM Version 2.3 08/09/2024
+REM Version 2.4 11/09/2024
 DIM osblock% 16
 DIM mcode% &200
-DIM buffer% &4000
+DIM buffer% &1000
 CLOSE#0
 MODE7
-PRINT"Integra-B V2 PALPROM Loader"
-PRINT"---------------------------"'
-PRINT"Checking for V2 Hardware ....";
-IFNOT(FNvercheck)VDU7,129:PRINT"Error"''"Sorry. V2 Harware not detected.":END
+VDU131:PRINT"     Integra-B V2 PALPROM Loader"
+VDU131:PRINT"     ---------------------------"
+VDU28,0,24,39,3
+PRINT"Checking for 2nd processor ..";
+A%=&EA:X%=0:Y%=&FF:IF((USR&FFF4)AND&FF00)<>0VDU7,129:PRINT"Error"''"Please disable 2nd processor and"'"re-run this program":PROCResetFlags:END
+VDU130:PRINT"Ok"'"Checking for V2 Hardware ....";
+IFNOT(FNvercheck)VDU7,129:PRINT"Error"''"Sorry. V2 Harware not detected.":PROCResetFlags:END
 VDU130:PRINT"Ok"'"Checking for recovery mode ..";
-IFNOT(FNrecmode)VDU7,129:PRINT"Error"''"Please press CTRL-BREAK for longer"'"than 1 second, and re-run this program":END
+IFNOT(FNrecmode)VDU7,129:PRINT"Error"''"Please press CTRL-BREAK for longer"'"than 2 seconds, and re-run this program":PROCResetFlags:END
 VDU130:PRINT"Ok"'"Loading image to Bank .......";
 
 bank%=10
@@ -38,27 +41,30 @@ PROCassembly
 PROCSetSWTable
 PRINT"Checking jumper settings ....";
 tochg%=FNcheckrr
-IF(tochg%)<>0 VDU7,129:PRINT;tochg%;"xError"'':PROCjumpers:END
+IF(tochg%)<>0 VDU7,129:PRINT;tochg%;"xError"'':PROCjumpers:PROCResetFlags:END
 ?&FE3F=&FF:REM Disable all bank switching in CPLD
 cc%=LEN(file$)
 IFpath$<>"" path$=path$+"."
 fh%=OPENIN(path$+file$)
 IF cc%>10 file$=LEFT$(file$,9)+".":cc%=10
 VDU130:PRINT"Ok"'"Loading ";file$;" to block ";
-FORn%=cc%TO10:PRINT".";:NEXT:PRINT"  ";
-FORn%=0TOnumbanks%-1
-s%=FNpartload(fh%,buffer%,n%MOD2*&4000,&4000)
-IFs%VDU8,8,7,129:PRINT"Failed"''"Error opening file":END
-VDU8,8,131:PRINT;n%;
-?newrom=FNswram(n%):?&70=buffer%MOD256:?&71=buffer%DIV256:?&72=0:?&73=&80
-CALLsrload
-NEXT
+FORn%=cc%TO10:PRINT".";:NEXT:VDU131:PRINT"0/8000";
+FORn%=0TO(numbanks%-1)DIV2
+FORb%=0TO3
+s%=FNpartload(fh%,buffer%,(b%*&1000 + n%*&4000),&1000)
+IFs%VDU8,8,8,8,8,8,8,7,129:PRINT"Failed"''"Error opening file":PROCResetFlags:END
+FOR z%=0TO2STEP2
+VDU8,8,8,8,8,8,8,131:PRINT;(n%+z%);"/";STR$~(&8000+b%*&1000);
+?newrom=FNswram(n%+z%):?&70=buffer%MOD256:?&71=buffer%DIV256:?&72=0:?&73=&80+b%*&10:CALLsrload
+NEXT:NEXT:NEXT
 CLOSE#?osblock%
-VDU8,8,130:PRINT"Done"'"Writing config to CMOS RAM ..";
+VDU8,8,8,8,8,8,8,130:PRINT"Done  "'"Writing config to CMOS RAM ..";
 ?&FE3A=0
 X%=&3F
-A%=(USR(ReadRtcRam) AND ppflagsmask%) OR ppflags%: CALL WriteRtcRam
+A%=(USR(ReadRtcRam) AND ppflagsmask%) OR ppflags%:CALL WriteRtcRam
 A%=bank%:CALLremoveBankAFromSRDATA
+VDU130:PRINT"Done"'"Write Protecting bank ";bank%;" ....";:IFbank%<10PRINT".";
+PROCResetFlags:PROCWPBank
 VDU130:PRINT"Done"''"Press CTRL-BREAK to initialise"
 END
 
@@ -91,16 +97,18 @@ STAoldrom
 LDAnewrom
 STA&F4
 STA&FE30
+LDX#&10
 LDY#0
 .loop1
 LDA(&70),Y:STA(&72),Y
 INY:BNEloop1
 INC&71:INC&73
-BIT&73:BVCloop1
+DEX:BNEloop1
 LDAoldrom
 STA&F4
 STA&FE30
 RTS
+
 .jumpers
 LDA #0:STA jpCount%
 LDX #15
@@ -180,6 +188,16 @@ INY
 CPY #4:BNE PadLoop
 JSR DisablePrivateRam8300X
 RTS
+
+.ReadPrivateRam8300X
+JSR EnablePrivateRam8300X
+LDA &8300,X
+JMP DisablePrivateRam8300X
+
+.WritePrivateRam8300X
+JSR EnablePrivateRam8300X
+STA &8300,X
+JMP DisablePrivateRam8300X
 
 .EnablePrivateRam8300X
 PHP:SEI
@@ -287,4 +305,14 @@ VDU146,106,135:PRINT"Install Jumper   ";:VDU145,98,135:PRINT"Remove Jumper"
 PRINT"Jumpers to Leave:"
 VDU148,106,135:PRINT"Jumper Installed ";:VDU151,98,135:PRINT"Jumper Removed"
 
+ENDPROC
+
+DEFPROCResetFlags
+?&FE39=0:?&FE3A=0:?&FE3B=0
+ENDPROC
+
+DEFPROCWPBank
+X%=&B9
+A%=(USR(ReadPrivateRam8300X)AND(2^(bank%MOD8)EOR255))
+CALL WritePrivateRam8300X
 ENDPROC
