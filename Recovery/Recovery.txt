@@ -6,14 +6,37 @@ REM Recovery Mode (long break)
 REM before running this code.
 REM (C) Ken Lowe 2024
 REM Version 1.0 03/09/2024
-DIM osblock% 16
-DIM mcode% &200
-DIM buffer% &1000
-CLOSE#0
+REM **********************************
+REM Adjust this table as necessary
+DATA15,"R","IBOS127"
+DATA14,"R","BASIC2"
+DATA13,"R","DNFS"
+DATA12,"",""
+REM DATA11,"",""
+REM DATA10,"",""
+REM DATA9,"",""
+REM DATA8,"",""
+REM DATA7,"",""
+REM DATA6,"",""
+REM DATA5,"",""
+REM DATA4,"",""
+REM DATA3,"",""
+REM DATA2,"",""
+REM DATA1,"",""
+REM DATA0,"",""
+DATA255,"",""
+
 langbank%=14:REM Adjust if installing Lang to a different bank
 hilangbank%=langbank%:REM Adjust if installing HiLang to a bank
 fsbank%=13:REM Adjust if installing FS to a different bank
 writeprotFto0%=&00F0:REM Adjust to W/E banks other than 4..7
+REM **********************************
+
+DIM osblock% 16
+DIM mcode% &200
+DIM buffer% &1000
+CLOSE#0
+
 PROCassembly
 ?(UserRegDefaultTable+1)=(hilangbank%*&10)ORlangbank%
 ?(UserRegDefaultTable+&15)=fsbank%
@@ -80,25 +103,6 @@ READ chunk%,path$,rom$
 UNTIL chunk%=&FF
 VDU130:PRINT"Done"''"Complete. Press CTRL-BREAK to restart."
 PROCResetFlags:?&FE4E=&7F:REPEAT:UNTIL0
-
-REM Adjust this table as necessary
-DATA15,"ROMS","IBOS127"
-DATA14,"ROMS","BASIC200"
-DATA13,"ROMS","DNFS300"
-
-
-
-
-
-
-
-
-
-
-
-
-
-DATA255,"",""
 
 DEFPROCassembly
 FORpass%=0TO2STEP2
