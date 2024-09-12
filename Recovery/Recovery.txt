@@ -11,7 +11,7 @@ REM Adjust this table as necessary
 DATA15,"R","IBOS127"
 DATA14,"R","BASIC2"
 DATA13,"R","DNFS"
-DATA12,"",""
+REM DATA12,"",""
 REM DATA11,"",""
 REM DATA10,"",""
 REM DATA9,"",""
