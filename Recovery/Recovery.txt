@@ -8,9 +8,9 @@ REM (C) Ken Lowe 2024
 REM Version 1.0 03/09/2024
 REM **********************************
 REM Adjust this table as necessary
-DATA15,"ROMS","IBOS127"
-DATA14,"ROMS","BASIC200"
-DATA13,"ROMS","DNFS300"
+DATA15,":0.R","IBOS127"
+DATA14,":0.R","BASIC2"
+DATA13,":0.R","DNFS300"
 REM DATA12,"",""
 REM DATA11,"",""
 REM DATA10,"",""
