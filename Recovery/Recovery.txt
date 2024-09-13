@@ -8,9 +8,9 @@ REM (C) Ken Lowe 2024
 REM Version 1.0 03/09/2024
 REM **********************************
 REM Adjust this table as necessary
-DATA15,"R","IBOS127"
-DATA14,"R","BASIC2"
-DATA13,"R","DNFS"
+DATA15,"ROMS","IBOS127"
+DATA14,"ROMS","BASIC200"
+DATA13,"ROMS","DNFS300"
 REM DATA12,"",""
 REM DATA11,"",""
 REM DATA10,"",""
@@ -67,14 +67,15 @@ VDU130:PRINT"Ok"'"Checking for V2 Hardware ....";
 IFNOT(FNvercheck)VDU7,129:PRINT"Error"''"Sorry. V2 Hardware not detected.":PROCResetFlags:END
 VDU130:PRINT"Ok"'"Checking for recovery mode...";
 IFNOT(FNrecmode)VDU7,129:PRINT"Error"''"Please press CTRL-BREAK for longer"'"than 1 second, and re-run this program":PROCResetFlags:END
-VDU130:PRINT"Ok"'"Clearing RAM Chunks ......";
+VDU130:PRINT"Ok"'"Clearing RAM Chunks .........";:VDU131:PRINT"0% ";
 FORn%=2TO0STEP-1
+VDU8,8,8:PRINT;INT((2-n%)/0.03);"%";
 ?&FE39=n%
 CALL ClearChunks
-P.".";
+IFn%=2PRINT" ";
 NEXT
 CALL ClearRTC
-VDU130:PRINT"Done"'"Restoring IBOS defaults .....";
+VDU8,8,8,8,130:PRINT"Done"'"Restoring IBOS defaults .....";
 CALL RestoreDefaults
 bankfill%=0
 READ chunk%,path$,rom$
@@ -86,22 +87,26 @@ bank%=chunk%
 IF bank%<4 ?&FE39=1:bank%=bank%+4 ELSE ?&FE39=0
 fh%=OPENIN(path$+"."+rom$)
 IF cc%>10 rom$=LEFT$(rom$,8+(chunk%>9))+".":cc%=10
-VDU130:PRINT"Done"'"Loading "+rom$+" to Bank "+STR$(chunk%)+" ";
+VDU130:PRINT"Done   "'"Loading "+rom$+" to Bank "+STR$(chunk%)+" ";
 FORn%=cc%TO10:PRINT".";:NEXT
 IFchunk%>15 VDU7,129:PRINT"Error"''"Bank number out of range.":PROCResetFlags:END
 IFbankfill%=(bankfill% OR (2^chunk%)) VDU7,129:PRINT"Error"''"Bank already in use.":PROCResetFlags:END
 bankfill%=(bankfill% OR (2^chunk%))
 n%=0
+VDU131:PRINT;chunk%;"/";
 REPEAT
+PRINT;~((n%*&1000)+&8000);
 s%=FNpartload(fh%,buffer%,n%*&1000,&1000)
 IFs%AND(n%MOD2=1)VDU7,129:PRINT"Error"''"Not an 8K or 16K ROM Image.":PROCResetFlags:END
 IF NOTs% ?newrom=bank%:?&70=buffer%MOD256:?&71=buffer%DIV256:?&72=0:?&73=&80+n%*&10:CALLsrload
 n%=n%+1
+VDU8,8,8,8
 UNTIL(n%>3)ORs%
 CLOSE#?osblock%
+VDU8,8,8:IFchunk%>9 VDU8
 READ chunk%,path$,rom$
 UNTIL chunk%=&FF
-VDU130:PRINT"Done"''"Complete. Press CTRL-BREAK to restart."
+VDU130:PRINT"Done   "''"Complete. Press CTRL-BREAK to restart."
 PROCResetFlags:?&FE4E=&7F:REPEAT:UNTIL0
 
 DEFPROCassembly
