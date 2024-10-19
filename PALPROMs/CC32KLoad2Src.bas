@@ -20,7 +20,7 @@ VDU130:PRINT"Ok"'"Checking for V2 Hardware ....";
 IFNOT(FNvercheck)VDU7,129:PRINT"Error"''"Sorry. V2 Harware not detected.":PROCResetFlags:END
 VDU130:PRINT"Ok"'"Checking for recovery mode ..";
 IFNOT(FNrecmode)VDU7,129:PRINT"Error"''"Please press CTRL-BREAK for longer"'"than 2 seconds, and re-run this program":PROCResetFlags:END
-VDU130:PRINT"Ok"'"Loading image to Bank .......";
+VDU130:PRINT"Ok"'"Loading image to Bank .......";:VDU131:PRINT"8 OR 9?";
 
 bank%=FNbankno
 numbanks%=2
@@ -36,7 +36,7 @@ rroutflags%=0
 gblue%=148:gred%=145:ggreen%=146:gwhite%=151
 jopen%=98:jclosed%=106
 
-VDU130:PRINT;bank%
+VDU8,8,8,8,8,8,8,8,130:PRINT;bank%;"      "
 PROCassembly
 PROCSetSWTable
 PRINT"Checking jumper settings ....";
