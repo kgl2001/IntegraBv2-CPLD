@@ -6,9 +6,10 @@ REM Recovery Mode (long break)
 REM before running this code.
 REM (C) Ken Lowe 2024
 REM Version 1.0 03/09/2024
+REM Version 1.1 22/11/2026 - IBOS 1.28
 REM **********************************
 REM Adjust this table as necessary
-DATA15,":0.R","IBOS127"
+DATA15,":0.R","IBOS128"
 DATA14,":0.R","BASIC2"
 DATA13,":0.R","DNFS300"
 REM DATA12,"",""
